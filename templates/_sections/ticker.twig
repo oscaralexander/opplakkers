@@ -1,0 +1,39 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  One or two rows of images and testimonials scrolling past. With two rows the
+  items are split in half and the rows move in opposite directions.
+#}
+{% set items = section.tickerItems.with(['image', 'authorPhoto']).all() %}
+{% set rows = section.rows == '2' and items|length > 1
+    ? [items|slice(0, (items|length / 2)|round(0, 'ceil')), items|slice((items|length / 2)|round(0, 'ceil'))]
+    : [items] %}
+
+{% if items|length %}
+    <section class="{{ ui.sectionClass(section, 'tickerSection') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            {{ ui.sectionHeader(section, { align: 'top' }) }}
+            <div class="tickerSection__rows js-reveal wrapper__outset stack stack--gap-m">
+                {% for row in rows %}
+                    <div class="ticker js-ticker" data-ticker-direction="{{ loop.first ? 'left' : 'right' }}">
+                        <div class="ticker__inner js-tickerInner">
+                            {% for item in row %}
+                                {% set type = item.type.handle %}
+                                <div class="ticker__item tickerSection__item tickerSection__item--{{ type }}">
+                                    {% if type == 'testimonial' %}
+                                        {{ ui.testimonial(item) }}
+                                    {% elseif type == 'image' %}
+                                        {% set image = item.image.one() %}
+                                        {% if image %}
+                                            {{ ui.image(image, { class: 'tickerSection__image', widths: [320, 480, 640, 800, 1000], sizes: '26rem' }) }}
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

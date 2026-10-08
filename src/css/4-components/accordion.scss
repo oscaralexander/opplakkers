@@ -1,0 +1,63 @@
+@use '@css/2-tools/mixins' as *;
+
+// Native <details>; Accordion.js animates the height.
+.accordionItem {
+    border-top: 1px solid var(--color-border);
+
+    &:last-child {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    &__summary {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        gap: var(--size-m);
+        justify-content: space-between;
+        list-style: none;
+        padding: var(--size-xl) 0;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:hover .accordionItem__title {
+            color: var(--color-1);
+        }
+    }
+
+    &__heading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-xs);
+    }
+
+    &__title {
+        transition: color var(--duration-s);
+    }
+
+    &__marker {
+        color: var(--color-text-lc);
+        transition: transform var(--duration-m) var(--ease-out);
+    }
+
+    &[open] &__marker {
+        transform: rotate(180deg);
+    }
+
+    &__content {
+        overflow: hidden;
+    }
+
+    &__body {
+        font-size: var(--font-size-l);
+        max-width: 40rem;
+        padding-bottom: var(--size-xl);
+    }
+
+    @include screen-min(l) {
+        &:first-child {
+            border-top: none;
+        }
+    }
+}

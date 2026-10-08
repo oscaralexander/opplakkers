@@ -1,0 +1,62 @@
+columnSuffix: null
+handle: theme
+instructions: 'De achtergrond van de sectie: geen (wit), een lichte tint, of contrast (donker met lichte tekst). De exacte kleuren worden per website ingesteld in de huisstijl.'
+name: Kleurthema
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Geen
+        -
+          - value
+          - none
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#ffffff'
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Tint
+        -
+          - value
+          - tint
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#f3f4f6'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Contrast
+        -
+          - value
+          - contrast
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#101828'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

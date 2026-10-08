@@ -1,0 +1,12 @@
+{% do craft.app.response.headers.set('Content-Type', 'application/xml') %}
+{% set entries = craft.entries().section(['pages', 'legal', 'blogs']).orderBy('dateUpdated DESC').all() %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for entry in entries %}
+    <url>
+        <loc>{{ entry.url }}</loc>
+        <lastmod>{{ entry.dateUpdated|date('c') }}</lastmod>
+        <priority>{{ entry.uri == '__home__' ? '1.0' : (entry.section.handle == 'pages' ? '0.8' : '0.5') }}</priority>
+    </url>
+{% endfor %}
+</urlset>

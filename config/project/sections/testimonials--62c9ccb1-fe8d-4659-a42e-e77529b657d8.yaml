@@ -1,0 +1,20 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 3bb3be1d-2e90-459a-8420-deb88b3d7db5 # Testimonial
+handle: testimonials
+maxAuthors: 1
+minAuthors: 1
+name: Testimonials
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 8f6cdca7-0838-4932-97a4-e415c8b4024d
+type: structure

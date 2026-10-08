@@ -1,0 +1,128 @@
+allowLineBreaksInTitles: false
+color: null
+description: "Een doorlopende band met de logo's van alle bedrijven."
+fieldLayouts:
+  0571b09c-16ba-4acc-a104-e51c12960ef7:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7698d675-6a83-4dc6-8d09-f6e1cf0ba6e5 # Bovenkop
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b03f446f-acc4-40d9-b1de-8f9ce440ace5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 294ab33f-0ada-4756-9271-28b48198471d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
+            handle: intro
+            instructions: null
+            label: Intro
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d8e15c9f-d424-4d8d-8257-b3f17b2c25f5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 9c569b70-f4c4-46eb-98e8-b93b1840c511
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 04d6165b-2f67-4e9e-bfef-b37bff45a5c3 # Kleurthema
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc2ba676-09d0-406b-9e99-6b91267feeba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5cd2552a-d7ef-4d86-be5d-0f09abd0e232 # Volledige breedte?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 67f3be32-900f-4599-aac2-f52974e1d475
+            userCondition: null
+            warning: null
+            width: 100
+        name: Opmaak
+        uid: 1910b188-ad5c-40f3-892b-d69ca5f41ca9
+        userCondition: null
+    thumbFieldKey: null
+handle: companies
+hasTitleField: true
+icon: null
+name: "Bedrijfslogo's"
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,0 +1,31 @@
+{% import '_macros/ui' as ui %}
+
+{% set companies = craft.entries().section('companies').with(['logo']).all() %}
+
+{% if companies|length %}
+    <section class="{{ ui.sectionClass(section, 'companies') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            {{ ui.sectionHeader(section, { align: 'top' }) }}
+            <div class="companies__ticker wrapper__outset js-reveal">
+                <div class="ticker js-ticker" data-ticker-speed="0.4">
+                    <div class="ticker__inner js-tickerInner">
+                        {% for company in companies %}
+                            {% set logo = company.logo.one() %}
+                            {% if logo %}
+                                <div class="ticker__item company">
+                                    {% if company.websiteUrl %}
+                                        <a class="company__link" href="{{ company.websiteUrl.url }}" target="_blank" rel="noopener" aria-label="{{ company.title }}" draggable="false">
+                                            {{ ui.image(logo, { class: 'company__logo', alt: company.title, widths: [160, 240, 320, 480], sizes: '10rem' }) }}
+                                        </a>
+                                    {% else %}
+                                        {{ ui.image(logo, { class: 'company__logo', alt: company.title, widths: [160, 240, 320, 480], sizes: '10rem' }) }}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

@@ -1,0 +1,74 @@
+altTranslationKeyFormat: null
+altTranslationMethod: none
+fieldLayouts:
+  0d9f696b-4371-4ee3-b410-3a0e94edcb2c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 6603de2f-0975-42ae-8a16-170f6aac09cf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: alt
+            class: null
+            cols: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: 'Beschrijf kort wat er op de afbeelding te zien is. Belangrijk voor toegankelijkheid en zoekmachines.'
+            label: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: true
+            required: false
+            rows: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AltField
+            uid: 5ea63bc0-a24d-4a4b-92ee-faa5a43c32fa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 6b5c4697-c78b-41b4-b4b9-ad0d2753385f
+        userCondition: null
+    thumbFieldKey: null
+fs: local
+handle: people
+name: Personen
+sortOrder: 3
+subpath: personen
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+transformFs: ''
+transformSubpath: ''

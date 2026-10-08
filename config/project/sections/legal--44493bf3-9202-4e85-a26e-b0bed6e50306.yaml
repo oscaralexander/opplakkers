@@ -1,0 +1,25 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: c6d58904-91ef-40ef-8e8c-3c723a189b4e # Pagina
+handle: legal
+maxAuthors: 1
+minAuthors: 1
+name: Juridisch
+previewTargets:
+  -
+    label: Pagina
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: true
+    template: pages/_entry
+    uriFormat: '{slug}'
+structure:
+  maxLevels: 1
+  uid: 16ac9d05-cfb7-432f-94d2-b801f981e0b8
+type: structure

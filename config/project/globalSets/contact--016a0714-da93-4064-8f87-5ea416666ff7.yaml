@@ -1,0 +1,225 @@
+fieldLayouts:
+  3bb6550d-f131-4a27-af0d-e4cc5ae86e35:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 539723de-e7e2-4e09-ba7f-b4600632975a # Adres
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 793cccbb-f1fb-41fb-9d7e-84cd94bfd234
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cfad60e0-1fe1-4dbe-8ab9-b8cb4e0da2cd # E-mailadres
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d541e2e-557b-450f-9bbc-6b5f30e28720
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a79cb7db-5116-4c0e-95ec-060c91783685 # Telefoonnummer
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fa6a95ee-c9d1-4524-8c25-15c1ab465f0d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3e32e432-1d68-4bd6-98b4-bff68f69d16a # WhatsApp-link tonen?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3691a89a-e1ab-4c8e-b879-cbd2b1a29c0f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5bd607b1-bcd0-49c4-90be-6f94ecee13af # KVK-nummer
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ac3d4d21-e708-426d-85e6-bc95e1f2cc62
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4aa23bde-ada9-47b2-948e-4cba9e3bb475 # Btw-nummer
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 986d59e7-3061-48c8-a441-4957498c22ea
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            elementCondition: null
+            heading: 'Social media'
+            type: craft\fieldlayoutelements\Heading
+            uid: 1d637d75-dc9e-4c57-bf62-2f946961b7b7
+            userCondition: null
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 15086d19-bc09-48bf-a3c7-2d06845744a1 # Website-URL
+            handle: instagramUrl
+            instructions: null
+            label: Instagram
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b5ea5981-1cf9-462a-b03d-e81c56d3ce74
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 15086d19-bc09-48bf-a3c7-2d06845744a1 # Website-URL
+            handle: facebookUrl
+            instructions: null
+            label: Facebook
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1222ed5a-ceb2-4233-84d7-3661220a2d99
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 15086d19-bc09-48bf-a3c7-2d06845744a1 # Website-URL
+            handle: linkedinUrl
+            instructions: null
+            label: LinkedIn
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c929e8cc-371e-4f6d-8dc2-6e0d398d4bdb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 15086d19-bc09-48bf-a3c7-2d06845744a1 # Website-URL
+            handle: xUrl
+            instructions: null
+            label: X
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d85616d4-a71f-4422-bfe8-20d31a8c1b43
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 15086d19-bc09-48bf-a3c7-2d06845744a1 # Website-URL
+            handle: youtubeChannelUrl
+            instructions: null
+            label: YouTube
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 26188ef9-a6c8-4ab1-afea-81699d1d7203
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 15086d19-bc09-48bf-a3c7-2d06845744a1 # Website-URL
+            handle: tiktokUrl
+            instructions: null
+            label: TikTok
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bee81a4b-a8b9-4985-9a96-b34681865b4a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Contactgegevens
+        uid: dad84ab4-706f-4d26-826c-4c33dad39f20
+        userCondition: null
+    thumbFieldKey: null
+handle: contact
+name: Contactgegevens
+sortOrder: 2

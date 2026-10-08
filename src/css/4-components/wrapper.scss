@@ -1,0 +1,16 @@
+.wrapper {
+    margin: 0 auto;
+    max-width: var(--wrapper-width);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    width: 100%;
+
+    &--narrow {
+        max-width: var(--wrapper-width-narrow);
+    }
+
+    &__outset {
+        margin-left: calc(var(--gutter) * -1);
+        margin-right: calc(var(--gutter) * -1);
+    }
+}

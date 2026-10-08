@@ -1,0 +1,23 @@
+.tickerSection {
+    &__rows {
+        mask-image: linear-gradient(to right, transparent, #000 calc(var(--gutter) * 2), #000 calc(100% - var(--gutter) * 2), transparent);
+    }
+
+    &__item {
+        padding-right: var(--size-m);
+
+        &--testimonial {
+            width: 20rem;
+        }
+
+        &--image {
+            height: 14rem;
+        }
+    }
+
+    &__image {
+        border-radius: var(--border-radius-m);
+        height: 100%;
+        width: auto;
+    }
+}

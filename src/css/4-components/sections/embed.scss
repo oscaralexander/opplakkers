@@ -1,0 +1,10 @@
+.embed {
+    &__content {
+        max-width: 40rem;
+
+        iframe {
+            border: 0;
+            max-width: 100%;
+        }
+    }
+}

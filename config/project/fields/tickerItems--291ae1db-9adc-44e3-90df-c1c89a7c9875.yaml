@@ -1,0 +1,37 @@
+columnSuffix: null
+handle: tickerItems
+instructions: null
+name: Ticker-items
+searchable: false
+settings:
+  createButtonLabel: 'Item toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 3bb3be1d-2e90-459a-8420-deb88b3d7db5 # Testimonial
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 313d5dcf-38e4-4754-aed7-5e92dd3cf5e1 # Afbeelding
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

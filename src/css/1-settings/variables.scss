@@ -1,0 +1,240 @@
+// ============================================================================
+//  Design tokens — the defaults for everything a client site can customise.
+//
+//  Do not edit these per client: override them in src/css/client.scss, which
+//  is loaded right after this file so its :root block wins the cascade.
+//
+//  The large sizes are fluid (clamp) so a single value covers every viewport
+//  and a client override never has to repeat itself inside a media query.
+// ============================================================================
+
+@use 'sass:map';
+
+$grid-columns: 12;
+
+$breakpoints: (
+    'xs': 375px,
+    's': 768px,
+    'm': 1024px,
+    'l': 1280px,
+    'xl': 1440px,
+);
+
+$sizes: (
+    'xxs': .125rem,
+    'xs': .25rem,
+    's': .5rem,
+    'm': 1rem,
+    'l': 1.5rem,
+    'xl': 2rem,
+    'xxl': 3rem,
+    '3xl': 4rem,
+);
+
+:root {
+    // ------------------------------------------------------------------------
+    //  Typography
+    // ------------------------------------------------------------------------
+
+    --base-size: 16px;
+
+    --font-1: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-2: 'Sztos', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --letter-spacing: -.005em;
+
+    --font-size-xs: .75rem;
+    --font-size-s: .875rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-xxl: clamp(1.25rem, 1rem + .9vw, 1.5rem);
+    --font-size-3xl: clamp(1.75rem, 1.125rem + 2vw, 2.75rem);
+    --font-size-4xl: clamp(2.125rem, 1.375rem + 3.5vw, 4.25rem);
+
+    --line-height-s: 1.125;
+    --line-height-m: 1.25;
+    --line-height-l: 1.5;
+
+    --h1-font: var(--font-2);
+    --h1-font-style: italic;
+    --h1-font-variation-settings: 'wdth' 135;
+    --h1-size: var(--font-size-4xl);
+    --h1-weight: 700;
+    --h1-line-height: 1;
+    --h1-letter-spacing: 0;
+    --h1-text-transform: uppercase;
+
+    --h2-font: var(--font-2);
+    --h2-font-style: italic;
+    --h2-font-variation-settings: 'wdth' 135;
+    --h2-size: var(--font-size-3xl);
+    --h2-weight: 700;
+    --h2-line-height: 1;
+    --h2-letter-spacing: 0;
+    --h2-text-transform: uppercase;
+
+    --h3-font: var(--font-1);
+    --h3-size: var(--font-size-xxl);
+    --h3-weight: 600;
+    --h3-line-height: 1.2;
+    --h3-letter-spacing: -.02em;
+    --h3-text-transform: none;
+
+    --h4-font: var(--font-1);
+    --h4-size: var(--font-size-l);
+    --h4-weight: 600;
+    --h4-line-height: 1.3;
+    --h4-letter-spacing: -.01em;
+    --h4-text-transform: none;
+
+    // The eyebrow: small, spaced, in the accent colour.
+    --h5-font: var(--font-1);
+    --h5-size: var(--font-size-xs);
+    --h5-weight: 600;
+    --h5-line-height: var(--line-height-m);
+    --h5-letter-spacing: .1em;
+    --h5-text-transform: uppercase;
+
+    // ------------------------------------------------------------------------
+    //  Colour palette
+    // ------------------------------------------------------------------------
+
+    --color-1: #f2c041;
+    --color-2: #f2c041;
+    --color-neutral: #000;
+
+    --color-bg: #fff;
+    --color-bg-tint: rgb(from var(--color-1) r g b / 10%);
+    --color-surface: var(--color-bg); // cards and panels on top of a section
+    --color-bg-contrast: #000;
+
+    --color-text: rgb(from var(--color-neutral) r g b / 72%);
+    --color-text-hc: var(--color-neutral);
+    --color-text-lc: rgb(from var(--color-neutral) r g b / 50%);
+    --color-text-accent: var(--color-1);
+
+    --color-link: #000;
+    --color-link-hover: #000;
+
+    --color-border: rgb(from var(--color-neutral) r g b / 12%);
+    --color-border-hc: rgb(from var(--color-neutral) r g b / 24%);
+    --color-border-lc: rgb(from var(--color-neutral) r g b / 7%);
+
+    --color-danger: #dc2626;
+    --color-success: #16a34a;
+
+    // ------------------------------------------------------------------------
+    //  Layout
+    // ------------------------------------------------------------------------
+
+    --gutter: clamp(1.25rem, .25rem + 3.5vw, 4rem);
+    --wrapper-width: 90rem;
+    --wrapper-width-narrow: 44rem;
+    --section-padding-y: clamp(4rem, 2.5rem + 5.5vw, 8rem);
+    --section-gap: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+    --logo-height: clamp(1.75rem, 1.25rem + 1vw, 2.25rem);
+
+    // ------------------------------------------------------------------------
+    //  Radii & shadows
+    // ------------------------------------------------------------------------
+
+    --border-radius-s: .25rem;
+    --border-radius-m: .5rem;
+    --border-radius-l: 1rem;
+
+    --box-shadow-m: 0 .5rem 1.5rem rgb(0 0 0 / 6%);
+    --box-shadow-l: 0 1rem 3rem rgb(0 0 0 / 10%);
+
+    --card-border-radius: 0;
+    --section-border-radius: 0;
+
+    // ------------------------------------------------------------------------
+    //  Buttons
+    // ------------------------------------------------------------------------
+
+    --btn-border-radius: 0;
+    --btn-font: var(--font-2);
+    --btn-font-size: var(--font-size-m);
+    --btn-font-weight: 600;
+    --btn-height: 3rem;
+    --btn-height-s: 2.75rem;
+    --btn-height-l: 3.5rem;
+
+    --btn-color-bg: transparent;
+    --btn-color-bg-hover: transparent;
+    --btn-color-text: var(--color-link);
+    --btn-color-text-hover: var(--color-link);
+    --btn-color-border: rgb(from var(--color-link) r g b / 25%);
+    --btn-color-border-hover: rgb(from var(--color-link) r g b / 50%);
+
+    --btn-primary-color-bg: var(--color-1);
+    --btn-primary-color-bg-hover: #ffd656;
+    --btn-primary-color-text: #000;
+    --btn-primary-color-text-hover: #000;
+    --btn-primary-color-border: transparent;
+    --btn-primary-color-border-hover: transparent;
+
+    // ------------------------------------------------------------------------
+    //  Form elements
+    // ------------------------------------------------------------------------
+
+    --input-border-radius: .625rem;
+    --input-font-size: 1rem;
+    --input-height: 3rem;
+    --input-padding-x: 1em;
+    --input-color-bg: var(--color-bg);
+    --input-color-text: var(--color-text-hc);
+    --input-color-border: var(--color-border-hc);
+    --input-color-border-focus: var(--color-1);
+    --input-color-placeholder: var(--color-text-lc);
+    --input-focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-1) 25%, transparent);
+
+    // ------------------------------------------------------------------------
+    //  Navigation bar
+    // ------------------------------------------------------------------------
+
+    --nav-box-shadow: 0 .25rem 2rem rgb(0 0 0 / 8%);
+    --nav-height: 5rem;
+    --nav-border-radius: 0;
+    --nav-color-bg: var(--color-bg);
+    --nav-color-link: var(--color-text);
+    --nav-color-link-hover: var(--color-text-hc);
+    --nav-link-font-family: var(--font-2);
+    --nav-link-font-size: 1rem;
+    --nav-link-font-weight: 500;
+    --nav-link-text-transform: uppercase;
+    --nav-offset-x: 1rem;
+    --nav-offset-y: 1rem;
+    --nav-submenu-border-radius: 0;
+    
+    // ------------------------------------------------------------------------
+    //  Motion
+    // ------------------------------------------------------------------------
+
+    --duration-s: 150ms;
+    --duration-m: 250ms;
+    --duration-l: 500ms;
+    --ease-out: cubic-bezier(.25, .75, .25, 1);
+    --ease-in-out: cubic-bezier(.75, 0, .175, 1);
+
+    // ------------------------------------------------------------------------
+    //  Generated: breakpoints and sizes as custom properties
+    // ------------------------------------------------------------------------
+
+    @each $key, $value in $breakpoints {
+        --breakpoint-#{$key}: #{$value};
+    }
+
+    @each $key, $value in $sizes {
+        --size-#{$key}: #{$value};
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --h1-size: 6rem;
+        --h2-size: 4rem;
+
+        --nav-box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
+    }
+}

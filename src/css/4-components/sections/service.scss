@@ -1,0 +1,121 @@
+@use '@css/2-tools/mixins' as *;
+
+.services {
+    .section__inner {
+        background: transparent !important;
+    }
+}
+
+.service {
+    aspect-ratio: 2 / 3;
+    background: #000;
+    border-radius: var(--card-border-radius);
+    color: var(--color-text-hc);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: var(--size-l);
+    position: relative;
+
+    &__image {
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        transition: transform var(--duration-l) var(--ease-out);
+        width: 100%;
+    }
+
+    // Darken the bottom so the title stays readable on any image.
+    &:has(&__image) {
+        color: #fff;
+
+        &::before {
+            background: linear-gradient(to top, rgb(0 0 0 / 75%), rgb(0 0 0 / 0%) 50%);
+            content: '';
+            inset: 0;
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &__index {
+        color: var(--color-1);
+        font-size: var(--font-size-s);
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+        margin-bottom: var(--size-s);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__title {
+        align-items: center;
+        color: var(--color-text-hc);
+        display: flex;
+        font-size: var(--font-size-l);
+        font-weight: 700;
+        gap: var(--size-s);
+        justify-content: space-between;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 2;
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+
+    &__link {
+        border-radius: inherit;
+        inset: 0;
+        position: absolute;
+        z-index: 3;
+    }
+
+    @include screen-min(l) {
+        padding: var(--size-xl);
+    }
+}
+
+.servicesTicker {
+    margin-top: calc(var(--section-padding-y) * -2.75);
+    pointer-events: none;
+
+    &__item {
+        align-items: center;
+        display: flex;
+        font-size: 20rem;
+        gap: .25em;
+        padding-right: .25em;
+    }
+
+    &__title {
+        color: #fff;
+        font-family: var(--h1-font);
+        font-style: var(--h1-font-style);
+        font-variation-settings: 'wdth' 125;
+        font-weight: var(--h1-weight);
+        line-height: 1;
+        paint-order: stroke fill;
+        text-transform: var(--h1-text-transform);
+        -webkit-text-stroke: 2px var(--color-1);
+        white-space: nowrap;
+    }
+
+    &__glyph {
+        fill: #fff;
+        flex: 0 0 auto;
+        height: .4em;
+        overflow: visible;
+        stroke: var(--color-1);
+        stroke-linejoin: round;
+        stroke-width: 1px;
+        width: .4em;
+
+        path {
+            vector-effect: non-scaling-stroke;
+        }
+    }
+}

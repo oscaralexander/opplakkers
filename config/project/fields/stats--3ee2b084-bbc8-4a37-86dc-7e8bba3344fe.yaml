@@ -1,0 +1,48 @@
+columnSuffix: null
+handle: stats
+instructions: 'Bijvoorbeeld "250+" en "tevreden klanten".'
+name: Statistieken
+searchable: false
+settings:
+  addRowLabel: 'Statistiek toevoegen'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Waarde
+            -
+              - handle
+              - value
+            -
+              - width
+              - 30%
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Omschrijving
+            -
+              - handle
+              - label
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults: null
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Table

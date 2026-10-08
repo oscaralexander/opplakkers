@@ -1,0 +1,25 @@
+// A continuously scrolling, draggable row. Ticker.js moves .ticker__inner.
+.ticker {
+    cursor: grab;
+    overflow: hidden;
+    touch-action: pan-y;
+    user-select: none;
+
+    &__inner {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        will-change: transform;
+    }
+
+    &__item {
+        flex: 0 0 auto;
+
+        img {
+            pointer-events: none;
+        }
+    }
+
+    &.is-grabbing {
+        cursor: grabbing;
+    }
+}

@@ -1,0 +1,162 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Uitklapbare items, bijvoorbeeld voor veelgestelde vragen.'
+fieldLayouts:
+  01fec252-03a1-4d06-871b-5288d7a1149d:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7698d675-6a83-4dc6-8d09-f6e1cf0ba6e5 # Bovenkop
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 250520b2-028e-4134-aa10-a54ab0a5d5ec
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 8cb63235-c25a-4935-adb0-4f789d59bac7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
+            handle: intro
+            instructions: null
+            label: Intro
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7baf103c-67c6-4ce9-b726-78bdc4a939ef
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7608e09e-34b6-40c0-9c05-8ba37e3ee101 # Knoppen
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 78966c68-358d-4ee9-a5df-1467f0b50e41
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 9c30efca-be8a-4473-b280-68eb52769a11 # Accordeon-items
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2e973fa7-cecd-4fa0-87d1-45e876030503
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: f2f30169-3186-4cb1-8a7b-29e303476f95
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 04d6165b-2f67-4e9e-bfef-b37bff45a5c3 # Kleurthema
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c79e9158-1aaf-40ad-874a-0d45b0cc448f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5cd2552a-d7ef-4d86-be5d-0f09abd0e232 # Volledige breedte?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d75a4201-7b94-42e4-a4b6-983d26ab7e22
+            userCondition: null
+            warning: null
+            width: 100
+        name: Opmaak
+        uid: a8520557-c09e-402f-a2c0-28c0d5ce6580
+        userCondition: null
+    thumbFieldKey: null
+handle: accordion
+hasTitleField: true
+icon: null
+name: Accordeon
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

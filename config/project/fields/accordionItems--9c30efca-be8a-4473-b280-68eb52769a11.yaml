@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: accordionItems
+instructions: null
+name: Accordeon-items
+searchable: false
+settings:
+  createButtonLabel: 'Item toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 9c21811b-0b2c-4059-bc43-ccde3ec74493 # Accordeon-item
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

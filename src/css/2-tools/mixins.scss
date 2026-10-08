@@ -1,0 +1,55 @@
+@use '@css/1-settings/variables' as *;
+@use 'sass:map';
+
+@mixin screen-min($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        $breakpoint: map.get($breakpoints, $breakpoint);
+    }
+
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin screen-max($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        $breakpoint: map.get($breakpoints, $breakpoint) - 1px;
+    }
+
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin screen-between($min, $max) {
+    @if map.has-key($breakpoints, $min) {
+        $min: map.get($breakpoints, $min);
+    }
+    @if map.has-key($breakpoints, $max) {
+        $max: map.get($breakpoints, $max) - 1px;
+    }
+
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
+// Heading styles are driven entirely by tokens so a client can restyle every
+// level from client.scss. Used by both the elements and the .hN utilities.
+@mixin heading($level) {
+    font-family: var(--h#{$level}-font);
+    font-size: var(--h#{$level}-size);
+    font-style: var(--h#{$level}-font-style, normal);
+    font-variation-settings: var(--h#{$level}-font-variation-settings, normal);
+    font-weight: var(--h#{$level}-weight, 700);
+    letter-spacing: var(--h#{$level}-letter-spacing);
+    line-height: var(--h#{$level}-line-height);
+    text-transform: var(--h#{$level}-text-transform);
+    text-wrap: balance;
+}

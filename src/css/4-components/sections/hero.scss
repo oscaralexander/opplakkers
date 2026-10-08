@@ -1,0 +1,115 @@
+@use '@css/2-tools/mixins' as *;
+
+@keyframes scrollIndicatorWheel {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }    
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding-top: calc(var(--nav-height) + var(--nav-offset-y));
+
+    > .section__inner {
+        background: transparent;
+        padding-top: var(--section-padding-y);
+        // padding-bottom: calc(var(--section-padding-y) * .75);
+    }
+
+    &__backdrop {
+        inset: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: 0;
+
+        picture {
+            display: contents;
+        }
+    }
+
+    &__image {
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+
+        // Equinox drives --equinox-pos from 0 (entering) to 1 (leaving);
+        // the oversized image drifts with it.
+        .js-equinox & {
+            height: 120%;
+            top: auto;
+            bottom: 0;
+            transform: translate3d(0, calc(var(--equinox-pos, 0) * 16.66%), 0);
+        }
+    }
+
+    &--hasImage {
+        &::before {
+            background: linear-gradient(0deg, rgb(0 0 0 / 70%), rgb(0 0 0 / 15%) 60%, rgb(0 0 0 / 0%));
+            content: '';
+            inset: 0;
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &__content {
+        position: relative;
+        z-index: 3;
+    }
+
+    &__text {
+        font-size: var(--font-size-xl);
+        max-width: 38rem;
+        text-wrap: pretty;
+    }
+
+    &__scrollIndicator {
+        color: var(--color-1);
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        height: 42px;
+        width: 24px;
+
+        &Wheel {
+            animation: scrollIndicatorWheel 2s both infinite;
+        }
+    }
+
+    &--small {
+        min-height: 50svh;
+    }
+
+    &--medium {
+        min-height: 75svh;
+    }
+
+    &--large {
+        min-height: 100svh;
+    }
+}
+
+// The hero is in view on load, so its reveals would all fire at once and
+// finish before the headline's TextSplit rise. Hold the intro and buttons
+// back so they follow the headline in.
+.is-revealReady .hero {
+    .hero__text.js-reveal,
+    .hero__content > .ctas.js-reveal {
+        transition-delay: calc(var(--reveal-delay, 0ms) + 450ms);
+    }
+}

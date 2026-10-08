@@ -1,0 +1,145 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  97488558-176c-4bd5-8456-1c2425f9bb55:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: bee96255-aa89-4a94-b716-87fe77afdc08
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3ef1cdf3-80e9-4b48-b032-6ff6a216d8f9 # Tonen in navigatie?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 380ca3ea-7244-4aa5-850a-b5e6be036b3a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cacc333e-ac3e-4ef9-8f76-4a500732b534 # Secties
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: cacc333e-ac3e-4ef9-8f76-4a500732b534 # Secties
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e4e9339d-b7c8-411f-a4ce-7e15e10903df
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 0f28bc85-f876-4ae3-b20a-dfbd2579b0e1
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b2f2d15e-f5df-4a3f-84c2-c87a3cfd200e # SEO-titel
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ea57313f-e9b6-476b-b0b4-7080cd098f08
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 63c4a802-cc8b-4600-b13d-91f35df1ba7e # SEO-omschrijving
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bba2d05a-1300-493d-b8e6-19eaf738fbfc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ce60c950-0d0f-404d-9003-f1b5b0640b8a # Afbeelding voor social media
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 705a1e29-35d6-4564-af36-5eed6e982735
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 8241adc0-8b9a-44ab-8435-f708d5264f72
+        userCondition: null
+    thumbFieldKey: null
+handle: page
+hasTitleField: true
+icon: file
+name: Pagina
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

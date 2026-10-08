@@ -1,0 +1,13 @@
+.iconLink {
+    align-items: center;
+    color: var(--color-link);
+    display: inline-flex;
+    font-weight: 600;
+    gap: .375em;
+    transition: color var(--duration-m), gap var(--duration-m);
+
+    &:hover {
+        color: var(--color-link-hover);
+        gap: .625em;
+    }
+}

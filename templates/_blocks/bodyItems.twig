@@ -1,0 +1,20 @@
+{% import '_macros/ui' as ui %}
+{% set items = block.items.with(['image']).all() %}
+{% if items|length %}
+    <div class="blog__block blog__items blog__outset stack stack--gap-xl">
+        {% for item in items %}
+            {% set image = item.image.one() %}
+            <article class="blog__item grid grid--gap-l">
+                {% if image %}
+                    <div class="grid__col s:grid__col--span-4">
+                        {{ ui.image(image, { class: 'blog__itemImage', ratio: 4/3, widths: [320, 480, 640, 800], sizes: '(min-width: 1280px) 21vw, (min-width: 768px) 30vw, calc(93vw - 8px)' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ image ? ' s:grid__col--span-8' }}">
+                    <h3 class="blog__itemTitle h4">{{ item.title }}</h3>
+                    <div class="richText">{{ item.text }}</div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+{% endif %}

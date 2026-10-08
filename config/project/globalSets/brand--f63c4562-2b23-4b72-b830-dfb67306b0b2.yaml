@@ -1,0 +1,82 @@
+fieldLayouts:
+  b2fd2110-4330-41eb-b718-ff23bd5e7561:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 105f6fd2-9d6d-40db-94f5-cd9a08967c9f # Logo
+            handle: logoNav
+            instructions: 'Wordt getoond in de navigatiebalk.'
+            label: 'Logo (navigatie)'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: af34b305-99ee-470f-b18c-4cb8b0ce0f20
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 105f6fd2-9d6d-40db-94f5-cd9a08967c9f # Logo
+            handle: logoFooter
+            instructions: 'Optioneel. Bijvoorbeeld een lichte variant voor de donkere footer. Laat leeg om het navigatielogo te gebruiken.'
+            label: 'Logo (footer)'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a18f1468-dbd2-4987-881f-97f2f001b09c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
+            handle: footerText
+            instructions: 'Korte tekst over het bedrijf, onder het logo in de footer.'
+            label: Footertekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 40b74cb3-e574-49de-ae30-994c65f2b720
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ce60c950-0d0f-404d-9003-f1b5b0640b8a # Afbeelding voor social media
+            handle: null
+            instructions: "Standaardafbeelding voor social media, voor pagina's zonder eigen afbeelding. JPEG of PNG, 1200 × 630 px."
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3aa14eb1-1d18-464b-a515-1cef46d065aa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Huisstijl
+        uid: 4bbd649f-4bab-482d-a028-6081f7429425
+        userCondition: null
+    thumbFieldKey: null
+handle: brand
+name: Huisstijl
+sortOrder: 1

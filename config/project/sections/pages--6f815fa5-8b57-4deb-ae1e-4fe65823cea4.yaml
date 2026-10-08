@@ -1,0 +1,25 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: c6d58904-91ef-40ef-8e8c-3c723a189b4e # Pagina
+handle: pages
+maxAuthors: 1
+minAuthors: 1
+name: "Pagina's"
+previewTargets:
+  -
+    label: Pagina
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: true
+    template: pages/_entry
+    uriFormat: "{% if level == 1 and slug == 'home' %}__home__{% else %}{parent.uri}/{slug}{% endif %}"
+structure:
+  maxLevels: 2
+  uid: 69237a2e-f034-4053-8d17-ad6325d55727
+type: structure

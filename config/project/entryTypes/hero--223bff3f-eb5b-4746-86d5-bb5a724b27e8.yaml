@@ -1,0 +1,196 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'De grote openingssectie van een pagina.'
+fieldLayouts:
+  fe09240f-3d36-4a3e-9ac3-7ad8f19423e4:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7698d675-6a83-4dc6-8d09-f6e1cf0ba6e5 # Bovenkop
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 017dd26a-f408-4367-9744-aab80b0114cd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e57cc959-a5ff-40b1-8a6b-f561319ae5e1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
+            handle: text
+            instructions: null
+            label: Tekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 67260650-8722-4d52-a8ef-03dec0526515
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7608e09e-34b6-40c0-9c05-8ba37e3ee101 # Knoppen
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 694ce1dc-dbc0-458f-9576-72ea53d8b0ea
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: null
+            instructions: 'Aanbevolen formaat: 2880 × 1920 px.'
+            label: Achtergrondafbeelding
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 720fe0ae-b3b6-473f-8cce-1db820b0b79d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: imageMobile
+            instructions: 'Optioneel. Aanbevolen formaat: 1080 × 1080 px.'
+            label: 'Achtergrondafbeelding (mobiel)'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bf8768e3-d7fa-408d-9eda-010d8e200402
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: bd88351e-b968-4c64-9c19-1c5042c90c82
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 04d6165b-2f67-4e9e-bfef-b37bff45a5c3 # Kleurthema
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: baed1c2d-4fc1-419e-b29f-282acf11b68e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 6e4129d3-fe66-4699-b333-e3e3eca3391f # Hoogte
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aa942560-3a3e-41cc-9426-4719da63b199
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a5a69a4f-41d5-447e-ae0b-fb7533d84f1d # Breedte van de tekst
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2e3193bf-1139-4b9d-b57a-40c44ad75773
+            userCondition: null
+            warning: null
+            width: 100
+        name: Opmaak
+        uid: 5726e6c5-2bf3-427b-948a-1080c0c70ebb
+        userCondition: null
+    thumbFieldKey: null
+handle: hero
+hasTitleField: true
+icon: null
+name: Hero
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

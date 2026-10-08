@@ -1,0 +1,26 @@
+{
+    "name": "opplakkers",
+    "version": "1.0.0",
+    "private": true,
+    "author": "Alexander Griffioen <mail@oscaralexander.com>",
+    "license": "UNLICENSED",
+    "scripts": {
+        "serve": "NODE_ENV=dev vite",
+        "build": "NODE_ENV=production vite build",
+        "icons": "node scripts/copy-icons.mjs",
+        "postinstall": "npm run icons"
+    },
+    "dependencies": {
+        "gsap": "^3.13.0"
+    },
+    "devDependencies": {
+        "lucide-static": "^0.542.0",
+        "prettier-plugin-twig-melody": "^0.4.6",
+        "reset-css": "^5.0.2",
+        "sass": "^1.83.4",
+        "vite": "^6.0.11",
+        "vite-plugin-compression": "^0.5.1",
+        "vite-plugin-manifest-sri": "^0.2.0",
+        "vite-plugin-restart": "^0.4.2"
+    }
+}

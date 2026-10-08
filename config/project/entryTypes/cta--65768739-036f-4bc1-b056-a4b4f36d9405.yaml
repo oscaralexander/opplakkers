@@ -1,0 +1,77 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  047b4ff4-0c10-4612-8a88-c5a49d3d79ca:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fa54c635-6324-4031-8d38-ba24d697a421 # Link
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5fed7807-8738-4c49-8e88-8295ebf57c0a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5ec40838-3fc8-416b-8937-47e976d53b1f # Stijl
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5db06ea6-7df8-4bac-9805-c0a2c13740b2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 81d1d7bc-13ba-425b-b7b1-c5ee9ea181f2 # Icoon
+            handle: null
+            instructions: 'Optioneel. Naam van een Lucide-icoon, zie https://lucide.dev/icons/'
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed99eb0e-d1c8-41d9-ade8-4e75fa884138
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: ecc4506c-02d2-41b1-bab9-c26b854f7896
+        userCondition: null
+    thumbFieldKey: null
+handle: cta
+hasTitleField: false
+icon: null
+name: Knop
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{link.label}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

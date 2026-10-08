@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: cards
+instructions: null
+name: Kaarten
+searchable: false
+settings:
+  createButtonLabel: 'Kaart toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 938e1bbe-87f4-417f-8005-836c0aeb1624 # Kaart
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

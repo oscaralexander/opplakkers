@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: includeInNav
+instructions: 'Zet uit om de pagina wel te publiceren maar niet in het menu en de footer te tonen.'
+name: 'Tonen in navigatie?'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+  showLabelsInCards: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

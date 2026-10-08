@@ -1,0 +1,37 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  Native <details>/<summary> so the items work without JavaScript; Accordion.js
+  adds the height animation and closes the other items in the group.
+#}
+{% set items = section.accordionItems.all() %}
+
+{% if items|length %}
+    <section class="{{ ui.sectionClass(section, 'accordion') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                <div class="grid__col l:grid__col--span-5">
+                    {{ ui.sectionHeader(section, { align: 'left', ctas: section.ctas, class: 'section__header--sticky' }) }}
+                </div>
+                <div class="grid__col l:grid__col--span-7">
+                    <div class="accordion__items js-accordion" data-reveal-group>
+                        {% for item in items %}
+                            <details class="accordionItem js-reveal js-accordionItem"{{ loop.first ? ' open' }}>
+                                <summary class="accordionItem__summary">
+                                    <span class="accordionItem__heading">
+                                        {% if item.eyebrow %}<span class="accordionItem__eyebrow h5">{{ item.eyebrow }}</span>{% endif %}
+                                        <span class="accordionItem__title h3">{{ item.title }}</span>
+                                    </span>
+                                    {{ ui.icon('chevron-down', 'accordionItem__marker') }}
+                                </summary>
+                                <div class="accordionItem__content js-accordionItemContent">
+                                    <div class="accordionItem__body richText">{{ item.text }}</div>
+                                </div>
+                            </details>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

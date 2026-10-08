@@ -1,0 +1,53 @@
+columnSuffix: null
+handle: body
+instructions: null
+name: Inhoud
+searchable: false
+settings:
+  createButtonLabel: 'Blok toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 65ec4d88-46f1-4d85-b377-9d107e84a9b3 # Tekst
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 43fc76d6-0469-4e8f-9ac6-aabe7573b81e # Afbeelding(en)
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 6db57dfc-6ada-4799-97f9-2a3f01f9b528 # Items
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 262566f1-3c7e-4ec7-a446-44989655a449 # Video
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

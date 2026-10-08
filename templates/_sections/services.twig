@@ -1,0 +1,57 @@
+{% import '_macros/ui' as ui %}
+
+{% set services = craft.entries().section('services').with(['image', 'page']).all() %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+{% set span = ui.gridSpan(services|length, hasHeader ? alignment : 'top')|trim %}
+
+{% if services|length %}
+    <section class="{{ ui.sectionClass(section, 'services') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col {{ alignment == 'left' ? 'l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col {{ alignment == 'left' and hasHeader ? 'l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-m grid--scrolling" data-reveal-group>
+                        {% for service in services %}
+                            {% set image = service.image|first %}
+                            {% set page = service.page|first %}
+                            <div class="grid__col grid__col--span-6 l:grid__col--span-3">
+                                <div class="service__reveal js-reveal">
+                                    <article class="service js-service{{ page ? ' service--page' }} u-theme-contrast">
+                                        {% if image %}
+                                            {{ ui.image(image, { class: 'service__image', ratio: 210/297, sizes: ui.colSizes(span, 'scroll'), widths: [320, 480, 640, 800, 960, 1200] }) }}
+                                        {% endif %}
+                                        <span class="service__index">{{ '%02d'|format(loop.index) }}</span>
+                                        <h3 class="service__title">
+                                            {{ service.title }}
+                                            {{ ui.icon('arrow-right') }}
+                                        </h3>
+                                        {% if page %}
+                                            <a class="service__link" href="{{ page.url }}" aria-label="{{ service.title }}"></a>
+                                        {% endif %}
+                                    </article>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicesTicker ticker js-ticker" data-ticker-pause-on-hover="false" aria-hidden="true">
+            <div class="ticker__inner js-tickerInner">
+                {% for service in services %}
+                    <div class="ticker__item servicesTicker__item">
+                        <span class="servicesTicker__title">{{ service.title }}</span>
+                        <svg class="servicesTicker__glyph" viewBox="0 0 100 100" focusable="false">
+                            <path d="M50 4 L61 39 L96 50 L61 61 L50 96 L39 61 L4 50 L39 39 Z" />
+                        </svg>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

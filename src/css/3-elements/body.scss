@@ -1,0 +1,27 @@
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-1);
+    font-feature-settings: var(--font-1-feature-settings);
+    font-size: var(--font-size-m);
+    font-variation-settings: var(--font-1-variation-settings, normal);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing);
+    line-height: var(--line-height-m);
+    min-height: 100svh;
+
+    &:has(.nav__menuToggle[aria-expanded='true']) {
+        overflow: hidden;
+    }
+}
+
+b,
+strong {
+    color: var(--color-text-hc);
+    font-weight: 600;
+}
+
+em,
+i {
+    font-style: italic;
+}

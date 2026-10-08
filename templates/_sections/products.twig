@@ -1,0 +1,58 @@
+{% import '_macros/ui' as ui %}
+
+{% set products = section.products.with(['ctas']).all() %}
+{% if products is empty %}
+    {% set products = craft.entries().section('products').with(['ctas']).all() %}
+{% endif %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+
+{% if products|length %}
+    <section class="{{ ui.sectionClass(section, 'products') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col{{ alignment == 'left' ? ' l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ alignment == 'left' and hasHeader ? ' l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-m grid--scrolling" data-reveal-group>
+                        {% for product in products %}
+                            {% set features = (product.features ?? [])|filter(row => row.feature) %}
+                            <div class="grid__col js-reveal s:grid__col--span-6 {{ ui.gridCol(products|length, hasHeader ? alignment : 'top') }}">
+                                <article class="product">
+                                    <div class="product__body">
+                                        <h3 class="product__title">{{ product.title }}</h3>
+                                        {% if product.price %}
+                                            <p class="product__price">
+                                                {% if product.fromPrice %}<span class="product__priceFrom">v.a.</span>{% endif %}
+                                                <span class="product__priceValue">&euro;&thinsp;{{ product.price }}</span>
+                                                {% if product.priceUnit %}<span class="product__priceUnit">/ {{ product.priceUnit }}</span>{% endif %}
+                                            </p>
+                                        {% endif %}
+                                        {% if product.description %}
+                                            <p class="product__description">{{ product.description|nl2br }}</p>
+                                        {% endif %}
+                                        {% if features|length %}
+                                            <ul class="product__features">
+                                                {% for row in features %}
+                                                    <li class="product__feature">{{ ui.icon('check') }} {{ row.feature }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                    {% if product.ctas|length %}
+                                        <footer class="product__footer">
+                                            {{ ui.ctas(product.ctas, { class: 'ctas--block' }) }}
+                                        </footer>
+                                    {% endif %}
+                                </article>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

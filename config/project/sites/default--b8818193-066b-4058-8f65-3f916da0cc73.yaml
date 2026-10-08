@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: nl
+name: Opplakkers
+primary: true
+siteGroup: 804bd33f-b157-42ed-ad65-c6abff60b424 # Opplakkers
+sortOrder: 1

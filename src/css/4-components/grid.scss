@@ -1,0 +1,135 @@
+@use '@css/1-settings/variables' as *;
+@use '@css/2-tools/mixins' as *;
+@use 'sass:map';
+
+// A 12-column flex grid.
+//
+// Two custom properties do the work: --grid-gap on the grid, --span on a
+// column. Every column shares one flex-basis formula that subtracts its share
+// of the gaps, so a span-6 column next to a span-6 column adds up to exactly
+// 100% with a real `gap` between them — no negative margins, no transparent
+// borders. The span and gap classes only set the custom property, which keeps
+// the generated CSS small and the specificity flat.
+//
+//   .grid.grid--gap-m.l:grid--gap-xl
+//     .grid__col.s:grid__col--span-6.l:grid__col--span-4
+
+.grid {
+    --grid-gap: 0px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--grid-gap);
+
+    &__col {
+        --span: #{$grid-columns};
+
+        // A span of N columns is N twelfths of the width minus the (12 − N)
+        // twelfths of a gap the missing columns would have carried.
+        flex: 0 0 calc(var(--span) / #{$grid-columns} * 100% - (#{$grid-columns} - var(--span)) / #{$grid-columns} * var(--grid-gap));
+        min-width: 0;
+        position: relative;
+
+        &--start {
+            align-self: flex-start;
+        }
+
+        &--middle {
+            align-self: center;
+        }
+
+        &--end {
+            align-self: flex-end;
+        }
+    }
+
+    &--start {
+        align-items: flex-start;
+    }
+
+    &--middle {
+        align-items: center;
+    }
+
+    &--end {
+        align-items: flex-end;
+    }
+
+    &--baseline {
+        align-items: baseline;
+    }
+
+    &--center {
+        justify-content: center;
+    }
+
+    &--between {
+        justify-content: space-between;
+    }
+
+    &--right {
+        justify-content: flex-end;
+    }
+
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+
+    // Below the large breakpoint, a horizontally scrolling, snapping row that
+    // bleeds to the screen edge — for cards, people, testimonials.
+    &--scrolling {
+        @include screen-max(l) {
+            flex-wrap: nowrap;
+            gap: var(--size-m);
+            margin: 0 calc(var(--gutter) * -1);
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            padding: 0 var(--gutter);
+            scroll-padding: 0 var(--gutter);
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            > .grid__col {
+                flex: 0 0 min(75vw, 22rem);
+                scroll-snap-align: start;
+            }
+        }
+    }
+}
+
+// Spans, gaps, and the responsive variants of both. `.l:grid__col--span-4`
+// wins over `.s:grid__col--span-6` on the same element because the larger
+// breakpoints are emitted later.
+@mixin grid-classes($prefix: '') {
+    @for $i from 1 through $grid-columns {
+        .#{$prefix}grid__col--span-#{$i} {
+            --span: #{$i};
+        }
+    }
+
+    .#{$prefix}grid__col--flex {
+        flex: 1 1 auto;
+    }
+
+    @each $key, $val in $sizes {
+        .#{$prefix}grid--gap-#{$key} {
+            --grid-gap: #{$val};
+        }
+    }
+
+    .#{$prefix}grid--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+@include grid-classes;
+
+@each $breakpoint in map.keys($breakpoints) {
+    @include screen-min($breakpoint) {
+        @include grid-classes('#{$breakpoint}\\:');
+    }
+}

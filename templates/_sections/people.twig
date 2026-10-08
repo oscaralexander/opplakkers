@@ -1,0 +1,49 @@
+{% import '_macros/ui' as ui %}
+
+{% set people = section.people.with(['photo', 'linkToPage']).all() %}
+{% if people is empty %}
+    {% set people = craft.entries().section('people').with(['photo', 'linkToPage']).all() %}
+{% endif %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+
+{% set span = people|length > 4 ? '3' : ui.gridSpan(people|length, hasHeader ? alignment : 'top')|trim %}
+
+{% if people|length %}
+    <section class="{{ ui.sectionClass(section, 'people') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col{{ alignment == 'left' ? ' l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ alignment == 'left' and hasHeader ? ' l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-l grid--scrolling" data-reveal-group>
+                        {% for person in people %}
+                            {% set photo = person.photo.one() %}
+                            {% set page = person.linkToPage.one() %}
+                            {% set role = [person.position, person.company]|filter|join(', ') %}
+                            <div class="grid__col js-reveal xs:grid__col--span-6 {{ people|length > 4 ? 'l:grid__col--span-3' : ui.gridCol(people|length, hasHeader ? alignment : 'top') }}">
+                                <article class="person">
+                                    {% if photo %}
+                                        {% if page %}<a class="person__photoLink" href="{{ page.url }}" tabindex="-1" aria-hidden="true">{% endif %}
+                                        {{ ui.image(photo, { class: 'person__photo', ratio: 1, widths: [320, 480, 640, 800, 960], sizes: ui.colSizes(span, 'scroll') }) }}
+                                        {% if page %}</a>{% endif %}
+                                    {% endif %}
+                                    <div class="person__text">
+                                        <h3 class="person__name">
+                                            {% if page %}<a href="{{ page.url }}">{{ person.title }}</a>{% else %}{{ person.title }}{% endif %}
+                                        </h3>
+                                        {% if role %}<div class="person__role">{{ role }}</div>{% endif %}
+                                        {% if person.location %}<div class="person__location">{{ person.location }}</div>{% endif %}
+                                    </div>
+                                </article>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

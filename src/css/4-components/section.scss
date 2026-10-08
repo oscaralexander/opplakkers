@@ -1,0 +1,72 @@
+@use '@css/2-tools/mixins' as *;
+
+.section {
+    position: relative;
+
+    .page__main > &:first-child {
+        padding-top: calc(var(--nav-height) + var(--nav-offset-y));
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: var(--section-gap);
+        padding-bottom: var(--section-padding-y);
+        padding-top: var(--section-padding-y);
+        position: relative;
+        z-index: 2;
+    }
+
+    &:has(> .section__inner.u-theme-none) + &:has(> .section__inner.u-theme-none),
+    &:has(> .section__inner.u-theme-none) + .cta {
+        margin-top: calc(var(--section-padding-y) * -.5);
+    }
+
+    &--fullWidth > .section__inner {
+        background: transparent !important;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-l);
+
+        &--top {
+            max-width: 46rem;
+        }
+    }
+
+    &__eyebrow {
+        margin-bottom: calc(var(--size-xs) * -1);
+    }
+
+    &__intro {
+        font-size: var(--font-size-xl);
+        line-height: var(--line-height-m);
+        max-width: 40rem;
+        text-wrap: pretty;
+    }
+
+    &__body {
+        margin-top: var(--size-xs);
+    }
+
+    @include screen-max(l) {
+        overflow: hidden;
+    }
+
+    @include screen-min(l) {
+        &__inner:not(.u-theme-none) {
+            border-radius: var(--section-border-radius);
+        }
+
+        &__header--sticky {
+            position: sticky;
+            top: calc(var(--nav-height) + var(--nav-offset-y) + var(--size-xl));
+        }
+
+        &__header--top {
+            max-width: 75%;
+        }
+    }
+}

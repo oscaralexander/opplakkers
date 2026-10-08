@@ -1,0 +1,278 @@
+{# Shared UI fragments. Kept as macros so a section template stays a
+   description of its content rather than a pile of markup. #}
+
+{#
+  A Lucide icon, inlined from templates/icons/lucide (see scripts/copy-icons.mjs).
+
+  The name comes from the CMS, so it is reduced to [a-z0-9-] before it touches
+  a path. An unknown name renders nothing rather than a broken image.
+#}
+{% macro icon(name, class = '') %}
+    {% set name = (name ?? '')|trim|lower|replace({'/': '', '\\': '', '.': '', ' ': '-', '_': '-'}) %}
+    {% if name %}
+        {% set svg = source('icons/lucide/' ~ name ~ '.svg', ignore_missing = true) %}
+        {% if svg %}
+            {{ svg|replace({'<svg class="lucide': '<svg aria-hidden="true" focusable="false" class="lucide' ~ (class ? ' ' ~ class)})|raw }}
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{# A social/brand icon from templates/icons. #}
+{% macro brandIcon(name) %}
+    {{ source('icons/' ~ name ~ '.svg', ignore_missing = true) }}
+{% endmacro %}
+
+{#
+  A WebP srcset for an asset: one candidate per width, optionally cropped to a
+  ratio. Craft skips candidates larger than the source (no upscaling).
+#}
+{% macro srcset(asset, widths, ratio = null, quality = 82) %}
+    {%- set candidates = [] -%}
+    {%- for width in widths -%}
+        {%- set transform = { width: width, format: 'webp', quality: quality, upscale: false } -%}
+        {%- if ratio -%}
+            {%- set transform = transform|merge({ height: (width / ratio)|round, mode: 'crop' }) -%}
+        {%- endif -%}
+        {%- set candidates = candidates|merge([asset.getUrl(transform) ~ ' ' ~ width ~ 'w']) -%}
+    {%- endfor -%}
+    {{- candidates|join(', ') -}}
+{% endmacro %}
+
+{#
+  A responsive image.
+
+  Emits one <img> with a WebP srcset and intrinsic width/height so the browser
+  reserves the right space before the file arrives. Options:
+
+    sizes   the sizes attribute; defaults to full width
+    widths  candidate widths for the srcset — go up to 2× the largest CSS
+            width the image can have, so high-density screens get a sharp file
+    ratio   crop to this aspect ratio (e.g. 16/9); omit to keep the original
+    class   class on the <img>
+    eager   true for above-the-fold images (hero); everything else lazy-loads
+    alt     override the asset's alt text
+#}
+{% macro image(asset, options = {}) %}
+    {% if asset %}
+        {% import _self as ui %}
+        {% set options = {
+            sizes: '100vw',
+            widths: [480, 768, 1024, 1440, 1920, 2560],
+            ratio: null,
+            class: '',
+            eager: false,
+            alt: null,
+            quality: 82,
+        }|merge(options) %}
+
+        {% if asset.kind == 'image' and asset.extension != 'svg' %}
+            {% set largest = options.widths|last %}
+            {% set fallback = { width: largest, format: 'webp', quality: options.quality, upscale: false } %}
+            {% if options.ratio %}
+                {% set fallback = fallback|merge({ height: (largest / options.ratio)|round, mode: 'crop' }) %}
+            {% endif %}
+            {% set width = min(asset.width, largest) %}
+            {% set height = options.ratio ? (width / options.ratio)|round : (width * asset.height / asset.width)|round %}
+            <img
+                alt="{{ options.alt ?? asset.alt ?? asset.title }}"
+                {% if options.class %}class="{{ options.class }}"{% endif %}
+                decoding="async"
+                {% if options.eager %}fetchpriority="high" loading="eager"{% else %}loading="lazy"{% endif %}
+                height="{{ height }}"
+                sizes="{{ options.sizes }}"
+                src="{{ asset.getUrl(fallback) }}"
+                srcset="{{ ui.srcset(asset, options.widths, options.ratio, options.quality) }}"
+                width="{{ width }}"
+            >
+        {% else %}
+            <img
+                alt="{{ options.alt ?? asset.alt ?? asset.title }}"
+                {% if options.class %}class="{{ options.class }}"{% endif %}
+                decoding="async"
+                {% if not options.eager %}loading="lazy"{% endif %}
+                {% if asset.width %}height="{{ asset.height }}" width="{{ asset.width }}"{% endif %}
+                src="{{ asset.url }}"
+            >
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{#
+  A row of buttons/links from a `ctas` Matrix field. Each block carries its own
+  style, so a section never decides how its buttons look.
+#}
+{% macro ctas(ctas, options = {}) %}
+    {% set ctas = ctas is iterable ? ctas : (ctas ? ctas.all() : []) %}
+    {% set options = { class: '', align: 'left', size: '' }|merge(options) %}
+    {% if ctas|length %}
+        {% import _self as ui %}
+        <div class="ctas{{ options.align == 'center' ? ' ctas--center' }}{{ options.class ? ' ' ~ options.class }}">
+            {% for cta in ctas %}
+                {% set link = cta.link %}
+                {% if link and link.url %}
+                    {% set style = cta.style ?? 'primary' %}
+                    {% set classNames = style == 'text'
+                        ? ['iconLink']
+                        : ['btn', style == 'primary' ? 'btn--primary' : 'btn--secondary', options.size ? 'btn--' ~ options.size] %}
+                    <a
+                        aria-label="{{ link.label ?: link.url }}"
+                        class="{{ classNames|filter|join(' ') }}"
+                        href="{{ link.url }}"{{ link.target == '_blank' ? ' target="_blank" rel="noopener"' }}
+                    >
+                        {% if style != 'text' %}{{ ui.icon(cta.iconName) }}{% endif %}
+                        <span class="btn__label">
+                            <span>{{ link.label ?: link.url }}</span>
+                            <span aria-hidden="true">{{ link.label ?: link.url }}</span>
+                        </span>
+                        {% if style == 'text' %}{{ ui.icon(cta.iconName ?: 'arrow-right') }}{% endif %}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{#
+  The eyebrow + title + intro trio that opens most sections, with the section's
+  own buttons underneath when `ctas` is passed.
+#}
+{% macro sectionHeader(section, options = {}) %}
+    {% import _self as ui %}
+    {% set options = { align: section.sectionHeaderAlignment ?? 'left', ctas: null, headingLevel: 'h2', class: '' }|merge(options) %}
+    {% set hasCtas = options.ctas and options.ctas|length %}
+    {% if section.eyebrow or section.title or section.intro|length or hasCtas %}
+        <header class="section__header section__header--{{ options.align }}{{ options.class ? ' ' ~ options.class }}" data-reveal-group>
+            {% if section.eyebrow %}
+                <p class="section__eyebrow h5 js-reveal">{{ section.eyebrow }}</p>
+            {% endif %}
+            {% if section.title %}
+                <{{ options.headingLevel }} class="section__title js-textSplit">{{ section.title }}</{{ options.headingLevel }}>
+            {% endif %}
+            {% if section.intro|length or hasCtas %}
+                <div class="section__body stack stack--gap-l js-reveal">
+                    {% if section.intro|length %}
+                        <div class="section__intro richText">{{ section.intro }}</div>
+                    {% endif %}
+                    {% if hasCtas %}
+                        {{ ui.ctas(options.ctas, { align: options.align == 'top' ? 'center' : 'left' }) }}
+                    {% endif %}
+                </div>
+            {% endif %}
+        </header>
+    {% endif %}
+{% endmacro %}
+
+{#
+  Class list for a page section. The theme is painted on the inner wrapper by
+  default (a rounded panel inside the page); "full width" moves it to the
+  section itself so the colour bleeds edge to edge.
+#}
+{% macro sectionClass(section, name, extra = []) %}
+    {%- set theme = section.theme ?? 'none' -%}
+    {%- set isFullWidth = section.isFullWidth ?? false -%}
+    {{- ['section', name, isFullWidth ? 'section--fullWidth', isFullWidth ? 'u-theme-' ~ theme]|merge(extra)|filter|join(' ') -}}
+{% endmacro %}
+
+{% macro sectionInnerClass(section, extra = []) %}
+    {{- ['section__inner', 'wrapper', 'u-theme-' ~ (section.theme ?? 'none')]|merge(extra)|filter|join(' ') -}}
+{% endmacro %}
+
+{#
+  How many of the 12 columns each of N items gets so 2, 3 or 4 items fill a
+  row and anything else falls back to thirds. With a left-aligned header the
+  items sit in the right two-thirds, where halves read better. Returns 6, 4,
+  3 or 'flex' (equal widths for five).
+#}
+{% macro gridSpan(count, alignment = 'top') %}
+    {%- if alignment == 'left' or count <= 2 -%}6
+    {%- elseif count == 4 -%}3
+    {%- elseif count == 5 -%}flex
+    {%- else -%}4
+    {%- endif -%}
+{% endmacro %}
+
+{% macro gridCol(count, alignment = 'top') %}
+    {%- import _self as ui -%}
+    {%- set span = ui.gridSpan(count, alignment)|trim -%}
+    {{- span == 'flex' ? 'l:grid__col--flex' : 'l:grid__col--span-' ~ span -}}
+{% endmacro %}
+
+{#
+  The `sizes` attribute for an image that fills a grid column. Measured from
+  the real layout: a 12-column grid inside the 85rem wrapper with fluid
+  gutters, headers taking 4 of the 12 columns when left-aligned. The
+  browser multiplies these by the device pixel ratio, so a 2× phone picks a
+  candidate twice its CSS width from the srcset.
+
+    span    the column's span at the large breakpoint (from gridSpan)
+    mobile  what the column is below it: 'scroll' for a grid--scrolling row,
+            'half' for two-up from the small breakpoint, 'full' otherwise
+#}
+{% macro colSizes(span, mobile = 'full') %}
+    {%- set desktop = { '3': '21vw', '4': '28vw', '6': '30vw', '8': '64vw', 'flex': '17vw' } -%}
+    {%- set below = {
+        scroll: 'min(75vw, 22rem)',
+        half: '(min-width: 768px) 46vw, calc(93vw - 8px)',
+        full: 'calc(93vw - 8px)',
+    } -%}
+    (min-width: 1280px) {{ desktop[span] ?? '28vw' }}, {{ below[mobile] }}
+{% endmacro %}
+
+{# Extracts the video id from any YouTube URL shape (watch, youtu.be, embed, shorts). #}
+{% macro youtubeId(url) %}
+    {%- set url = (url ?? '')|trim -%}
+    {%- set id = '' -%}
+    {%- if 'v=' in url -%}
+        {%- set id = url|split('v=')|last|split('&')|first -%}
+    {%- elseif 'youtu.be/' in url -%}
+        {%- set id = url|split('youtu.be/')|last -%}
+    {%- elseif '/embed/' in url -%}
+        {%- set id = url|split('/embed/')|last -%}
+    {%- elseif '/shorts/' in url -%}
+        {%- set id = url|split('/shorts/')|last -%}
+    {%- endif -%}
+    {{- id|split('?')|first|split('#')|first|split('/')|first -}}
+{% endmacro %}
+
+{# A privacy-friendly YouTube embed. #}
+{% macro youtube(url, title = 'Video') %}
+    {% import _self as ui %}
+    {% set id = ui.youtubeId(url)|trim %}
+    {% if id %}
+        <div class="video">
+            <iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                src="https://www.youtube-nocookie.com/embed/{{ id }}"
+                title="{{ title }}"
+            ></iframe>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{# A testimonial card, shared by the testimonials section and the ticker. #}
+{% macro testimonial(testimonial) %}
+    {% import _self as ui %}
+    <figure class="testimonial">
+        <blockquote class="testimonial__quote richText">{{ testimonial.quote }}</blockquote>
+        {% if testimonial.title or testimonial.authorCompany or testimonial.authorPosition %}
+            {% set photo = testimonial.authorPhoto.one() %}
+            <figcaption class="testimonial__author">
+                {% if photo %}
+                    {{ ui.image(photo, { class: 'testimonial__authorPhoto', widths: [96, 192], ratio: 1, sizes: '3rem' }) }}
+                {% endif %}
+                <div class="testimonial__authorText">
+                    {% if testimonial.title %}
+                        <div class="testimonial__authorName">{{ testimonial.title }}</div>
+                    {% endif %}
+                    {% set role = [testimonial.authorPosition, testimonial.authorCompany]|filter|join(', ') %}
+                    {% if role %}
+                        <div class="testimonial__authorRole">{{ role }}</div>
+                    {% endif %}
+                </div>
+            </figcaption>
+        {% endif %}
+    </figure>
+{% endmacro %}

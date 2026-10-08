@@ -1,0 +1,98 @@
+@use '@css/2-tools/mixins' as *;
+
+// A single blog article.
+.blog {
+    &__header {
+        padding: calc(var(--nav-height) + var(--nav-offset-y) + var(--size-xl)) 0 var(--section-padding-y);
+    }
+
+    &__picture {
+        border-radius: var(--border-radius-l);
+        overflow: hidden;
+        position: relative;
+
+        &--parallax {
+            aspect-ratio: 16 / 9;
+
+            .blog__image {
+                height: 125%;
+                inset: auto 0 0;
+                position: absolute;
+                transform: translate3d(0, calc(var(--equinox-pos, 0) * 20%), 0);
+            }
+        }
+    }
+
+    &__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-xl);
+    }
+
+    &__block {
+        max-width: var(--wrapper-width-narrow);
+    }
+
+    &__images img,
+    &__itemImage {
+        border-radius: var(--border-radius-m);
+        width: 100%;
+    }
+
+    &__author {
+        align-items: flex-start;
+        border-top: 1px solid var(--color-border);
+        display: flex;
+        gap: var(--size-l);
+        margin-top: var(--size-xxl);
+        padding-top: var(--size-xl);
+    }
+
+    &__authorPhoto {
+        border-radius: 50%;
+        flex: 0 0 4rem;
+        width: 4rem;
+    }
+
+    &__authorBio {
+        font-size: var(--font-size-s);
+    }
+
+    @include screen-min(l) {
+        &__header {
+            margin-bottom: var(--section-padding-y);
+            padding-bottom: 0;
+        }
+
+        // The image hangs below the coloured header band.
+        &__picture {
+            margin-bottom: calc(var(--section-padding-y) * -1);
+        }
+
+        &__headerContent {
+            padding-bottom: var(--section-padding-y);
+        }
+
+        &__body {
+            padding: 0 var(--size-xxl);
+        }
+
+        &__block {
+            max-width: none;
+        }
+
+        &__outset {
+            margin-left: calc(var(--size-xxl) * -1);
+            margin-right: calc(var(--size-xxl) * -1);
+        }
+
+        &__authorPhoto {
+            flex-basis: 5rem;
+            width: 5rem;
+        }
+    }
+}

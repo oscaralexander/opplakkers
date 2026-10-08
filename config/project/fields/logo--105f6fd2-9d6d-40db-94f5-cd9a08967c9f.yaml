@@ -1,0 +1,36 @@
+columnSuffix: null
+handle: logo
+instructions: 'Bij voorkeur een SVG- of PNG-bestand met transparante achtergrond.'
+name: Logo
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  branchLimit: null
+  defaultPlacement: end
+  defaultUploadLocationSource: 'volume:c46b8a31-eb5c-43b5-8599-ba48c32abeeb' # Logo's
+  defaultUploadLocationSubpath: null
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  previewMode: full
+  restrictFiles: true
+  restrictLocation: true
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:c46b8a31-eb5c-43b5-8599-ba48c32abeeb' # Logo's
+  restrictedLocationSubpath: null
+  selectionLabel: 'Logo kiezen'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: thumbs
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Assets

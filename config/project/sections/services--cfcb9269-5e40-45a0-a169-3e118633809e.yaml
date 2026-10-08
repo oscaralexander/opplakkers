@@ -1,0 +1,25 @@
+defaultPlacement: end
+enableVersioning: false
+entryTypes:
+  -
+    uid: 61fad226-c639-47af-878a-0f729d883287 # Dienst
+handle: services
+maxAuthors: 1
+minAuthors: 1
+name: Diensten
+previewTargets:
+  -
+    label: 'Primaire invoer-pagina'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: true
+    template: diensten/_entry.twig
+    uriFormat: 'diensten/{slug}'
+structure:
+  maxLevels: null
+  uid: 2954caf8-811c-4247-9e37-ff69c81cea3b
+type: structure

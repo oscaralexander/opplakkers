@@ -1,0 +1,83 @@
+// Baseline styling for form elements, driven by the --input-* tokens. Applies
+// to embedded third-party forms too, as far as their markup allows.
+input:not([type='checkbox'], [type='radio'], [type='submit'], [type='button'], [type='range']),
+select,
+textarea {
+    background: var(--input-color-bg);
+    border: 1px solid var(--input-color-border);
+    border-radius: var(--input-border-radius);
+    color: var(--input-color-text);
+    font-family: var(--font-1);
+    font-size: var(--input-font-size);
+    line-height: 1.25;
+    min-height: var(--input-height);
+    padding: .5em var(--input-padding-x);
+    transition: border-color var(--duration-s), box-shadow var(--duration-s);
+    width: 100%;
+
+    &::placeholder {
+        color: var(--input-color-placeholder);
+        opacity: 1;
+    }
+
+    &:focus {
+        border-color: var(--input-color-border-focus);
+        box-shadow: var(--input-focus-ring);
+        outline: none;
+    }
+}
+
+textarea {
+    min-height: calc(var(--input-height) * 3);
+    resize: vertical;
+}
+
+select {
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><polyline points="4 6 8 10 12 6" fill="none" stroke="%23888" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/></svg>');
+    background-position: right var(--input-padding-x) center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    padding-right: calc(var(--input-padding-x) * 2 + 1em);
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    accent-color: var(--color-1);
+    height: 1.125em;
+    vertical-align: middle;
+    width: 1.125em;
+}
+
+input[type='radio'] {
+    border-radius: 50%;
+}
+
+label {
+    color: var(--color-text-hc);
+    display: block;
+    font-size: var(--font-size-s);
+    font-weight: 500;
+    margin-bottom: .375em;
+}
+
+input[type='submit'],
+button[type='submit'] {
+    align-items: center;
+    background: var(--btn-primary-color-bg);
+    border: 1px solid var(--btn-primary-color-border);
+    border-radius: var(--btn-border-radius);
+    color: var(--btn-primary-color-text);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    height: var(--btn-height);
+    justify-content: center;
+    padding: 0 var(--btn-padding-x);
+    transition: background var(--duration-m), color var(--duration-m);
+
+    &:hover {
+        background: var(--btn-primary-color-bg-hover);
+        color: var(--btn-primary-color-text-hover);
+    }
+}

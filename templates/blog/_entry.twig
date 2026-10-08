@@ -1,0 +1,114 @@
+{% extends '_layout' %}
+{% import '_macros/ui' as ui %}
+
+{% set image = entry.image.one() %}
+{% set author = entry.author and entry.author.fullName ? entry.author : null %}
+{% set authorPhoto = author ? author.photo : null %}
+{% set related = craft.entries().section('blogs').id('not ' ~ entry.id).with(['image']).limit(5).all() %}
+{# The overview is whichever page holds a "Blogoverzicht" section. #}
+{% set blogIndex = craft.entries().field('sections').type('blogIndex').one() %}
+{% set blogUrl = blogIndex and blogIndex.owner ? blogIndex.owner.url : siteUrl %}
+
+{% block schema %}
+    {% set article = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: entry.title,
+        description: entry.seoDescription ?: entry.summary,
+        datePublished: entry.postDate|date('c'),
+        dateModified: entry.dateUpdated|date('c'),
+        author: author ? { '@type': 'Person', name: author.fullName } : null,
+        publisher: { '@type': 'Organization', name: currentSite.name },
+        image: image ? image.getUrl({ width: 1200, height: 630, mode: 'crop', format: 'jpg' }) : null,
+        mainEntityOfPage: entry.url,
+    }|filter %}
+    <script type="application/ld+json">{{ article|json_encode(constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}</script>
+{% endblock %}
+
+{% block content %}
+    <article class="blog">
+        <header class="blog__header u-theme-tint{{ settings.useParallax ? ' js-equinox' }}">
+            <div class="wrapper">
+                <div class="grid grid--end grid--gap-l l:grid--gap-xxl l:grid--reverse">
+                    <div class="grid__col l:grid__col--span-7">
+                        {% if image %}
+                            <div class="blog__picture{{ settings.useParallax ? ' blog__picture--parallax' }}">
+                                {{ ui.image(image, { class: 'blog__image', eager: true, ratio: 16/9, widths: [480, 640, 800, 960, 1200, 1440, 1600], sizes: '(min-width: 1280px) calc((min(100vw, 85rem) - 8px - 7vw) * 7 / 12 - 20px), calc(93vw - 8px)' }) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="grid__col l:grid__col--span-5">
+                        <div class="blog__headerContent stack stack--gap-xl">
+                            <div class="stack stack--gap-m">
+                                <a class="iconLink" href="{{ blogUrl }}">{{ ui.icon('arrow-left') }} <span>Blog</span></a>
+                                <h1 class="blog__title js-textSplit">{{ entry.title }}</h1>
+                            </div>
+                            <ul class="meta">
+                                {% if author %}
+                                    <li class="meta__author">
+                                        {% if authorPhoto %}
+                                            {{ ui.image(authorPhoto, { class: 'meta__authorPhoto', ratio: 1, widths: [64, 128], sizes: '2rem', alt: '' }) }}
+                                        {% endif %}
+                                        {{ author.fullName }}
+                                    </li>
+                                {% endif %}
+                                <li><time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('j F Y') }}</time></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="section">
+            <div class="section__inner wrapper">
+                <div class="grid grid--gap-xxl">
+                    <div class="grid__col l:grid__col--span-8">
+                        <div class="blog__body">
+                            {% for block in entry.body.with(['images', 'items']).all() %}
+                                {% include '_blocks/' ~ block.type.handle ignore missing with { block: block } only %}
+                            {% endfor %}
+                        </div>
+                        {% if author and (author.bio|length or author.linkedinUrl) %}
+                            <footer class="blog__author">
+                                {% if authorPhoto %}
+                                    {{ ui.image(authorPhoto, { class: 'blog__authorPhoto', ratio: 1, widths: [160, 320], sizes: '5rem', alt: '' }) }}
+                                {% endif %}
+                                <div class="blog__authorText stack stack--gap-xs">
+                                    <h2 class="blog__authorName h4">{{ author.fullName }}</h2>
+                                    {% if author.bio|length %}<div class="blog__authorBio richText">{{ author.bio }}</div>{% endif %}
+                                    {% if author.linkedinUrl %}
+                                        <a class="iconLink" href="{{ author.linkedinUrl.url }}" target="_blank" rel="noopener">{{ ui.brandIcon('linkedin') }} <span>LinkedIn</span></a>
+                                    {% endif %}
+                                </div>
+                            </footer>
+                        {% endif %}
+                    </div>
+                    {% if related|length %}
+                        <aside class="grid__col l:grid__col--span-4">
+                            <div class="blogList">
+                                <h2 class="blogList__title h3">Lees ook</h2>
+                                <ol class="blogList__items">
+                                    {% for blog in related %}
+                                        {% set relatedImage = blog.image.one() %}
+                                        <li class="blogListItem">
+                                            {% if relatedImage %}
+                                                <a class="blogListItem__imageLink" href="{{ blog.url }}" tabindex="-1" aria-hidden="true">
+                                                    {{ ui.image(relatedImage, { class: 'blogListItem__image', ratio: 1, widths: [160, 320], sizes: '5rem' }) }}
+                                                </a>
+                                            {% endif %}
+                                            <div class="blogListItem__text">
+                                                <h3 class="blogListItem__title"><a href="{{ blog.url }}">{{ blog.title }}</a></h3>
+                                                <time class="blogListItem__date" datetime="{{ blog.postDate|date('Y-m-d') }}">{{ blog.postDate|date('j F Y') }}</time>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </aside>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

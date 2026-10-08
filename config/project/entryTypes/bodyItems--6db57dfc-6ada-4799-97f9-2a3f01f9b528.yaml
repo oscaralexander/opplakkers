@@ -1,0 +1,43 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  824f9af3-f450-41c4-9a12-bceae1c265ec:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: adf96238-849a-4fc9-80ea-02b466ec7577 # Items
+            handle: null
+            instructions: 'Een lijst met items met een afbeelding, titel en tekst.'
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 182ddcf7-49a2-4011-9791-7746e074d6ee
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 2e84e3d1-0655-496f-be20-ab91e72a9c33
+        userCondition: null
+    thumbFieldKey: null
+handle: bodyItems
+hasTitleField: false
+icon: list
+name: Items
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

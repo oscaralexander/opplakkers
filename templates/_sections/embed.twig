@@ -1,0 +1,23 @@
+{% import '_macros/ui' as ui %}
+
+{# Third-party HTML (a form, a map, a booking widget). Rendered as-is. #}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+
+{% if section.embedCode %}
+    <section class="{{ ui.sectionClass(section, 'embed') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl{{ alignment == 'top' ? ' grid--center' }}">
+                {% if section.eyebrow or section.title or section.intro|length %}
+                    <div class="grid__col l:grid__col--span-{{ alignment == 'left' ? '5' : '8' }}">
+                        {{ ui.sectionHeader(section, { class: alignment == 'left' ? 'section__header--sticky' : '' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col l:grid__col--span-{{ alignment == 'left' ? '7' : '8' }}">
+                    <div class="embed__content js-reveal">
+                        {{ section.embedCode|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

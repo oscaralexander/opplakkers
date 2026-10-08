@@ -1,0 +1,6 @@
+{% import '_macros/ui' as ui %}
+{% if block.youtubeUrl %}
+    <div class="blog__block blog__outset">
+        {{ ui.youtube(block.youtubeUrl.url) }}
+    </div>
+{% endif %}

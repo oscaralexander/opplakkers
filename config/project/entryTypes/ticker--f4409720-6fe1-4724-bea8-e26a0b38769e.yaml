@@ -1,0 +1,162 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Een doorlopende band met afbeeldingen en/of testimonials.'
+fieldLayouts:
+  ea6b6d56-3363-434b-8c57-dbc272e51587:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7698d675-6a83-4dc6-8d09-f6e1cf0ba6e5 # Bovenkop
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba564bc7-0244-4682-ac38-e78e284767c1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 5848d336-cff9-446c-9f50-5e777214e034
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
+            handle: intro
+            instructions: null
+            label: Intro
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f3859ce0-97b3-40a8-a270-32e2b0764727
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 291ae1db-9adc-44e3-90df-c1c89a7c9875 # Ticker-items
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: be012119-2c76-48e2-b04a-29b140cba3b6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 759be7eb-7aca-4ecb-97d8-e0469f53dfe8 # Aantal rijen
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5c29b1a2-ce7f-4983-a29d-5703e40d19a1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 63a4c8dd-6aa0-4c45-a6f9-4d4581d856bb
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 04d6165b-2f67-4e9e-bfef-b37bff45a5c3 # Kleurthema
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 29f83d1d-4d51-46c5-9b8a-da6124062e61
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5cd2552a-d7ef-4d86-be5d-0f09abd0e232 # Volledige breedte?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4730abcd-4210-4c37-927b-64360e0d82bd
+            userCondition: null
+            warning: null
+            width: 100
+        name: Opmaak
+        uid: 674102fa-4af4-48ab-8009-1d92bb935ecc
+        userCondition: null
+    thumbFieldKey: null
+handle: ticker
+hasTitleField: true
+icon: gallery-horizontal
+name: Ticker
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,0 +1,12 @@
+{% extends '_layout' %}
+
+{#
+  A page is a stack of sections. Each section type has a matching template in
+  _sections/; an unknown type is skipped rather than breaking the page.
+#}
+{% block content %}
+    {% set sections = entry.sections.with(['image', 'imageMobile', 'ctas', 'cards', 'columns', 'accordionItems', 'tickerItems']).all() %}
+    {% for section in sections %}
+        {% include '_sections/' ~ section.type.handle ignore missing with { section: section } only %}
+    {% endfor %}
+{% endblock %}

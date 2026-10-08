@@ -1,0 +1,102 @@
+{% import '_macros/ui' as ui %}
+
+{% set logo = brand.logoFooter.one() ?? brand.logoNav.one() %}
+{% set address = contact.address.one() %}
+{% set pages = craft.entries().section('pages').level(1).includeInNav(true).all() %}
+{% set legalPages = craft.entries().section('legal').all() %}
+{% set socials = [
+    ['instagram', contact.instagramUrl, 'Instagram'],
+    ['facebook', contact.facebookUrl, 'Facebook'],
+    ['linkedin', contact.linkedinUrl, 'LinkedIn'],
+    ['x', contact.xUrl, 'X'],
+    ['youtube', contact.youtubeChannelUrl, 'YouTube'],
+    ['tiktok', contact.tiktokUrl, 'TikTok'],
+]|filter(social => social[1]) %}
+{% set phoneHref = contact.phone|replace({' ': '', '-': '', '(': '', ')': ''}) %}
+
+<footer class="footer u-theme-contrast">
+    <div class="footer__inner wrapper">
+        <div class="grid grid--gap-xl l:grid--gap-xxl">
+            <div class="grid__col l:grid__col--span-6">
+                <div class="footer__brand">
+                    <a class="footer__logoLink" href="{{ siteUrl }}" aria-label="{{ currentSite.name }} — home">
+                        {% if logo %}
+                            {{ ui.image(logo, { class: 'footer__logo', alt: currentSite.name }) }}
+                        {% else %}
+                            <span class="footer__siteName">{{ currentSite.name }}</span>
+                        {% endif %}
+                    </a>
+                    {% if brand.footerText|length %}
+                        <div class="footer__text richText">{{ brand.footerText }}</div>
+                    {% endif %}
+                    {% if socials|length %}
+                        <ul class="footer__socials" aria-label="Social media">
+                            {% for social in socials %}
+                                <li>
+                                    <a class="footer__social" href="{{ social[1].url }}" target="_blank" rel="noopener" aria-label="{{ social[2] }}">
+                                        {{ ui.brandIcon(social[0]) }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if pages|length %}
+                <div class="grid__col s:grid__col--span-6 l:grid__col--span-3">
+                    <h2 class="footer__heading h5">Menu</h2>
+                    <ul class="footer__links">
+                        {% for page in pages %}
+                            <li><a class="footer__link" href="{{ page.url }}">{{ page.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <div class="grid__col s:grid__col--span-6 l:grid__col--span-3">
+                <h2 class="footer__heading h5">Contact</h2>
+                <address class="footer__contact">
+                    {% if address %}
+                        {% set addressLines = [address.addressLine1, address.addressLine2, (address.postalCode ~ ' ' ~ address.locality)|trim]|filter %}
+                        {% if address.googleMapsUrl %}
+                            <a class="footer__link" href="{{ address.googleMapsUrl.url }}" target="_blank" rel="noopener">{{ addressLines|join('<br>')|raw }}</a>
+                        {% else %}
+                            <span>{{ addressLines|join('<br>')|raw }}</span>
+                        {% endif %}
+                    {% endif %}
+                    {% if contact.email %}
+                        <a class="footer__link" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+                    {% endif %}
+                    {% if contact.phone %}
+                        <a class="footer__link" href="tel:{{ phoneHref }}">{{ contact.phone }}</a>
+                    {% endif %}
+                    {% if contact.phone and contact.enableWhatsapp %}
+                        <a class="footer__link footer__link--icon" href="https://wa.me/{{ phoneHref|replace({'+': ''}) }}" target="_blank" rel="noopener">
+                            {{ ui.brandIcon('whatsapp') }} WhatsApp
+                        </a>
+                    {% endif %}
+                </address>
+                {% if contact.kvkNumber or contact.vatId %}
+                    <dl class="footer__registration">
+                        {% if contact.kvkNumber %}<div><dt>KVK</dt><dd>{{ contact.kvkNumber }}</dd></div>{% endif %}
+                        {% if contact.vatId %}<div><dt>Btw</dt><dd>{{ contact.vatId }}</dd></div>{% endif %}
+                    </dl>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__legal">
+        <div class="wrapper footer__legalInner">
+            <div>&copy; {{ now|date('Y') }} {{ currentSite.name }}. Alle rechten voorbehouden.</div>
+            {% if legalPages|length %}
+                <ul class="footer__legalLinks">
+                    {% for page in legalPages %}
+                        <li><a class="footer__link" href="{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</footer>

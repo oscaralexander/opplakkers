@@ -1,0 +1,149 @@
+columnSuffix: null
+handle: sections
+instructions: null
+name: Secties
+searchable: false
+settings:
+  createButtonLabel: 'Sectie toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 223bff3f-eb5b-4746-86d5-bb5a724b27e8 # Hero
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - cd27874e-3225-4764-983c-980e11f92b78 # Tekst
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 6ff57efe-4366-4393-865e-584790c7fdac # Tekst & media
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - ba80ddc4-bb47-4e4c-b294-09f8f5cc985c # Kolommen
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 78956450-6666-4b56-a5b6-39f42c5058bf # Kaarten
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 9beb7422-bc73-4fd5-836e-fadb058c009a # Accordeon
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 7076065c-5af8-4f1e-b9bb-9154d6899acd # Statistieken
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - c06339bb-2bba-483b-967f-e4a73bad9660 # Testimonials
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 699db4a4-111d-4d47-b335-b80b425830d9 # Personen
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 60832cf3-6719-452e-95bd-f6a883aa8572 # Producten
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 9c66202e-18ce-4bd4-911f-c90cf27bf3ed # Bedrijfslogo's
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - f4409720-6fe1-4724-bea8-e26a0b38769e # Ticker
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - eb8bda0d-aecd-4996-85e8-8dc0f43a1c6c # Blogoverzicht
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 02e9cfca-1af5-4a3a-8fb7-3b0467185923 # Call-to-action
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - fcdfdd5c-8294-45d1-8f85-e31d9b91c1c6 # Embed
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - be605c1d-c252-44aa-a6ff-a9c378784065 # Diensten
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

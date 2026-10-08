@@ -1,0 +1,6 @@
+allowPublicRegistration: false
+defaultGroup: null
+photoSubpath: gebruikers
+photoVolumeUid: 797ad809-87f3-446e-b347-7a1dd875d5de # Personen
+require2fa: false
+requireEmailVerification: true

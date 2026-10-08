@@ -1,0 +1,78 @@
+.btn {
+    align-items: center;
+    background: var(--btn-color-bg);
+    border: 1px solid var(--btn-color-border);
+    border-radius: var(--btn-border-radius);
+    color: var(--btn-color-text);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--btn-font, var(--font-1));
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    gap: .5em;
+    height: var(--btn-height);
+    justify-content: center;
+    line-height: 1;
+    padding: 1px calc(var(--btn-height) * .5);
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    transition:
+        background var(--duration-m),
+        border-color var(--duration-m),
+        color var(--duration-m);
+    user-select: none;
+
+    &:hover {
+        background: var(--btn-color-bg-hover);
+        border-color: var(--btn-color-border-hover);
+        color: var(--btn-color-text-hover);
+
+        .btn__label > span {
+            transform: translateY(-100%);
+        }
+    }
+
+    &:active {
+        padding-bottom: 0;
+        padding-top: 2px;
+    }
+
+    &__label {
+        display: inline-block;
+        height: 1em;
+        overflow: hidden;
+
+        & > span {
+            display: block;
+            transform: translateY(0);
+            transition: transform var(--duration-m);
+        }
+    }
+
+    &--block {
+        display: flex;
+        width: 100%;
+    }
+
+    &--primary {
+        --btn-color-bg: var(--btn-primary-color-bg);
+        --btn-color-bg-hover: var(--btn-primary-color-bg-hover);
+        --btn-color-border: var(--btn-primary-color-border);
+        --btn-color-border-hover: var(--btn-primary-color-border-hover);
+        --btn-color-text: var(--btn-primary-color-text);
+        --btn-color-text-hover: var(--btn-primary-color-text-hover);
+    }
+
+    // Size variants
+
+    &--s {
+        --btn-height: var(--btn-height-s);
+        font-size: var(--font-size-s);
+    }
+
+    &--l {
+        --btn-height: var(--btn-height-l);
+    }
+}

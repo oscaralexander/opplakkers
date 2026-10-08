@@ -1,0 +1,31 @@
+fieldLayouts:
+  1ca274de-0bc7-4bb7-928a-aa2130e308dd:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7608e09e-34b6-40c0-9c05-8ba37e3ee101 # Knoppen
+            handle: null
+            instructions: 'Knoppen rechts in de navigatiebalk, bijvoorbeeld "Contact" of "Afspraak maken". Het menu zelf volgt automatisch de pagina''s.'
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 813c3268-8781-4c73-8676-ad611aa0483b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Navigatie
+        uid: ade82d7b-36ca-42ee-a09b-3d140086f439
+        userCondition: null
+    thumbFieldKey: null
+handle: navigation
+name: Navigatie
+sortOrder: 3

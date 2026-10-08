@@ -1,0 +1,54 @@
+columnSuffix: null
+handle: style
+instructions: null
+name: Stijl
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Primaire knop'
+        -
+          - value
+          - primary
+        -
+          - icon
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Secundaire knop'
+        -
+          - value
+          - secondary
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Tekstlink
+        -
+          - value
+          - text
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup

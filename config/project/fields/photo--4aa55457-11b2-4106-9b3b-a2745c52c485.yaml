@@ -1,0 +1,36 @@
+columnSuffix: null
+handle: photo
+instructions: 'Een vierkante foto werkt het best.'
+name: Foto
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  branchLimit: null
+  defaultPlacement: end
+  defaultUploadLocationSource: 'volume:797ad809-87f3-446e-b347-7a1dd875d5de' # Personen
+  defaultUploadLocationSubpath: null
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  previewMode: full
+  restrictFiles: true
+  restrictLocation: true
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:797ad809-87f3-446e-b347-7a1dd875d5de' # Personen
+  restrictedLocationSubpath: null
+  selectionLabel: 'Foto kiezen'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: thumbs
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Assets

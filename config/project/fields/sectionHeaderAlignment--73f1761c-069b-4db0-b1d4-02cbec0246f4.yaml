@@ -1,0 +1,40 @@
+columnSuffix: null
+handle: sectionHeaderAlignment
+instructions: '"Links" plaatst de kop naast de inhoud, "Boven" plaatst de kop gecentreerd boven de inhoud.'
+name: 'Positie van de kop'
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Links
+        -
+          - value
+          - left
+        -
+          - icon
+          - align-left
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Boven
+        -
+          - value
+          - top
+        -
+          - icon
+          - align-center
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup

@@ -1,0 +1,43 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  971b7ca0-87ab-4834-82a5-3ada8a670cc4:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f604fc63-8bc5-42da-8089-38c4b8dcb0a2 # YouTube-URL
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 98297a64-cfaf-4a88-b660-f5bf9947aa51
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: a43761ab-8459-458e-9991-bf893a9f11c6
+        userCondition: null
+    thumbFieldKey: null
+handle: bodyVideo
+hasTitleField: false
+icon: video
+name: Video
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

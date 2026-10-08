@@ -1,0 +1,32 @@
+@use '@css/1-settings/variables' as *;
+@use '@css/2-tools/mixins' as *;
+@use 'sass:map';
+
+// .s:u-hide hides from the s breakpoint up; .s:u-show shows from it up.
+.u-hide {
+    display: none !important;
+}
+
+.u-visuallyHidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+@each $breakpoint in map.keys($breakpoints) {
+    @include screen-max($breakpoint) {
+        .#{$breakpoint}\:u-show {
+            display: none !important;
+        }
+    }
+
+    @include screen-min($breakpoint) {
+        .#{$breakpoint}\:u-hide {
+            display: none !important;
+        }
+    }
+}

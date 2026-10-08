@@ -1,0 +1,48 @@
+fieldLayouts:
+  dac3fb84-341d-4360-b44f-8823d2f53f66:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 152bd57f-742e-4bb9-903f-97d7c182b8e2 # Parallax-effect op afbeeldingen?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f9e547f2-f1b7-472f-9f85-a7a6e043a93d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 43ef785f-3c92-4980-91a3-ff144fd421e6 # Code
+            handle: htmlHead
+            instructions: 'Voor bijvoorbeeld statistieken of verificatiecodes. Wordt op elke pagina geplaatst.'
+            label: 'HTML in <head>'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2fce4742-1070-4b98-b2c9-24f4c5a7e4e9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Instellingen
+        uid: d4bbc046-1d9d-4bcd-9670-1b0ff9500a3f
+        userCondition: null
+    thumbFieldKey: null
+handle: settings
+name: Instellingen
+sortOrder: 4

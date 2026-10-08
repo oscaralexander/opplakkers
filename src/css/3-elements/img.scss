@@ -1,0 +1,15 @@
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+// Inline Lucide icons scale with the text they sit in.
+.lucide {
+    flex: 0 0 auto;
+    height: 1.25em;
+    stroke-width: 2;
+    width: 1.25em;
+}

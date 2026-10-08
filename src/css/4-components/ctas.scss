@@ -1,0 +1,16 @@
+.ctas {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-s) var(--size-m);
+
+    &--center {
+        justify-content: center;
+    }
+
+    &--block {
+        .btn {
+            flex: 1;
+        }
+    }
+}

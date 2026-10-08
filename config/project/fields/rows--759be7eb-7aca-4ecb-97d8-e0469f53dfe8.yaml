@@ -1,0 +1,40 @@
+columnSuffix: null
+handle: rows
+instructions: null
+name: 'Aantal rijen'
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Eén
+        -
+          - value
+          - '1'
+        -
+          - icon
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Twee
+        -
+          - value
+          - '2'
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup

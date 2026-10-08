@@ -1,0 +1,36 @@
+@use '@css/1-settings/variables' as *;
+@use '@css/2-tools/mixins' as *;
+@use 'sass:map';
+
+.stack {
+    display: flex;
+    flex-direction: column;
+
+    &--start {
+        align-items: flex-start;
+    }
+
+    &--center {
+        align-items: center;
+    }
+
+    &--end {
+        align-items: flex-end;
+    }
+}
+
+@each $key, $val in $sizes {
+    .stack--gap-#{$key} {
+        gap: $val;
+    }
+}
+
+@each $breakpoint in map.keys($breakpoints) {
+    @include screen-min($breakpoint) {
+        @each $key, $val in $sizes {
+            .#{$breakpoint}\:stack--gap-#{$key} {
+                gap: $val;
+            }
+        }
+    }
+}

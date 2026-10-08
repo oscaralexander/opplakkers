@@ -1,0 +1,31 @@
+{% import '_macros/ui' as ui %}
+
+{% set testimonials = section.testimonials.with(['authorPhoto']).all() %}
+{% if testimonials is empty %}
+    {% set testimonials = craft.entries().section('testimonials').with(['authorPhoto']).all() %}
+{% endif %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+
+{% if testimonials|length %}
+    <section class="{{ ui.sectionClass(section, 'testimonials') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col{{ alignment == 'left' ? ' l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ alignment == 'left' and hasHeader ? ' l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-m grid--scrolling" data-reveal-group>
+                        {% for testimonial in testimonials %}
+                            <div class="grid__col js-reveal s:grid__col--span-6 {{ ui.gridCol(testimonials|length, hasHeader ? alignment : 'top') }}">
+                                {{ ui.testimonial(testimonial) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

@@ -1,0 +1,29 @@
+@use '@css/2-tools/mixins' as *;
+
+.companies {
+    &__ticker {
+        mask-image: linear-gradient(to right, transparent, #000 calc(var(--gutter) * 2), #000 calc(100% - var(--gutter) * 2), transparent);
+    }
+}
+
+.company {
+    padding: 0 var(--size-l);
+
+    &__link {
+        display: block;
+    }
+
+    &__logo {
+        height: 3rem;
+        object-fit: contain;
+        width: auto;
+    }
+
+    @include screen-min(l) {
+        padding: 0 var(--size-xl);
+
+        &__logo {
+            height: 4rem;
+        }
+    }
+}

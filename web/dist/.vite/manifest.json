@@ -1,0 +1,36 @@
+{
+  "src/js/components/Accordion.js": {
+    "file": "assets/Accordion-1y8iZyMA.js",
+    "name": "Accordion",
+    "src": "src/js/components/Accordion.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/js/index.js"
+    ],
+    "integrity": "sha384-Ci2L/wqADIJ90QI1DF8TnndfVTknnRigF20zG4dlwT3cEy1yBCaKWhpkSA31Kdub"
+  },
+  "src/js/components/Ticker.js": {
+    "file": "assets/Ticker-DCPnp_ta.js",
+    "name": "Ticker",
+    "src": "src/js/components/Ticker.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/js/index.js"
+    ],
+    "integrity": "sha384-+lUk261ic3wDfrPNCOWxFvN6q9lDyIlYn5yTPdjxSDh8MN0giTgKBxyeSYtDSghd"
+  },
+  "src/js/index.js": {
+    "file": "assets/app-BA-9d9e4.js",
+    "name": "app",
+    "src": "src/js/index.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/js/components/Accordion.js",
+      "src/js/components/Ticker.js"
+    ],
+    "css": [
+      "assets/app-Dc9fn1cB.css"
+    ],
+    "integrity": "sha384-8CJS2sM+xuaSprFcHORE4F9M8o/5jGUpuTgR7Hsz+sgkWXp69RIwSBlHgxRGEhzm"
+  }
+}

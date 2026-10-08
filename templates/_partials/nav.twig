@@ -1,0 +1,86 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  Site navigation. The menu follows the page structure: every level-1 page
+  with "Tonen in navigatie" on, with its children as a submenu. Buttons on the
+  right come from the Navigatie global.
+#}
+{% set logo = brand.logoNav.one() %}
+{% set currentId = entry.id ?? null %}
+{% set ctas = navigation.ctas.all() %}
+{% set pages = craft.entries()
+    .section('pages')
+    .level(1)
+    .includeInNav(true)
+    .with(['children'])
+    .all() %}
+
+<nav class="nav js-nav" aria-label="Hoofdnavigatie">
+    <div class="nav__inner">
+        <button
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Menu"
+            class="nav__menuToggle js-navMenuToggle"
+            type="button"
+        >
+            <span class="nav__menuToggleIcon"></span>
+        </button>
+
+        <a class="nav__logoLink" href="{{ siteUrl }}" aria-label="{{ currentSite.name }} — home">
+            {% if logo %}
+                {{ ui.image(logo, { class: 'nav__logo', eager: true, alt: currentSite.name }) }}
+            {% else %}
+                <span class="nav__siteName">{{ currentSite.name }}</span>
+            {% endif %}
+        </a>
+
+        <div class="nav__menuOverlay js-navMenuOverlay"></div>
+
+        <div class="nav__menu" id="navMenu">
+            <ul class="menu">
+                {% for page in pages %}
+                    {% set children = page.children|filter(child => child.includeInNav) %}
+                    {% set isCurrent = page.id == currentId or (children|filter(child => child.id == currentId)|length > 0) %}
+                    <li class="menu__item{{ children|length ? ' menu__item--hasSubmenu' }}">
+                        <a
+                            aria-label="{{ page.title }}"
+                            class="menu__link"
+                            href="{{ page.url }}"
+                            {% if isCurrent %}aria-current="page"{% endif %}
+                        >
+                            <span class="menu__label">
+                                <span>{{ page.title }}</span>
+                                <span aria-hidden="true">{{ page.title }}</span>
+                            </span>
+                            {% if children|length %}{{ ui.icon('chevron-down', 'menu__chevron') }}{% endif %}
+                        </a>
+                        {% if children|length %}
+                            <ul class="menu__submenu">
+                                {% for child in children %}
+                                    <li>
+                                        <a
+                                            class="menu__submenuLink"
+                                            href="{{ child.url }}"
+                                            {% if child.id == currentId %}aria-current="page"{% endif %}
+                                        >{{ child.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if ctas|length %}
+                <div class="nav__menuFooter">
+                    {{ ui.ctas(ctas) }}
+                </div>
+            {% endif %}
+        </div>
+        {% if ctas|length %}
+            <div class="nav__ctas">
+                {{ ui.ctas(ctas) }}
+            </div>
+        {% endif %}
+    </div>
+</nav>

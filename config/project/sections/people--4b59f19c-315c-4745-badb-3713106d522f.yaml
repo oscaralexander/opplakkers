@@ -1,0 +1,20 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 5c06c5d6-9bdc-4607-8ea5-818d524fdbb5 # Persoon
+handle: people
+maxAuthors: 1
+minAuthors: 1
+name: Personen
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: eebc4eb7-f9d0-45ed-94eb-4e27d88e403f
+type: structure

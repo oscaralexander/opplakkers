@@ -1,0 +1,143 @@
+@use '@css/2-tools/mixins' as *;
+
+.footer {
+    --color-bg: var(--footer-color-bg);
+    background: var(--footer-color-bg);
+    margin-top: var(--section-padding-y);
+
+    &__inner {
+        padding: var(--section-padding-y) var(--gutter);
+    }
+
+    &__brand {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-l);
+    }
+
+    &__logoLink {
+        display: inline-flex;
+    }
+
+    &__logo {
+        height: var(--logo-height);
+        width: auto;
+    }
+
+    &__siteName {
+        color: var(--color-text-hc);
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+    }
+
+    &__text {
+        font-size: var(--font-size-s);
+        max-width: 26rem;
+    }
+
+    &__heading {
+        margin-bottom: var(--size-l);
+    }
+
+    &__links,
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        font-style: normal;
+        gap: var(--size-xs);
+        line-height: var(--line-height-l);
+    }
+
+    &__link {
+        color: var(--color-text);
+
+        &:hover {
+            color: var(--color-text-hc);
+        }
+
+        &--icon {
+            align-items: center;
+            display: inline-flex;
+            gap: .5em;
+
+            svg {
+                height: 1.125em;
+                width: 1.125em;
+            }
+        }
+    }
+
+    &__registration {
+        color: var(--color-text-lc);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: var(--font-size-s);
+        gap: var(--size-xs) var(--size-m);
+        margin-top: var(--size-m);
+
+        > div {
+            display: flex;
+            gap: .375em;
+        }
+
+        dt::after {
+            content: ':';
+        }
+    }
+
+    &__socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-m);
+    }
+
+    &__social {
+        color: var(--color-text);
+        display: block;
+
+        svg {
+            height: 1.375rem;
+            width: 1.375rem;
+        }
+
+        &:hover {
+            color: var(--color-text-hc);
+        }
+    }
+
+    &__legal {
+        border-top: 1px solid var(--color-border);
+        color: var(--color-text-lc);
+        font-size: var(--font-size-xs);
+    }
+
+    &__legalInner {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-s);
+        padding-bottom: var(--size-l);
+        padding-top: var(--size-l);
+    }
+
+    &__legalLinks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-s) var(--size-m);
+
+        .footer__link {
+            color: var(--color-text-lc);
+
+            &:hover {
+                color: var(--color-text-hc);
+            }
+        }
+    }
+
+    @include screen-min(m) {
+        &__legalInner {
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: ctas
+instructions: null
+name: Knoppen
+searchable: false
+settings:
+  createButtonLabel: 'Knop toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 65768739-036f-4bc1-b056-a4b4f36d9405 # Knop
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

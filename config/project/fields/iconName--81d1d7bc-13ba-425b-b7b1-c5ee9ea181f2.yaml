@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: iconName
+instructions: 'De naam van een icoon uit de Lucide-set, bijvoorbeeld "sparkles" of "calendar-check". Zie https://lucide.dev/icons/'
+name: Icoon
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: sparkles
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

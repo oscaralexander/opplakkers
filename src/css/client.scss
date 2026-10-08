@@ -1,0 +1,40 @@
+.btn {
+    font-variation-settings: 'wdth' 150, 'wght' 600;
+    transform: skewX(-10deg);
+
+    &__label,
+    svg {
+        transform: skewX(10deg);
+    }
+}
+
+.nav {
+    .btn,
+    .btn .btn__label,
+    .btn svg {
+        transform: none;
+    }
+}
+
+.menu__link {
+    font-variation-settings: 'wdth' 150, 'wght' 600;
+}
+
+.hero {
+    h1 {
+        padding-top: .25em;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 8px;
+            background: var(--color-1);
+            transform: skewX(-10deg);
+            z-index: -1;
+        }
+    }
+}

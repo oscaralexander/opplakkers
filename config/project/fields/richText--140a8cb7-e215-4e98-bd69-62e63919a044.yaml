@@ -1,0 +1,47 @@
+columnSuffix: null
+handle: richText
+instructions: 'Kies via het menu "Alinea" een tekstgrootte.'
+name: 'Tekst (opgemaakt)'
+searchable: false
+settings:
+  advancedLinkFields:
+    - target
+  availableTransforms: ''
+  availableVolumes: ''
+  characterLimit: null
+  css: ".ck.ck-content { font-size: 16px; line-height: 1.5; }\n.ck.ck-content p.size-s { font-size: .875em; }\n.ck.ck-content p.size-l { font-size: 1.125em; }\n.ck.ck-content p.size-xl { font-size: 1.25em; }"
+  cssFile: null
+  defaultTransform: null
+  defaultUploadLocationSubpath: null
+  defaultUploadLocationVolume: null
+  fullGraphqlData: true
+  headingLevels: false
+  imageEntryTypeUid: null
+  imageFieldUid: null
+  imageMode: img
+  js: "return {\n  heading: {\n    options: [\n      { model: 'paragraph', title: 'Alinea', class: 'ck-heading_paragraph' },\n      { model: 'paragraphSmall', view: { name: 'p', classes: ['size-s'] }, title: 'Alinea (klein)', class: 'ck-heading_paragraph', converterPriority: 'high' },\n      { model: 'paragraphLarge', view: { name: 'p', classes: ['size-l'] }, title: 'Alinea (groot)', class: 'ck-heading_paragraph', converterPriority: 'high' },\n      { model: 'paragraphXl', view: { name: 'p', classes: ['size-xl'] }, title: 'Alinea (extra groot)', class: 'ck-heading_paragraph', converterPriority: 'high' },\n      \n    ],\n  },\n};"
+  jsFile: null
+  options: null
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  toolbar:
+    - heading
+    - '|'
+    - bold
+    - italic
+    - link
+    - '|'
+    - bulletedList
+    - numberedList
+    - '|'
+    - sourceEditing
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\ckeditor\Field

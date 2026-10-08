@@ -1,0 +1,37 @@
+.u-theme-none {
+    background: var(--color-bg);
+}
+
+.u-theme-tint {
+    --color-bg: var(--color-bg-tint);
+
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.u-theme-contrast {
+    --color-bg: #101828;
+
+    --color-text-hc: #fff;
+    --color-text: rgb(from var(--color-text-hc) r g b / 75%);
+    --color-text-lc: rgb(from var(--color-text-hc) r g b / 50%);
+    --color-text-accent: rgb(from var(--color-text-hc) r g b / 75%);
+
+    --color-link: var(--color-text-hc);
+    --color-link-hover: var(--color-text-hc);
+
+    // --btn-primary-color-bg: #fff;
+    // --btn-primary-color-bg-hover: rgb(from var(--btn-primary-color-bg) r g b / 85%);
+    // --btn-primary-color-text: #000;
+    // --btn-primary-color-text-hover: #000;
+
+    --btn-color-bg: transparent;
+    --btn-color-bg-hover: transparent;
+    --btn-color-text: var(--color-link);
+    --btn-color-text-hover: var(--color-link);
+    --btn-color-border: rgb(from var(--color-link) r g b / 50%);
+    --btn-color-border-hover: rgb(from var(--color-link) r g b / 100%);
+
+    background: var(--color-bg);
+    color: var(--color-text);
+}

@@ -1,0 +1,32 @@
+columnSuffix: null
+handle: features
+instructions: null
+name: Kenmerken
+searchable: false
+settings:
+  addRowLabel: 'Kenmerk toevoegen'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Kenmerk
+            -
+              - handle
+              - feature
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults: null
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Table

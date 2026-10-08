@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: testimonials
+instructions: 'Laat leeg om alle testimonials te tonen.'
+name: Testimonials
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Testimonials kiezen'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources:
+    - 'section:62c9ccb1-fe8d-4659-a42e-e77529b657d8' # Testimonials
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

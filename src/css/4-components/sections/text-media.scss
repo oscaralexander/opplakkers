@@ -1,0 +1,75 @@
+@use '@css/2-tools/mixins' as *;
+
+.textMedia {
+    &__media {
+        border-radius: var(--border-radius-m);
+        max-height: 85vh;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
+        &--parallax .textMedia__image {
+            height: 125%;
+            inset: auto 0 0;
+            position: absolute;
+            transform: translate3d(0, calc(var(--equinox-pos, 0) * 20%), 0);
+        }
+    }
+
+    &__image {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    // The full-width variant: the image bleeds to the screen edge on large
+    // screens, taking the place of the media column.
+    &__bleed {
+        display: none;
+    }
+
+    @include screen-min(l) {
+        &__bleed {
+            display: block;
+            inset: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+
+            .textMedia--left & {
+                left: 50%;
+            }
+
+            .textMedia--right & {
+                right: 50%;
+            }
+
+            &--parallax .textMedia__bleedImage {
+                height: 125%;
+                transform: translate3d(0, calc(var(--equinox-pos, 0) * 20%), 0);
+            }
+        }
+
+        &__bleedImage {
+            height: 100%;
+            inset: auto 0 0;
+            object-fit: cover;
+            position: absolute;
+            width: 100%;
+        }
+
+        // display, not visibility: a lazy image in a display:none column is
+        // never requested, so the bleed does not double the download.
+        &__mediaCol--bleed {
+            display: none;
+        }
+
+        &--left:has(.textMedia__bleed) .textMedia__text {
+            padding-right: var(--size-xxl);
+        }
+
+        &--right:has(.textMedia__bleed) .textMedia__text {
+            padding-left: var(--size-xxl);
+        }
+    }
+}

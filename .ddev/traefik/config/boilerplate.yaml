@@ -1,0 +1,123 @@
+#ddev-generated
+# If you remove the ddev-generated line above you
+# are responsible for maintaining this file. DDEV will not then
+# update it, for example if you add `additional_hostnames`, etc.
+
+http:
+  routers:
+    boilerplate-web-80-http:
+      entrypoints:
+        - http-80
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-web-80"
+      tls: false
+      # middlewares:
+      #   - "boilerplate-redirectHttps"
+    boilerplate-web-8025-http:
+      entrypoints:
+        - http-8025
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-web-8025"
+      tls: false
+      # middlewares:
+      #   - "boilerplate-redirectHttps"
+    boilerplate-web-5173-http:
+      entrypoints:
+        - http-5172
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-web-5173"
+      tls: false
+      # middlewares:
+      #   - "boilerplate-redirectHttps"
+    boilerplate-xhgui-80-http:
+      entrypoints:
+        - http-8143
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-xhgui-80"
+      tls: false
+      # middlewares:
+      #   - "boilerplate-redirectHttps"
+    
+    
+    
+    
+    boilerplate-web-80-https:
+      entrypoints:
+        - http-443
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-web-80"
+      
+      tls: true
+      
+    boilerplate-web-8025-https:
+      entrypoints:
+        - http-8026
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-web-8025"
+      
+      tls: true
+      
+    boilerplate-web-5173-https:
+      entrypoints:
+        - http-5173
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-web-5173"
+      
+      tls: true
+      
+    
+    boilerplate-xhgui-80-https:
+      entrypoints:
+        - http-8142
+      rule: HostRegexp(`^boilerplate\.ddev\.site$`)
+      
+      service: "boilerplate-xhgui-80"
+      
+      tls: true
+      
+    
+
+  middlewares:
+    boilerplate-redirectHttps:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  services:
+    boilerplate-web-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-boilerplate-web:80
+        
+    boilerplate-web-8025:
+      loadbalancer:
+        servers:
+          - url: http://ddev-boilerplate-web:8025
+        
+    boilerplate-web-5173:
+      loadbalancer:
+        servers:
+          - url: http://ddev-boilerplate-web:5173
+        
+    
+    
+    
+    boilerplate-xhgui-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-boilerplate-xhgui:80
+        
+    
+    
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/boilerplate.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/boilerplate.key

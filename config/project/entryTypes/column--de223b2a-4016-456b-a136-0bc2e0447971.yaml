@@ -1,0 +1,143 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  6e533f3f-a691-48f2-a4d4-08df4cac0274:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\TextFieldConditionRule
+                  fieldUid: 81d1d7bc-13ba-425b-b7b1-c5ee9ea181f2 # Icoon
+                  layoutElementUid: b4fb64db-94e7-43a6-97e6-d680fc2a7796
+                  operator: empty
+                  uid: c4ff9e2d-7934-42c9-a1d4-7f922e76563e
+                  value: ''
+              elementType: craft\elements\Entry
+              fieldContext: global
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: null
+            instructions: 'Kies een afbeelding óf een icoon.'
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24ab4662-36fb-41dd-b8e0-b7df2718e7fc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+                  layoutElementUid: 24ab4662-36fb-41dd-b8e0-b7df2718e7fc
+                  operator: empty
+                  uid: 425ce8c3-510e-4870-b66a-712c2b1a1c26
+              elementType: craft\elements\Entry
+              fieldContext: global
+            elementEditCondition: null
+            fieldUid: 81d1d7bc-13ba-425b-b7b1-c5ee9ea181f2 # Icoon
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4fb64db-94e7-43a6-97e6-d680fc2a7796
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 1f2678a2-1314-48b6-95e5-f209bd669345
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
+            handle: text
+            instructions: null
+            label: Tekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f55c202-c23f-46b8-ad90-ba965d338d1c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7608e09e-34b6-40c0-9c05-8ba37e3ee101 # Knoppen
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 429dae1c-c448-442d-96e4-dec6c6ce8286
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 22b8c5ed-c7bd-454c-a4dd-b05a3bbf3e69
+        userCondition: null
+    thumbFieldKey: null
+handle: column
+hasTitleField: true
+icon: columns-3
+name: Kolom
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

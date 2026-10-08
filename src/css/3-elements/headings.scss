@@ -1,0 +1,15 @@
+@use '@css/2-tools/mixins' as *;
+
+@for $level from 1 through 4 {
+    h#{$level},
+    .h#{$level} {
+        @include heading($level);
+        color: var(--color-text-hc);
+    }
+}
+
+h5,
+.h5 {
+    @include heading(5);
+    color: var(--color-text-accent);
+}

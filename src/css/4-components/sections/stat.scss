@@ -1,0 +1,35 @@
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-xs);
+
+    &__value {
+        color: var(--color-text-hc);
+        font-family: var(--font-2);
+        font-size: var(--font-size-4xl);
+        font-variant-numeric: tabular-nums;
+        font-weight: var(--h1-weight);
+        letter-spacing: var(--h1-letter-spacing);
+        line-height: 1;
+        overflow: hidden;
+    }
+
+    &__label {
+        color: var(--color-text-lc);
+    }
+}
+
+// Once its column has faded in, the number slides up from behind the mask.
+.is-revealReady .js-reveal .stat__value > div {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+}
+
+.is-revealReady .js-reveal.is-revealed .stat__value > div {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity var(--duration-l) ease,
+        transform var(--duration-l) cubic-bezier(.2, .8, .2, 1);
+    transition-delay: calc(var(--reveal-delay, 0ms) + 250ms);
+}

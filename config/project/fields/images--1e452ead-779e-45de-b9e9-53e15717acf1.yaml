@@ -1,0 +1,36 @@
+columnSuffix: null
+handle: images
+instructions: 'Eén afbeelding wordt over de volledige breedte getoond; twee afbeeldingen komen naast elkaar.'
+name: Afbeeldingen
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  branchLimit: null
+  defaultPlacement: end
+  defaultUploadLocationSource: 'volume:30416434-a39c-4a21-8f95-4338b206919b' # Media
+  defaultUploadLocationSubpath: null
+  maintainHierarchy: false
+  maxRelations: 2
+  minRelations: null
+  previewMode: full
+  restrictFiles: true
+  restrictLocation: true
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:30416434-a39c-4a21-8f95-4338b206919b' # Media
+  restrictedLocationSubpath: null
+  selectionLabel: 'Afbeeldingen kiezen'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: thumbs
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Assets

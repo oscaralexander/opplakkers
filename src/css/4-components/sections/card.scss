@@ -1,0 +1,67 @@
+@use '@css/2-tools/mixins' as *;
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-l);
+    display: flex;
+    flex-direction: column;
+    --card-padding: var(--size-xl);
+    gap: var(--size-xl);
+    height: 100%;
+    overflow: hidden;
+    padding: var(--card-padding);
+    position: relative;
+    transition: border-color var(--duration-m), transform var(--duration-m) var(--ease-out);
+
+    // On a white section a white card needs an edge.
+    .u-theme-none &.u-theme-none {
+        border: 1px solid var(--color-border);
+    }
+
+    // The image bleeds to the card's edges; the text sits inset below it.
+    &__image {
+        margin: calc(var(--card-padding) * -1) calc(var(--card-padding) * -1) 0;
+        max-width: none;
+        transform: scale(1.04);
+        transition: transform var(--duration-l) var(--ease-out);
+        width: calc(100% + var(--card-padding) * 2);
+    }
+
+    &__body {
+        flex: 1;
+    }
+
+    &__title {
+        font-size: var(--font-size-xxl);
+    }
+
+    // A single button makes the whole card the link.
+    &__titleLink {
+        color: inherit;
+
+        &::after {
+            content: '';
+            inset: 0;
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &__footer .ctas {
+        position: relative;
+        z-index: 2;
+    }
+
+    &--link:hover {
+        border-color: var(--color-border-hc);
+        transform: translateY(-2px);
+
+        .card__image {
+            transform: none;
+        }
+    }
+
+    @include screen-min(l) {
+        --card-padding: var(--size-xxl);
+    }
+}

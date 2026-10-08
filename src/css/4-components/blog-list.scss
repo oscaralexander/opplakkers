@@ -1,0 +1,50 @@
+@use '@css/2-tools/mixins' as *;
+
+// "Lees ook" beside an article.
+.blogList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-l);
+    }
+
+    @include screen-min(l) {
+        position: sticky;
+        top: calc(var(--nav-height) + var(--nav-offset-y) + var(--size-xl));
+    }
+}
+
+.blogListItem {
+    align-items: center;
+    display: flex;
+    gap: var(--size-m);
+
+    &__imageLink {
+        border-radius: var(--border-radius-s);
+        display: block;
+        flex: 0 0 5rem;
+        overflow: hidden;
+    }
+
+    &__title {
+        font-size: var(--font-size-m);
+        margin-bottom: var(--size-xs);
+
+        a {
+            color: var(--color-text-hc);
+
+            &:hover {
+                color: var(--color-1);
+            }
+        }
+    }
+
+    &__date {
+        color: var(--color-text-lc);
+        font-size: var(--font-size-s);
+    }
+}

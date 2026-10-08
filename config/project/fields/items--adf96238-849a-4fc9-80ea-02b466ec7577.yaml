@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: items
+instructions: null
+name: Items
+searchable: false
+settings:
+  createButtonLabel: 'Item toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 3f88c6b8-bfe9-4911-b295-f7d33d4ec68d # Item
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

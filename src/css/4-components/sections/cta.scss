@@ -1,0 +1,28 @@
+@use '@css/2-tools/mixins' as *;
+
+.cta {
+    &__panel {
+        border-radius: var(--border-radius-l);
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-xl);
+        padding: var(--section-padding-y) var(--gutter);
+        text-align: center;
+    }
+
+    &__content {
+        margin-inline: auto;
+        max-width: 42rem;
+    }
+
+    &__title {
+        font-size: var(--font-size-4xl);
+        letter-spacing: var(--h1-letter-spacing);
+        line-height: var(--h1-line-height);
+    }
+
+    &__text {
+        font-size: var(--font-size-xl);
+        line-height: var(--line-height-m);
+    }
+}

@@ -1,0 +1,31 @@
+// Headline entrance, driven by TextSplit.js (GSAP SplitText). The words rise
+// into place inside line masks that SplitText creates; the script owns every
+// transform, so nothing here animates on its own. With JavaScript off, or
+// reduced motion on, the heading is simply visible.
+//
+// Split headings wrap with `pretty` rather than `balance`: balance re-flows
+// the text whenever its container changes, which fights SplitText's own line
+// detection. Keep them block-level and full width for the same reason.
+.js-textSplit {
+    text-wrap: pretty;
+    width: 100%;
+}
+
+.textSplit {
+    .line {
+        display: block;
+    }
+
+    .word {
+        display: inline-block;
+        will-change: transform;
+    }
+
+    // The masks (SplitText's `<linesClass>-mask` wrappers) clip to the line
+    // box while the words rise into it. Display headings are set tighter than
+    // their glyphs, so once the entrance has played the clipping is lifted;
+    // otherwise descenders on the last line stay cut off.
+    &.is-textSplitDone .line-mask {
+        overflow: visible !important;
+    }
+}

@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: line
+instructions: 'Eén regel tekst. Wordt op verschillende plekken hergebruikt met een eigen label.'
+name: Tekstregel
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

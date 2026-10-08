@@ -1,0 +1,156 @@
+@use '@css/2-tools/mixins' as *;
+
+@keyframes menu-submenu {
+    from {
+        opacity: 0;
+        transform: translate(-50%, calc(var(--size-s) * -1));
+    }
+}
+
+.menu {
+    &__link {
+        align-items: center;
+        color: var(--nav-color-link);
+        display: flex;
+        font-size: var(--nav-link-font-size);
+        font-weight: var(--nav-link-font-weight);
+        gap: .375em;
+        justify-content: space-between;
+        transition: color var(--duration-s);
+
+        &:hover,
+        &[aria-current='page'] {
+            color: var(--nav-color-link-hover);
+        }
+    }
+
+    &__chevron {
+        height: 1em;
+        opacity: .5;
+        width: 1em;
+    }
+
+    @include screen-max(m) {
+        flex: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        &__item {
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        &__link {
+            font-size: var(--font-size-l);
+            padding: var(--size-m) var(--gutter);
+        }
+
+        // The rolling duplicate is a desktop-only effect.
+        &__label > span + span {
+            display: none;
+        }
+
+        &__submenu {
+            padding: 0 0 var(--size-m);
+        }
+
+        &__submenuLink {
+            color: var(--nav-color-link);
+            display: block;
+            font-size: var(--font-size-m);
+            padding: var(--size-s) var(--gutter) var(--size-s) calc(var(--gutter) * 1.75);
+
+            &:hover,
+            &[aria-current='page'] {
+                color: var(--nav-color-link-hover);
+            }
+        }
+    }
+
+    @include screen-min(m) {
+        align-items: center;
+        display: flex;
+        gap: var(--size-xs);
+
+        &__item {
+            position: relative;
+
+            &:hover .menu__submenu,
+            &:focus-within .menu__submenu {
+                display: block;
+            }
+        }
+
+        &__link {
+            border-radius: var(--btn-border-radius);
+            color: var(--nav-color-link);
+            font-family: var(--nav-link-font-family);
+            height: var(--btn-height-s);
+            padding: 0 var(--size-m);
+            text-transform: var(--nav-link-text-transform);
+
+            &:hover {
+                color: var(--nav-color-link-hover);
+
+                .menu__label > span {
+                    transform: translateY(-100%);
+                }
+            }
+
+            &[aria-current='page'] {
+                color: var(--nav-color-link-active);
+            }
+        }
+
+        // Two copies of the label stacked in a one-line window; on hover both
+        // roll up so the second replaces the first, as on .btn__label.
+        &__label {
+            display: inline-block;
+            height: 1em;
+            line-height: 1;
+            overflow: hidden;
+
+            & > span {
+                display: block;
+                transform: translateY(0);
+                transition: transform var(--duration-m);
+            }
+        }
+
+        &__submenu {
+            animation: menu-submenu var(--duration-s) ease-out;
+            background: var(--color-bg);
+            border-radius: var(--nav-submenu-border-radius);
+            box-shadow: var(--box-shadow-l);
+            display: none;
+            left: 50%;
+            min-width: 12rem;
+            padding: var(--size-s);
+            position: absolute;
+            top: 100%;
+            transform: translateX(-50%);
+            width: max-content;
+            z-index: 10;
+
+            &::before {
+                content: '';
+                height: var(--size-s);
+                inset: calc(var(--size-s) * -1) 0 auto;
+                position: absolute;
+            }
+        }
+
+        &__submenuLink {
+            border-radius: var(--border-radius-s);
+            color: var(--nav-color-link);
+            display: block;
+            padding: var(--size-s) var(--size-m);
+            white-space: nowrap;
+
+            &:hover,
+            &[aria-current='page'] {
+                background: var(--color-bg-tint);
+                color: var(--nav-color-link-hover);
+            }
+        }
+    }
+}

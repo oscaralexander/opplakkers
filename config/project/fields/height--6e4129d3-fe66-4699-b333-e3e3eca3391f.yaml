@@ -1,0 +1,68 @@
+columnSuffix: null
+handle: height
+instructions: '"Passend" volgt de inhoud; de andere opties vullen een deel van het scherm.'
+name: Hoogte
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Passend
+        -
+          - value
+          - fit
+        -
+          - icon
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Klein
+        -
+          - value
+          - small
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Middel
+        -
+          - value
+          - medium
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Groot
+        -
+          - value
+          - large
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup

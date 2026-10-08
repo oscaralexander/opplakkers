@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: products
+instructions: 'Laat leeg om alle producten te tonen.'
+name: Producten
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Producten kiezen'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources:
+    - 'section:e47a9ac4-c9bc-4988-b883-4e9963d542a3' # Producten
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

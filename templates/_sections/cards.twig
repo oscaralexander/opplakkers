@@ -1,0 +1,59 @@
+{% import '_macros/ui' as ui %}
+
+{% set cards = section.cards.all() %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+{% set theme = section.theme ?? 'none' %}
+{% set themeOnCards = section.applyThemeTo == 'cards' %}
+
+{% set span = ui.gridSpan(cards|length, hasHeader ? alignment : 'top')|trim %}
+
+{% if cards|length %}
+    <section class="{{ ui.sectionClass({ theme: theme, isFullWidth: section.isFullWidth and not themeOnCards }, 'cards') }}">
+        <div class="{{ ui.sectionInnerClass({ theme: themeOnCards ? 'none' : theme }) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col{{ alignment == 'left' ? ' l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ alignment == 'left' and hasHeader ? ' l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-m grid--scrolling" data-reveal-group>
+                        {% for card in cards %}
+                            {% set image = card.image.one() %}
+                            {% set ctas = card.ctas.all() %}
+                            {% set cardLink = ctas|length == 1 and ctas[0].link ? ctas[0].link : null %}
+                            <div class="grid__col js-reveal s:grid__col--span-6 {{ ui.gridCol(cards|length, hasHeader ? alignment : 'top') }}">
+                                <article class="card u-theme-{{ themeOnCards ? theme : 'none' }}{{ cardLink ? ' card--link' }}">
+                                    {% if image %}
+                                        {{ ui.image(image, { class: 'card__image', ratio: 16/9, sizes: ui.colSizes(span, 'scroll'), widths: [320, 480, 640, 800, 960, 1200] }) }}
+                                    {% endif %}
+                                    <div class="card__body stack stack--gap-s">
+                                        {% if card.eyebrow %}
+                                            <p class="card__eyebrow h5">{{ card.eyebrow }}</p>
+                                        {% endif %}
+                                        <h3 class="card__title">
+                                            {% if cardLink %}
+                                                <a class="card__titleLink" href="{{ cardLink.url }}"{{ cardLink.target == '_blank' ? ' target="_blank" rel="noopener"' }}>{{ card.title }}</a>
+                                            {% else %}
+                                                {{ card.title }}
+                                            {% endif %}
+                                        </h3>
+                                        {% if card.text|length %}
+                                            <div class="card__text richText">{{ card.text }}</div>
+                                        {% endif %}
+                                    </div>
+                                    {% if ctas|length %}
+                                        <footer class="card__footer">
+                                            {{ ui.ctas(ctas) }}
+                                        </footer>
+                                    {% endif %}
+                                </article>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

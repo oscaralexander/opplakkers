@@ -1,0 +1,40 @@
+columnSuffix: null
+handle: textWidth
+instructions: null
+name: 'Breedte van de tekst'
+searchable: false
+settings:
+  customOptions: false
+  iconsOnly: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 75%
+        -
+          - value
+          - '75'
+        -
+          - icon
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 50%
+        -
+          - value
+          - '50'
+        -
+          - icon
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\ButtonGroup

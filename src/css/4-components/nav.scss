@@ -1,0 +1,250 @@
+@use '@css/2-tools/mixins' as *;
+
+// The fixed navigation bar. On large screens it floats as a rounded pill inset
+// by --nav-offset-*; below that it sits flush against the top edge with the
+// menu in an off-canvas panel. Nav.js adds .is-scrolled once the page has left
+// the top, .is-docked once it has scrolled past --nav-offset-y (large screens:
+// the pill docks full-width to the top edge and no longer hides), and
+// .is-hidden while the reader scrolls down.
+.nav {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: transform var(--duration-l) var(--ease-in-out);
+    z-index: 100;
+
+    &__inner {
+        align-items: stretch;
+        background: var(--nav-color-bg);
+        box-shadow: var(--nav-box-shadow);
+        display: flex;
+        gap: var(--size-m);
+        height: var(--nav-height);
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: var(--wrapper-width);
+        padding: 0 var(--gutter);
+        position: relative;
+    }
+
+    &__logoLink {
+        align-items: center;
+        display: flex;
+        min-width: 0;
+        position: relative;
+        z-index: 4;
+    }
+
+    &__logo {
+        height: var(--logo-height);
+        width: auto;
+    }
+
+    &__siteName {
+        color: var(--color-text-hc);
+        font-size: var(--font-size-l);
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    &.is-hidden {
+        transform: translate3d(0, calc(-100% - var(--nav-offset-y)), 0);
+    }
+
+    // --- Off-canvas menu ------------------------------------------------------
+    @include screen-max(m) {
+        &__inner {
+            justify-content: center;
+        }
+
+        &__ctas {
+            display: none;
+        }
+
+        &__menuToggle {
+            align-items: center;
+            display: flex;
+            height: var(--btn-height);
+            justify-content: center;
+            left: calc(var(--gutter) - .75rem);
+            position: absolute;
+            top: calc(50% - var(--btn-height) / 2);
+            width: var(--btn-height);
+            z-index: 4;
+        }
+
+        &__menuToggleIcon {
+            background: var(--color-text-hc);
+            border-radius: 1px;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background 0s var(--duration-s);
+            width: 1.25rem;
+
+            &::before,
+            &::after {
+                background: var(--color-text-hc);
+                border-radius: 1px;
+                content: '';
+                display: block;
+                height: 2px;
+                left: 0;
+                position: absolute;
+                transition: top var(--duration-s) var(--duration-s), transform var(--duration-s);
+                width: 100%;
+            }
+
+            &::before {
+                top: -6px;
+            }
+
+            &::after {
+                top: 6px;
+            }
+        }
+
+        &__menuOverlay {
+            backdrop-filter: blur(6px);
+            background: rgb(0 0 0 / 40%);
+            inset: 0;
+            opacity: 0;
+            position: fixed;
+            transition: opacity var(--duration-l), visibility 0s var(--duration-l);
+            visibility: hidden;
+            z-index: 1;
+        }
+
+        &__menu {
+            background: var(--color-bg);
+            clip-path: inset(0 100% 0 0);
+            display: flex;
+            flex-direction: column;
+            height: 100dvh;
+            inset: 0 15vw 0 0;
+            max-width: 24rem;
+            padding-top: var(--nav-height);
+            position: fixed;
+            transition: clip-path var(--duration-l) var(--ease-in-out), visibility 0s var(--duration-l);
+            visibility: hidden;
+            z-index: 2;
+
+            .menu,
+            .nav__menuFooter {
+                transform: translate3d(-25%, 0, 0);
+                transition: transform var(--duration-l) var(--ease-in-out);
+            }
+        }
+
+        &__menuFooter {
+            border-top: 1px solid var(--color-border);
+            padding: var(--gutter);
+
+            .ctas {
+                align-items: stretch;
+                flex-direction: column;
+            }
+        }
+
+        &:has(.nav__menuToggle[aria-expanded='true']) {
+            .nav__menuOverlay {
+                opacity: 1;
+                transition: opacity var(--duration-l), visibility 0s;
+                visibility: visible;
+            }
+
+            .nav__menu {
+                clip-path: inset(0 0 0 0);
+                transition: clip-path var(--duration-l) var(--ease-in-out), visibility 0s;
+                visibility: visible;
+
+                .menu,
+                .nav__menuFooter {
+                    transform: none;
+                }
+            }
+
+            .nav__menuToggleIcon {
+                background: transparent;
+
+                &::before,
+                &::after {
+                    top: 0;
+                    transition: top var(--duration-s), transform var(--duration-s) var(--duration-s);
+                }
+
+                &::before {
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    // --- Floating bar ---------------------------------------------------------
+    @include screen-min(m) {
+        padding: var(--nav-offset-y) var(--nav-offset-x) 0;
+        transition:
+            padding var(--duration-l) var(--ease-in-out),
+            transform var(--duration-l) var(--ease-in-out);
+
+        // The bar is inset by --nav-offset-x, so its padding is the page gutter
+        // minus that inset: the logo and the buttons line up exactly with the
+        // content edges below.
+        &__inner {
+            border-radius: var(--nav-border-radius);
+            max-width: calc(var(--wrapper-width) - var(--nav-offset-x) * 2);
+            padding: 0 0 0 max(var(--size-m), calc(var(--gutter) - var(--nav-offset-x)));
+            transition:
+                border-radius var(--duration-l) var(--ease-in-out),
+                max-width var(--duration-l) var(--ease-in-out),
+                padding var(--duration-l) var(--ease-in-out);
+        }
+
+        &__menu {
+            align-items: center;
+            display: flex;
+        }
+
+        &.is-docked {
+            padding: 0;
+
+            .nav__inner {
+                border-radius: 0;
+                max-width: 100%;
+                padding: 0 0 0 var(--gutter);
+            }
+        }
+
+        &__menuToggle,
+        &__menuOverlay,
+        &__menuFooter {
+            display: none;
+        }
+
+        &__ctas {
+            display: flex;
+            flex: 0 0 auto;
+
+            .ctas {
+                align-items: stretch;
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 0;
+
+                .btn {
+                    border: none;
+                    height: auto;
+
+                    &:not(.btn--primary) {
+                        border-left: 1px solid var(--btn-color-border);
+                    }
+                }
+            }
+        }
+    }
+}

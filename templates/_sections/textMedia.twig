@@ -1,0 +1,44 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  Text beside an image or video. When the section is full width the image
+  bleeds to the edge of the screen on large displays.
+#}
+{% set image = section.image.one() %}
+{% set position = section.textPosition ?? 'left' %}
+{% set isFullWidth = section.isFullWidth and image and not section.youtubeUrl %}
+{% set parallax = settings.useParallax and image and not section.youtubeUrl %}
+{# The media column is half the content width from the large breakpoint and
+   the full content width below it; the bleed variant is half the viewport. #}
+{% set columnSizes = '(min-width: 1280px) calc((min(100vw, 85rem) - 8px - 7vw - 3rem) / 2), calc(93vw - 8px)' %}
+{% set bleedSizes = '(min-width: 1280px) 50vw, calc(93vw - 8px)' %}
+
+<section class="{{ ui.sectionClass(section, 'textMedia', ['textMedia--' ~ position, parallax ? 'js-equinox']) }}">
+    {% if isFullWidth %}
+        <div class="textMedia__bleed{{ parallax ? ' textMedia__bleed--parallax' }}">
+            {{ ui.image(image, { class: 'textMedia__bleedImage', sizes: bleedSizes, widths: [640, 960, 1280, 1600, 1920, 2560], alt: '' }) }}
+        </div>
+    {% endif %}
+    <div class="{{ ui.sectionInnerClass(section) }}">
+        <div class="grid grid--middle grid--gap-xl l:grid--gap-xxl{{ position == 'right' ? ' l:grid--reverse' }}">
+            <div class="grid__col l:grid__col--span-6">
+                <div class="textMedia__text stack stack--gap-l" data-reveal-group>
+                    {{ ui.sectionHeader(section, { align: 'left' }) }}
+                    {% if section.text|length %}
+                        <div class="richText js-reveal">{{ section.text }}</div>
+                    {% endif %}
+                    {{ ui.ctas(section.ctas, { class: 'js-reveal' }) }}
+                </div>
+            </div>
+            <div class="grid__col l:grid__col--span-6 js-reveal{{ isFullWidth ? ' textMedia__mediaCol--bleed' }}">
+                {% if section.youtubeUrl %}
+                    {{ ui.youtube(section.youtubeUrl.url, section.title ?: 'Video') }}
+                {% elseif image %}
+                    <div class="textMedia__media{{ parallax ? ' textMedia__media--parallax' }}" style="aspect-ratio: {{ image.width }} / {{ image.height }};">
+                        {{ ui.image(image, { class: 'textMedia__image', sizes: columnSizes, widths: [480, 640, 800, 960, 1200, 1440, 1600] }) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,16 @@
+.video {
+    aspect-ratio: 16 / 9;
+    background: var(--color-bg-tint);
+    border-radius: var(--border-radius-m);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    iframe {
+        border: 0;
+        height: 100%;
+        inset: 0;
+        position: absolute;
+        width: 100%;
+    }
+}

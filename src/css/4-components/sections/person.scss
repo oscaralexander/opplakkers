@@ -1,0 +1,46 @@
+.person {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-m);
+
+    &__photoLink {
+        border-radius: var(--border-radius-m);
+        display: block;
+        overflow: hidden;
+    }
+
+    &__photo {
+        border-radius: var(--border-radius-m);
+        transition: transform var(--duration-l) var(--ease-out);
+        width: 100%;
+    }
+
+    &__photoLink:hover &__photo {
+        transform: scale(1.04);
+    }
+
+    &__text {
+        line-height: var(--line-height-l);
+    }
+
+    &__name {
+        font-size: var(--font-size-m);
+
+        a {
+            color: inherit;
+
+            &:hover {
+                color: var(--color-1);
+            }
+        }
+    }
+
+    &__role {
+        color: var(--color-text);
+    }
+
+    &__location {
+        color: var(--color-text-lc);
+        font-size: var(--font-size-s);
+    }
+}

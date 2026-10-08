@@ -1,0 +1,67 @@
+{#
+  <title>, meta and Open Graph tags for the current entry, plus the
+  Organization schema. Falls back to the site name when rendered outside an
+  entry (a 404, for instance).
+#}
+{% set entry = entry ?? null %}
+{% set isHome = entry and entry.uri == '__home__' %}
+{% set title = entry ? (entry.seoTitle ?: (isHome ? currentSite.name : entry.title)) : currentSite.name %}
+{% set pageTitle = isHome ? title : title ~ ' | ' ~ currentSite.name %}
+{% set description = entry ? (entry.seoDescription ?: (entry.summary ?? '')) : '' %}
+{% set previewImage = null %}
+{% if entry %}
+    {% set previewImage = entry.seoPreviewImage.one() ?? ((entry.image ?? null) ? entry.image.one() : null) %}
+{% endif %}
+{% set previewImage = previewImage ?? brand.seoPreviewImage.one() %}
+{% set url = entry ? entry.url : craft.app.request.absoluteUrl %}
+
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="referrer" content="origin-when-cross-origin">
+<link rel="canonical" href="{{ url }}">
+
+<meta property="og:type" content="{{ entry and entry.section.handle == 'blogs' ? 'article' : 'website' }}">
+<meta property="og:site_name" content="{{ currentSite.name }}">
+<meta property="og:locale" content="{{ currentSite.language|replace({'-': '_'}) }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ url }}">
+{% if previewImage %}
+    {% set ogImage = previewImage.getUrl({ width: 1200, height: 630, mode: 'crop', format: 'jpg', quality: 85 }) %}
+    <meta property="og:image" content="{{ ogImage }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+{% else %}
+    <meta name="twitter:card" content="summary">
+{% endif %}
+
+{% set address = contact.address.one() %}
+{% set logo = brand.logoNav.one() %}
+{% set sameAs = [
+    contact.instagramUrl,
+    contact.facebookUrl,
+    contact.linkedinUrl,
+    contact.xUrl,
+    contact.youtubeChannelUrl,
+    contact.tiktokUrl,
+]|filter|map(link => link.url)|values %}
+{% set organization = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: currentSite.name,
+    url: siteUrl,
+    logo: logo ? logo.url : null,
+    email: contact.email ?: null,
+    telephone: contact.phone ? contact.phone|replace({' ': ''}) : null,
+    vatID: contact.vatId ?: null,
+    sameAs: sameAs|length ? sameAs : null,
+    address: address ? {
+        '@type': 'PostalAddress',
+        streetAddress: address.addressLine1,
+        postalCode: address.postalCode,
+        addressLocality: address.locality,
+        addressCountry: address.countryCode,
+    } : null,
+}|filter %}
+<script type="application/ld+json">{{ organization|json_encode(constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}</script>

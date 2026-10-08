@@ -1,0 +1,16 @@
+.skipLink {
+    background: var(--color-text-hc);
+    border-radius: var(--border-radius-s);
+    color: var(--color-bg);
+    left: var(--size-m);
+    padding: var(--size-s) var(--size-m);
+    position: fixed;
+    top: var(--size-m);
+    transform: translateY(-200%);
+    z-index: 1000;
+
+    &:focus {
+        color: var(--color-bg);
+        transform: none;
+    }
+}

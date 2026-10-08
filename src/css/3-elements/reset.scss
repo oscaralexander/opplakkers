@@ -1,0 +1,60 @@
+:root {
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    interpolate-size: allow-keywords;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    appearance: none;
+    font: inherit;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+canvas,
+img,
+picture,
+svg,
+video {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    overflow-wrap: break-word;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+}

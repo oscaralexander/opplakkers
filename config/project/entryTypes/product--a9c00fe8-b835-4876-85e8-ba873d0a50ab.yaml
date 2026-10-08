@@ -1,0 +1,156 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  42097ec5-86bf-4a7f-89a1-934fd9c83b40:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e0247f05-f875-4c11-8516-960f2c668ab9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b9ac0b8f-b15f-44e7-a703-c5ee9f62c8c4 # Tekstregel
+            handle: price
+            instructions: 'Alleen het bedrag, bijvoorbeeld "49" of "1.250".'
+            label: Prijs
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ea64d379-ea8f-43c0-820c-12e1082d70d1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 6d785393-f8ee-45aa-85d7-4ad67da4156c # Vanafprijs?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2d492ba0-ba51-4d62-92c9-34cd78e6c68e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b9ac0b8f-b15f-44e7-a703-c5ee9f62c8c4 # Tekstregel
+            handle: priceUnit
+            instructions: 'Bijvoorbeeld "maand", "jaar" of "sessie".'
+            label: Eenheid
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d1e04a88-1f77-4cf1-abfa-943c6c727fc9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 96252a54-9081-4546-a616-f62efe03c9d5 # Tekst (zonder opmaak)
+            handle: description
+            instructions: null
+            label: Omschrijving
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0b262701-598a-496f-8c66-5187fc917df3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: dee9fd3f-dc3d-4ae9-98bd-82c34fb12eae # Kenmerken
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aa01fbaa-dc88-4379-9464-dadb47a19e32
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7608e09e-34b6-40c0-9c05-8ba37e3ee101 # Knoppen
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c3d24ad0-8466-4c7c-bd2f-99c25b609099
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 92201e41-b439-4b07-953f-f56b0f467f3c
+        userCondition: null
+    thumbFieldKey: null
+handle: product
+hasTitleField: true
+icon: tag
+name: Product
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

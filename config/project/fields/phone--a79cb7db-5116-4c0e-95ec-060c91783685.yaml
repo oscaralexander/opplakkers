@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: phone
+instructions: null
+name: Telefoonnummer
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: '+31 6 12 34 56 78'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

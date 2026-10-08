@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: enableWhatsapp
+instructions: 'Voegt een WhatsApp-knop toe die het telefoonnummer hierboven gebruikt.'
+name: 'WhatsApp-link tonen?'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+  showLabelsInCards: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

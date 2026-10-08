@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: columns
+instructions: null
+name: Kolommen
+searchable: false
+settings:
+  createButtonLabel: 'Kolom toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - de223b2a-4016-456b-a136-0bc2e0447971 # Kolom
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

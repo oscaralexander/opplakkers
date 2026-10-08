@@ -1,0 +1,43 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  2052dec1-ed6c-4334-aee5-f796f02edbe5:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-12T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 98225b34-5ad9-4e19-a176-08805426553d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 045aee2a-2ecd-4f1e-a03e-32b26445c28f
+        userCondition: null
+    thumbFieldKey: null
+handle: image
+hasTitleField: false
+icon: image
+name: Afbeelding
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

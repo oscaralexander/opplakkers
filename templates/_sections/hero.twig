@@ -1,0 +1,57 @@
+{% import '_macros/ui' as ui %}
+
+{% set image = section.image.one() %}
+{% set imageMobile = section.imageMobile.one() %}
+{% set theme = section.theme ?? 'none' %}
+{% set classNames = [
+    'section',
+    'hero',
+    'hero--' ~ (section.height ?? 'fit'),
+    'hero--width-' ~ (section.textWidth ?? '75'),
+    'u-theme-' ~ theme,
+    image ? 'hero--hasImage',
+    image and settings.useParallax ? 'js-equinox',
+]|filter|join(' ') %}
+
+<section class="{{ classNames }}">
+    {% if image %}
+        {# A <picture> rather than two images: the browser downloads only the
+           source that matches, so a phone never fetches the desktop file. #}
+        <div class="hero__backdrop">
+            <picture>
+                {% if imageMobile %}
+                    <source
+                        media="(max-width: 767px)"
+                        sizes="100vw"
+                        srcset="{{ ui.srcset(imageMobile, [480, 640, 800, 1080, 1280, 1600]) }}"
+                    >
+                {% endif %}
+                {{ ui.image(image, { class: 'hero__image', eager: true, alt: '', sizes: '100vw', widths: [640, 960, 1280, 1600, 1920, 2560, 3200] }) }}
+            </picture>
+        </div>
+    {% endif %}
+    <div class="section__inner wrapper">
+        <div class="grid">
+            <div class="grid__col l:grid__col--span-{{ section.textWidth == '50' ? '6' : '8' }}">
+                <div class="hero__content stack stack--gap-xl" data-reveal-group>
+                    <div class="stack stack--gap-m">
+                        {% if section.eyebrow %}
+                            <h5 class="section__eyebrow js-reveal">{{ section.eyebrow }}</h5>
+                        {% endif %}
+                        <h1 class="hero__title js-textSplit">{{ section.title }}</h1>
+                        {% if section.text|length %}
+                            <div class="hero__text richText js-reveal">{{ section.text }}</div>
+                        {% endif %}
+                    </div>
+                    {{ ui.ctas(section.ctas, { size: 'l', class: 'js-reveal' }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero__scrollIndicator">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 42">
+            <rect class="hero__scrollIndicatorOutline" x="1" y="1" width="22" height="40" rx="11" ry="11" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect class="hero__scrollIndicatorWheel" x="10" y="6" width="4" height="10" rx="2" ry="2" fill="currentColor"/>
+        </svg>
+    </div>
+</section>

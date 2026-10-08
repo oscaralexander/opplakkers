@@ -1,0 +1,43 @@
+{% import '_macros/ui' as ui %}
+
+{% set columns = section.columns.all() %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+{% set span = ui.gridSpan(columns|length, hasHeader ? alignment : 'top')|trim %}
+
+{% if columns|length %}
+    <section class="{{ ui.sectionClass(section, 'columns') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col {{ alignment == 'left' ? 'l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col {{ alignment == 'left' and hasHeader ? 'l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-xl l:grid--gap-xxl" data-reveal-group>
+                        {% for column in columns %}
+                            {% set image = column.image.one() %}
+                            <div class="grid__col js-reveal s:grid__col--span-6 {{ ui.gridCol(columns|length, hasHeader ? alignment : 'top') }}">
+                                <article class="column{{ column.iconName and not image ? ' column--icon' }}">
+                                    {% if image %}
+                                        {{ ui.image(image, { class: 'column__image', ratio: 16/9, sizes: ui.colSizes(span, 'half'), widths: [320, 480, 640, 800, 960, 1200] }) }}
+                                    {% elseif column.iconName %}
+                                        <div class="column__icon">{{ ui.icon(column.iconName) }}</div>
+                                    {% endif %}
+                                    <div class="column__content stack stack--gap-s">
+                                        <h3 class="column__title">{{ column.title }}</h3>
+                                        {% if column.text|length %}
+                                            <div class="column__text richText">{{ column.text }}</div>
+                                        {% endif %}
+                                    </div>
+                                    {{ ui.ctas(column.ctas, { class: 'column__ctas' }) }}
+                                </article>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

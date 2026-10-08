@@ -1,0 +1,13 @@
+{% import '_macros/ui' as ui %}
+{% set images = block.images.all() %}
+{% if images|length %}
+    <figure class="blog__block blog__images blog__outset">
+        <div class="grid grid--gap-m">
+            {% for image in images %}
+                <div class="grid__col{{ images|length == 2 ? ' s:grid__col--span-6' }}">
+                    {{ ui.image(image, { class: 'blog__imagesImage', widths: [480, 640, 800, 960, 1200, 1440, 1800], sizes: images|length == 2 ? '(min-width: 1280px) 32vw, (min-width: 768px) 46vw, calc(93vw - 8px)' : '(min-width: 1280px) 64vw, calc(93vw - 8px)' }) }}
+                </div>
+            {% endfor %}
+        </div>
+    </figure>
+{% endif %}

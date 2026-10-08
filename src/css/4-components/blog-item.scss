@@ -1,0 +1,51 @@
+@use '@css/2-tools/mixins' as *;
+
+// A card in the blog overview.
+.blogItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-m);
+
+    &__imageLink {
+        border-radius: var(--border-radius-m);
+        display: block;
+        overflow: hidden;
+    }
+
+    &__image {
+        transform: scale(1.04);
+        transition: transform var(--duration-l) var(--ease-out);
+        width: 100%;
+    }
+
+    &:hover &__image {
+        transform: none;
+    }
+
+    &__title a {
+        color: var(--color-text-hc);
+        text-decoration-color: transparent;
+        text-decoration-line: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        transition: text-decoration-color var(--duration-s);
+
+        &:hover {
+            text-decoration-color: currentColor;
+        }
+    }
+
+    &__date {
+        color: var(--color-text-lc);
+        font-size: var(--font-size-s);
+    }
+
+    @include screen-max(s) {
+        flex-direction: row;
+        align-items: center;
+
+        &__imageLink {
+            flex: 0 0 30%;
+        }
+    }
+}

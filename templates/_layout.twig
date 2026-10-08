@@ -1,0 +1,30 @@
+{# The document shell. Entry templates extend this and fill `content`. #}
+<!DOCTYPE html>
+<html lang="{{ currentSite.language }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        {% include '_partials/seo' %}
+        {% block schema %}{% endblock %}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link href="https://use.typekit.net/upn2uzm.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+        {{ craft.vite.script('src/js/index.js', false) }}
+        {% if settings.htmlHead %}
+            {{ settings.htmlHead|raw }}
+        {% endif %}
+    </head>
+    <body>
+        <a class="skipLink" href="#main">Naar de inhoud</a>
+        {% include '_partials/nav' %}
+        <div class="page">
+            <main class="page__main" id="main">
+                {% block content %}{% endblock %}
+            </main>
+            {% include '_partials/footer' %}
+        </div>
+    </body>
+</html>

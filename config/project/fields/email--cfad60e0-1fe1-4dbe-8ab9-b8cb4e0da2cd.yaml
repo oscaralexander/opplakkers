@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: email
+instructions: null
+name: E-mailadres
+searchable: false
+settings:
+  placeholder: info@voorbeeld.nl
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email

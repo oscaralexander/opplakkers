@@ -1,0 +1,31 @@
+{% import '_macros/ui' as ui %}
+
+{% set stats = (section.stats ?? [])|filter(row => row.value) %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+
+{% if stats|length %}
+    <section class="{{ ui.sectionClass(section, 'stats') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col{{ alignment == 'left' ? ' l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ alignment == 'left' and hasHeader ? ' l:grid__col--span-8' }}">
+                    <div class="grid grid--gap-xl l:grid--gap-xxl" data-reveal-group>
+                        {% for stat in stats %}
+                            <div class="grid__col js-reveal xs:grid__col--span-6 {{ stats|length > 4 ? 'l:grid__col--flex' : ui.gridCol(stats|length) }}">
+                                <div class="stat">
+                                    <div class="stat__value"><div>{{ stat.value }}</div></div>
+                                    {% if stat.label %}<div class="stat__label">{{ stat.label }}</div>{% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

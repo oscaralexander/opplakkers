@@ -1,0 +1,39 @@
+@use '@css/2-tools/mixins' as *;
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+    height: 100%;
+
+    &__image {
+        border-radius: var(--border-radius-m);
+        width: 100%;
+    }
+
+    &__icon {
+        align-items: center;
+        background: color-mix(in oklab, var(--color-text-accent) 12%, transparent);
+        border-radius: 50%;
+        color: var(--color-text-accent);
+        display: flex;
+        height: 3.5rem;
+        justify-content: center;
+        width: 3.5rem;
+
+        .lucide {
+            height: 1.625rem;
+            stroke-width: 1.75;
+            width: 1.625rem;
+        }
+    }
+
+    &__title {
+        font-size: var(--font-size-xl);
+        margin-top: var(--size-xs);
+    }
+
+    &__ctas {
+        margin-top: auto;
+    }
+}

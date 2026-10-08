@@ -1,0 +1,20 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: acf4c46c-575c-4d01-8f61-0103c9d8959b # Bedrijf
+handle: companies
+maxAuthors: 1
+minAuthors: 1
+name: Bedrijven
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 86b410e9-5899-405d-b233-45e6ecd647d5
+type: structure

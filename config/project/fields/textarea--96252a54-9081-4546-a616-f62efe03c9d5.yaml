@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: textarea
+instructions: null
+name: 'Tekst (zonder opmaak)'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 3
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: vatId
+instructions: null
+name: Btw-nummer
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: NL123456789B01
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

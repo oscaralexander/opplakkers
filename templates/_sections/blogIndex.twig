@@ -1,0 +1,71 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  Hand-picked articles, or — when none are chosen — the newest ones, paginated
+  so a section on the blog page can double as the full archive.
+#}
+{% set blogs = section.blogs.with(['image']).all() %}
+{% set pageInfo = null %}
+{% if blogs is empty %}
+    {% set query = craft.entries().section('blogs').with(['image']).limit(section.limit ?: 12) %}
+    {% if section.limit %}
+        {% set blogs = query.all() %}
+    {% else %}
+        {% paginate query as pageInfo, blogs %}
+    {% endif %}
+{% endif %}
+{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{% set hasHeader = section.eyebrow or section.title or section.intro|length %}
+
+{% set span = ui.gridSpan(min(blogs|length, 3), hasHeader ? alignment : 'top')|trim %}
+
+{% if blogs|length %}
+    <section class="{{ ui.sectionClass(section, 'blogIndex') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--gap-xxl">
+                {% if hasHeader %}
+                    <div class="grid__col{{ alignment == 'left' ? ' l:grid__col--span-4' }}">
+                        {{ ui.sectionHeader(section, { class: 'section__header--sticky' }) }}
+                    </div>
+                {% endif %}
+                <div class="grid__col{{ alignment == 'left' and hasHeader ? ' l:grid__col--span-8' }}">
+                    <div class="stack stack--gap-xxl">
+                        <div class="grid s:grid--gap-xl" data-reveal-group>
+                            {% for blog in blogs %}
+                                {% set image = blog.image.one() %}
+                                <div class="grid__col js-reveal s:grid__col--span-6 {{ ui.gridCol(min(blogs|length, 3), hasHeader ? alignment : 'top') }}">
+                                    <article class="blogItem">
+                                        {% if image %}
+                                            <a class="blogItem__imageLink" href="{{ blog.url }}" tabindex="-1" aria-hidden="true">
+                                                {{ ui.image(image, { class: 'blogItem__image', ratio: 16/9, widths: [320, 480, 640, 800, 960, 1200], sizes: '(min-width: 1280px) ' ~ (span == '6' ? '30vw' : '28vw') ~ ', (min-width: 768px) 46vw, 28vw' }) }}
+                                            </a>
+                                        {% endif %}
+                                        <div class="blogItem__text stack stack--gap-xs">
+                                            <h3 class="blogItem__title"><a href="{{ blog.url }}">{{ blog.title }}</a></h3>
+                                            <time class="blogItem__date" datetime="{{ blog.postDate|date('Y-m-d') }}">{{ blog.postDate|date('j F Y') }}</time>
+                                        </div>
+                                    </article>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% if pageInfo and pageInfo.totalPages > 1 %}
+                            <nav class="pagination" aria-label="Paginering">
+                                {% if pageInfo.prevUrl %}
+                                    <a class="btn btn--secondary" href="{{ pageInfo.prevUrl }}" rel="prev">{{ ui.icon('arrow-left') }} <span>Nieuwer</span></a>
+                                {% else %}
+                                    <span></span>
+                                {% endif %}
+                                <span class="pagination__status">Pagina {{ pageInfo.currentPage }} van {{ pageInfo.totalPages }}</span>
+                                {% if pageInfo.nextUrl %}
+                                    <a class="btn btn--secondary" href="{{ pageInfo.nextUrl }}" rel="next"><span>Ouder</span> {{ ui.icon('arrow-right') }}</a>
+                                {% else %}
+                                    <span></span>
+                                {% endif %}
+                            </nav>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

@@ -1,0 +1,15 @@
+{% import '_macros/ui' as ui %}
+
+<section class="section cta">
+    <div class="section__inner wrapper">
+        <div class="cta__panel js-reveal u-theme-{{ section.theme ?? 'contrast' }}">
+            <div class="cta__content stack stack--gap-m">
+                <h2 class="cta__title js-textSplit">{{ section.title }}</h2>
+                {% if section.text|length %}
+                    <div class="cta__text richText">{{ section.text }}</div>
+                {% endif %}
+            </div>
+            {{ ui.ctas(section.ctas, { align: 'center', size: 'l' }) }}
+        </div>
+    </div>
+</section>

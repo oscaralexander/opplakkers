@@ -1,0 +1,248 @@
+dateModified: 1790407624
+elementSources:
+  craft\elements\Entry:
+    -
+      key: '*'
+      page: Entries
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:6f815fa5-8b57-4deb-ae1e-4fe65823cea4' # Pagina's
+      page: Entries
+      tableAttributes:
+        - slug
+        - status
+        - link
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:44493bf3-9202-4e85-a26e-b0bed6e50306' # Juridisch
+      page: Entries
+      tableAttributes:
+        - slug
+        - status
+        - link
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:1e115651-dc18-4b1f-8cf4-bb3fb377f3b6' # Blog
+      page: Entries
+      tableAttributes:
+        - status
+        - postDate
+        - author
+        - link
+      type: native
+    -
+      heading: Inhoud
+      key: 'heading:10bb9b29-03c3-432a-99f7-a1721d84ea16'
+      page: Entries
+      type: heading
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:4b59f19c-315c-4745-badb-3713106d522f' # Personen
+      page: Entries
+      tableAttributes:
+        - status
+        - 'field:4aa55457-11b2-4106-9b3b-a2745c52c485' # Foto
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:62c9ccb1-fe8d-4659-a42e-e77529b657d8' # Testimonials
+      page: Entries
+      tableAttributes:
+        - status
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:c5a6144f-f2d7-4ec5-9482-5e798d7ed605' # Bedrijven
+      page: Entries
+      tableAttributes:
+        - status
+        - 'field:105f6fd2-9d6d-40db-94f5-cd9a08967c9f' # Logo
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:e47a9ac4-c9bc-4988-b883-4e9963d542a3' # Producten
+      page: Entries
+      tableAttributes:
+        - status
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:cfcb9269-5e40-45a0-a169-3e118633809e' # Diensten
+      page: Entries
+      tableAttributes:
+        - status
+        - slug
+        - link
+      type: native
+email:
+  fromEmail: mail@oscaralexander.com
+  fromName: Boilerplate
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  local:
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
+meta:
+  __names__:
+    1a4dd55c-ae9e-40b5-9ce0-35ab801cdb8f: Kolommen # Kolommen
+    1dfe6e44-8f7c-47d3-981f-b2ac0d80129c: Inhoud # Inhoud
+    1e452ead-779e-45de-b9e9-53e15717acf1: Afbeeldingen # Afbeeldingen
+    1e115651-dc18-4b1f-8cf4-bb3fb377f3b6: Blog # Blog
+    2c4e4511-d37b-453b-83d1-888105e55fd0: Personen # Personen
+    02e9cfca-1af5-4a3a-8fb7-3b0467185923: Call-to-action # Call-to-action
+    3bb3be1d-2e90-459a-8420-deb88b3d7db5: Testimonial # Testimonial
+    3e32e432-1d68-4bd6-98b4-bff68f69d16a: 'WhatsApp-link tonen?' # WhatsApp-link tonen?
+    3ee2b084-bbc8-4a37-86dc-7e8bba3344fe: Statistieken # Statistieken
+    3ef1cdf3-80e9-4b48-b032-6ff6a216d8f9: 'Tonen in navigatie?' # Tonen in navigatie?
+    3f7a4f66-0cc7-4ce8-bd6b-bc344ee9e190: Instellingen # Instellingen
+    3f88c6b8-bfe9-4911-b295-f7d33d4ec68d: Item # Item
+    4aa23bde-ada9-47b2-948e-4cba9e3bb475: Btw-nummer # Btw-nummer
+    4aa55457-11b2-4106-9b3b-a2745c52c485: Foto # Foto
+    4b59f19c-315c-4745-badb-3713106d522f: Personen # Personen
+    4bdb5834-7b96-4655-af50-83652a90f25b: Artikeltekst # Artikeltekst
+    04d6165b-2f67-4e9e-bfef-b37bff45a5c3: Kleurthema # Kleurthema
+    5bd607b1-bcd0-49c4-90be-6f94ecee13af: KVK-nummer # KVK-nummer
+    5c06c5d6-9bdc-4607-8ea5-818d524fdbb5: Persoon # Persoon
+    5cd2552a-d7ef-4d86-be5d-0f09abd0e232: 'Volledige breedte?' # Volledige breedte?
+    5ec40838-3fc8-416b-8937-47e976d53b1f: Stijl # Stijl
+    5f04461d-e77b-4bc9-8f6e-22e280b4ce95: 'Public Schema' # Public Schema
+    6a892f7b-9117-4615-aa11-1a26b65e198d: 'Google Maps-URL' # Google Maps-URL
+    6d785393-f8ee-45aa-85d7-4ad67da4156c: 'Vanafprijs?' # Vanafprijs?
+    6db57dfc-6ada-4799-97f9-2a3f01f9b528: Items # Items
+    6e4129d3-fe66-4699-b333-e3e3eca3391f: Hoogte # Hoogte
+    6f815fa5-8b57-4deb-ae1e-4fe65823cea4: "Pagina's" # Pagina's
+    6ff57efe-4366-4393-865e-584790c7fdac: 'Tekst & media' # Tekst & media
+    9a5ab273-caae-4035-9de4-97ff4924a2b1: Navigatie # Navigatie
+    9beb7422-bc73-4fd5-836e-fadb058c009a: Accordeon # Accordeon
+    9c30efca-be8a-4473-b280-68eb52769a11: Accordeon-items # Accordeon-items
+    9c21811b-0b2c-4059-bc43-ccde3ec74493: Accordeon-item # Accordeon-item
+    9c66202e-18ce-4bd4-911f-c90cf27bf3ed: "Bedrijfslogo's" # Bedrijfslogo's
+    13f059c1-667d-4f7a-8d36-a8c4e3b5c114: Blogartikel # Blogartikel
+    016a0714-da93-4064-8f87-5ea416666ff7: Contactgegevens # Contactgegevens
+    43ef785f-3c92-4980-91a3-ff144fd421e6: Code # Code
+    43fc76d6-0469-4e8f-9ac6-aabe7573b81e: Afbeelding(en) # Afbeelding(en)
+    46c24a7e-dc15-423e-838a-641ffacbf8eb: Afbeelding # Afbeelding
+    57bc4969-7a42-4cc1-80de-adddd498a4e0: 'Kleurthema toepassen op' # Kleurthema toepassen op
+    61fad226-c639-47af-878a-0f729d883287: Dienst # Dienst
+    62c9ccb1-fe8d-4659-a42e-e77529b657d8: Testimonials # Testimonials
+    63c4a802-cc8b-4600-b13d-91f35df1ba7e: SEO-omschrijving # SEO-omschrijving
+    65ec4d88-46f1-4d85-b377-9d107e84a9b3: Tekst # Tekst
+    73f1761c-069b-4db0-b1d4-02cbec0246f4: 'Positie van de kop' # Positie van de kop
+    81d1d7bc-13ba-425b-b7b1-c5ee9ea181f2: Icoon # Icoon
+    105f6fd2-9d6d-40db-94f5-cd9a08967c9f: Logo # Logo
+    140a8cb7-e215-4e98-bd69-62e63919a044: 'Tekst (opgemaakt)' # Tekst (opgemaakt)
+    152bd57f-742e-4bb9-903f-97d7c182b8e2: 'Parallax-effect op afbeeldingen?' # Parallax-effect op afbeeldingen?
+    223bff3f-eb5b-4746-86d5-bb5a724b27e8: Hero # Hero
+    291ae1db-9adc-44e3-90df-c1c89a7c9875: Ticker-items # Ticker-items
+    313d5dcf-38e4-4754-aed7-5e92dd3cf5e1: Afbeelding # Afbeelding
+    699db4a4-111d-4d47-b335-b80b425830d9: Personen # Personen
+    759be7eb-7aca-4ecb-97d8-e0469f53dfe8: 'Aantal rijen' # Aantal rijen
+    797ad809-87f3-446e-b347-7a1dd875d5de: Personen # Personen
+    804bd33f-b157-42ed-ad65-c6abff60b424: Opplakkers # Opplakkers
+    938e1bbe-87f4-417f-8005-836c0aeb1624: Kaart # Kaart
+    7608e09e-34b6-40c0-9c05-8ba37e3ee101: Knoppen # Knoppen
+    7698d675-6a83-4dc6-8d09-f6e1cf0ba6e5: Bovenkop # Bovenkop
+    15086d19-bc09-48bf-a3c7-2d06845744a1: Website-URL # Website-URL
+    44493bf3-9202-4e85-a26e-b0bed6e50306: Juridisch # Juridisch
+    60832cf3-6719-452e-95bd-f6a883aa8572: Producten # Producten
+    96252a54-9081-4546-a616-f62efe03c9d5: 'Tekst (zonder opmaak)' # Tekst (zonder opmaak)
+    249487f3-1538-44b6-bac2-3935ca7550aa: 'Maximum aantal' # Maximum aantal
+    262566f1-3c7e-4ec7-a446-44989655a449: Video # Video
+    539723de-e7e2-4e09-ba7f-b4600632975a: Adres # Adres
+    1925540a-0f50-4f3f-bb2c-1978ee00f9d4: Pagina # Pagina
+    7076065c-5af8-4f1e-b9bb-9154d6899acd: Statistieken # Statistieken
+    30416434-a39c-4a21-8f95-4338b206919b: Media # Media
+    65768739-036f-4bc1-b056-a4b4f36d9405: Knop # Knop
+    78956450-6666-4b56-a5b6-39f42c5058bf: Kaarten # Kaarten
+    a5a69a4f-41d5-447e-ae0b-fb7533d84f1d: 'Breedte van de tekst' # Breedte van de tekst
+    a9c00fe8-b835-4876-85e8-ba873d0a50ab: Product # Product
+    a79cb7db-5116-4c0e-95ec-060c91783685: Telefoonnummer # Telefoonnummer
+    acf4c46c-575c-4d01-8f61-0103c9d8959b: Bedrijf # Bedrijf
+    adf96238-849a-4fc9-80ea-02b466ec7577: Items # Items
+    b2f2d15e-f5df-4a3f-84c2-c87a3cfd200e: SEO-titel # SEO-titel
+    b9ac0b8f-b15f-44e7-a703-c5ee9f62c8c4: Tekstregel # Tekstregel
+    b8818193-066b-4058-8f65-3f916da0cc73: Opplakkers # Opplakkers
+    ba80ddc4-bb47-4e4c-b294-09f8f5cc985c: Kolommen # Kolommen
+    be605c1d-c252-44aa-a6ff-a9c378784065: Diensten # Diensten
+    c06339bb-2bba-483b-967f-e4a73bad9660: Testimonials # Testimonials
+    c5a6144f-f2d7-4ec5-9482-5e798d7ed605: Bedrijven # Bedrijven
+    c6d58904-91ef-40ef-8e8c-3c723a189b4e: Pagina # Pagina
+    c46b8a31-eb5c-43b5-8599-ba48c32abeeb: "Logo's" # Logo's
+    cacc333e-ac3e-4ef9-8f76-4a500732b534: Secties # Secties
+    cd27874e-3225-4764-983c-980e11f92b78: Tekst # Tekst
+    ce60c950-0d0f-404d-9003-f1b5b0640b8a: 'Afbeelding voor social media' # Afbeelding voor social media
+    cfad60e0-1fe1-4dbe-8ab9-b8cb4e0da2cd: E-mailadres # E-mailadres
+    cfcb9269-5e40-45a0-a169-3e118633809e: Diensten # Diensten
+    d2d87ba2-bcf6-4fcd-ad50-85065856866e: 'Positie van de tekst' # Positie van de tekst
+    d7ee160b-fbbe-4ea3-8772-7bb60465f9ac: Testimonials # Testimonials
+    d482a4e7-15df-400a-aaee-c4cc2a3136dd: Kaarten # Kaarten
+    de223b2a-4016-456b-a136-0bc2e0447971: Kolom # Kolom
+    dee9fd3f-dc3d-4ae9-98bd-82c34fb12eae: Kenmerken # Kenmerken
+    df578789-2729-42c0-a043-d03366e8ba52: Producten # Producten
+    e47a9ac4-c9bc-4988-b883-4e9963d542a3: Producten # Producten
+    eb8bda0d-aecd-4996-85e8-8dc0f43a1c6c: Blogoverzicht # Blogoverzicht
+    ebc9a54f-c4b6-475b-9a63-63197fdf5628: 'Link naar pagina' # Link naar pagina
+    ee349ed3-f180-4701-a9ff-2b039a9f0a85: Blogartikelen # Blogartikelen
+    f63c4562-2b23-4b72-b830-dfb67306b0b2: Huisstijl # Huisstijl
+    f604fc63-8bc5-42da-8089-38c4b8dcb0a2: YouTube-URL # YouTube-URL
+    f4409720-6fe1-4724-bea8-e26a0b38769e: Ticker # Ticker
+    fa54c635-6324-4031-8d38-ba24d697a421: Link # Link
+    fcdfdd5c-8294-45d1-8f85-e31d9b91c1c6: Embed # Embed
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 5.6.0.0
+  mcp:
+    edition: lite
+    enabled: true
+    schemaVersion: 1.4.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: Boilerplate
+  schemaVersion: 5.11.0.2
+  timeZone: Europe/Amsterdam
