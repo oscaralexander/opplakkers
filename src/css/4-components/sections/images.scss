@@ -1,0 +1,47 @@
+@use '@css/2-tools/mixins' as *;
+
+// One or two images with captions (see templates/_sections/images.twig).
+.images {
+    &__figure {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-s);
+        margin: 0;
+
+        // Three quarters of the column, centred: as tall as the column is wide.
+        &--portrait {
+            margin-inline: auto;
+            width: 75%;
+        }
+    }
+
+    &__media {
+        overflow: hidden;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    &__caption {
+        color: var(--color-text-lc);
+        font-size: var(--font-size-s);
+        line-height: var(--line-height-l);
+        text-wrap: pretty;
+    }
+
+    // A full-width image would stretch its caption into one long line; keep
+    // it to half. On phones the image is narrow enough already.
+    @include screen-min(s) {
+        &__figure--single &__caption {
+            max-width: 50%;
+        }
+    }
+}
+
+// Two image sections in a row: the second loses its top padding, so the gap
+// between them is only the first one's bottom padding.
+.images + .images > .section__inner {
+    padding-top: 0;
+}

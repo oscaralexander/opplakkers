@@ -31,7 +31,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: bodyVideo
 hasTitleField: false
-icon: video
+icon: null
 name: Video
 showSlugField: false
 showStatusField: false

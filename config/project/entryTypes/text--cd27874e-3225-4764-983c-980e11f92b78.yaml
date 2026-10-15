@@ -59,14 +59,14 @@ fieldLayouts:
             elementCondition: null
             elementEditCondition: null
             fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
-            handle: intro
+            handle: textColumn1
             instructions: null
-            label: Intro
+            label: 'Tekstkolom 1'
             oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 85a6457c-0bf6-4c87-b18d-9b30a5224d96
+            uid: 18394081-6b27-4507-b8a0-9f40fb103f62
             userCondition: null
             warning: null
             width: 100
@@ -76,14 +76,14 @@ fieldLayouts:
             elementCondition: null
             elementEditCondition: null
             fieldUid: 140a8cb7-e215-4e98-bd69-62e63919a044 # Tekst (opgemaakt)
-            handle: text
+            handle: textColumn2
             instructions: null
-            label: Tekst
+            label: 'Tekstkolom 2'
             oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 18394081-6b27-4507-b8a0-9f40fb103f62
+            uid: 85a6457c-0bf6-4c87-b18d-9b30a5224d96
             userCondition: null
             warning: null
             width: 100
@@ -144,30 +144,13 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            dateAdded: '2026-09-12T12:00:00+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 73f1761c-069b-4db0-b1d4-02cbec0246f4 # Positie van de kop
-            handle: null
-            instructions: null
-            label: null
-            oldFieldUid: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 60f7495c-7f82-419a-8078-debd8be1f5de
-            userCondition: null
-            warning: null
-            width: 100
         name: Opmaak
         uid: 21c300f5-484a-4464-ae53-0755d47cb8d5
         userCondition: null
     thumbFieldKey: null
 handle: text
 hasTitleField: true
-icon: text
+icon: null
 name: Tekst
 showSlugField: false
 showStatusField: true

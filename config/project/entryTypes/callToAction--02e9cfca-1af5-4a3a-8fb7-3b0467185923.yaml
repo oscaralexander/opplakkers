@@ -99,7 +99,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: callToAction
 hasTitleField: true
-icon: megaphone
+icon: null
 name: Call-to-action
 showSlugField: false
 showStatusField: true

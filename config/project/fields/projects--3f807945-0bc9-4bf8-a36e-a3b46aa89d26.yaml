@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: projects
+instructions: 'Laat leeg om alle projecten te tonen, of alleen die uit de gekozen categorie.'
+name: Projecten
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Projecten kiezen'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources:
+    - 'section:41948c57-247d-4bc0-bf16-e98a17036cb2' # Projecten
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

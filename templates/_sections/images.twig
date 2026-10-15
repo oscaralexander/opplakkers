@@ -1,0 +1,55 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  One or two images with optional captions, across the full content width
+  (`span`: set it to 10 to centre them in ten of the twelve columns).
+  One image is shown large and landscape (4:3). Two share a row in equal
+  columns, centred against each other, each cropped by its own orientation: a
+  landscape image (4:3) fills its column, a portrait one (3:4) is three
+  quarters of it, which makes it exactly as tall as the column is wide.
+#}
+{% set items = section.imagesItems.with(['image']).all()|slice(0, 2) %}
+{% set isPair = items|length == 2 %}
+{% set span = 12 %}
+
+{% if items|length %}
+    <section class="{{ ui.sectionClass(section, 'images') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            <div class="grid grid--center">
+                <div class="grid__col l:grid__col--span-{{ span }}">
+                    <div class="grid grid--middle grid--gap-xl" data-reveal-group>
+                        {% for item in items %}
+                            {% set image = item.image.one() %}
+                            {# The orientation follows the uploaded image itself. #}
+                            {% set isPortrait = isPair and image and image.height > image.width %}
+                            {% if image %}
+                                <div class="grid__col{{ isPair ? ' s:grid__col--span-6' }}">
+                                    <figure class="images__figure{{ isPortrait ? ' images__figure--portrait' }}{{ not isPair ? ' images__figure--single' }} reveal--clip js-reveal">
+                                        {# The frame clips the image for its entrance (reveal.scss). #}
+                                        <div class="images__media reveal__frame">
+                                            {# Widths at 12 of 12 columns inside the 85rem wrapper; still
+                                               generous enough at 10. #}
+                                            {{ ui.image(image, {
+                                                class: 'images__image reveal__zoom',
+                                                ratio: isPortrait ? 3/4 : 4/3,
+                                                sizes: not isPair
+                                                    ? '(min-width: 1280px) min(93vw, 85rem), calc(93vw - 8px)'
+                                                    : (isPortrait
+                                                        ? '(min-width: 1280px) min(35vw, 32rem), (min-width: 768px) 34vw, calc(70vw - 6px)'
+                                                        : '(min-width: 1280px) min(46vw, 42rem), (min-width: 768px) 46vw, calc(93vw - 8px)'),
+                                                widths: [480, 640, 800, 960, 1200, 1440, 1600, 1920, 2400, 2720],
+                                            }) }}
+                                        </div>
+                                        {% if item.caption %}
+                                            <figcaption class="images__caption reveal__after">{{ item.caption }}</figcaption>
+                                        {% endif %}
+                                    </figure>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

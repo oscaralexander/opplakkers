@@ -110,7 +110,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: card
 hasTitleField: true
-icon: square
+icon: null
 name: Kaart
 showSlugField: false
 showStatusField: true

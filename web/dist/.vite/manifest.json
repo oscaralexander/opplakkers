@@ -1,47 +1,58 @@
 {
   "src/js/components/Accordion.js": {
-    "file": "assets/Accordion-CQTa09AL.js",
+    "file": "assets/Accordion-Cvj2CXQG.js",
     "name": "Accordion",
     "src": "src/js/components/Accordion.js",
     "isDynamicEntry": true,
     "imports": [
       "src/js/index.js"
     ],
-    "integrity": "sha384-MLYvY9abyXwt1XFlXBOLScogZLW/FCypqAuF+fXey3lwPOZ7EHsLWvYVssHjFTAF"
+    "integrity": "sha384-JEj6tbmoNllvCZNVA4htVAUiOYGCpKOOjdPwqAI3T9eFyav/CH2WGNF8GnWVT+/e"
+  },
+  "src/js/components/ProjectHero.js": {
+    "file": "assets/ProjectHero-CGIfDMmY.js",
+    "name": "ProjectHero",
+    "src": "src/js/components/ProjectHero.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/js/index.js"
+    ],
+    "integrity": "sha384-i5U5H06Y8fanPl+R8fQOHPRw/6eDfDh0h9OzoXL3kdQADMnceWSeMP9ybWeCo38+"
   },
   "src/js/components/Service.js": {
-    "file": "assets/Service-DH5u6lYw.js",
+    "file": "assets/Service-Thzjl3MT.js",
     "name": "Service",
     "src": "src/js/components/Service.js",
     "isDynamicEntry": true,
     "imports": [
       "src/js/index.js"
     ],
-    "integrity": "sha384-6ruQpcQu4ckM5BfyahjaXpoHO9rqcsZCTc5XG8Ql7EFbKr8mAmgv/mZjtB3Ufgux"
+    "integrity": "sha384-rAtXD8DTNz1EhxX/nX1y3z37imqdW5C3NaqD2pddLU0EAUDxZav3Ik+7aSm73bcM"
   },
   "src/js/components/Ticker.js": {
-    "file": "assets/Ticker-DcTUFsGA.js",
+    "file": "assets/Ticker-BAH-tGwP.js",
     "name": "Ticker",
     "src": "src/js/components/Ticker.js",
     "isDynamicEntry": true,
     "imports": [
       "src/js/index.js"
     ],
-    "integrity": "sha384-YakqpDOfx3nVwB9VDj97zcKFcGam7s8hmNygi7L+rGZPE0hTRSZdUt1rVfLaPAVe"
+    "integrity": "sha384-TsiDbQ/miAH0ub4tQQlDRpbLJENq3XpA/J0GSE0unMqEpu1qc2cRObgsf9ZA+Ctx"
   },
   "src/js/index.js": {
-    "file": "assets/app-ByDrwEUk.js",
+    "file": "assets/app-CxEYJLvT.js",
     "name": "app",
     "src": "src/js/index.js",
     "isEntry": true,
     "dynamicImports": [
       "src/js/components/Accordion.js",
       "src/js/components/Ticker.js",
-      "src/js/components/Service.js"
+      "src/js/components/Service.js",
+      "src/js/components/ProjectHero.js"
     ],
     "css": [
-      "assets/app-B29rteq-.css"
+      "assets/app-Zm8iPDXx.css"
     ],
-    "integrity": "sha384-HVqMMgyJG73RqvVPdlvDDiBe4N9ImJ0EX7bRx59U/QoUD+aV1UovevlrJocw5YlO"
+    "integrity": "sha384-9GB8khB4mD+meNzknc8mEuC3fjFcMIjjUnfv/8UIJElkzGgV1I2+689n7aeMdSf8"
   }
 }

@@ -1,0 +1,149 @@
+@use '@css/2-tools/mixins' as *;
+
+// Five images in a fixed composition (see templates/_sections/gallery.twig).
+//
+// From the large breakpoint a four-column grid: the tall image spans both
+// rows of the first column; the wide image takes columns 2–3 on the top row
+// and 3–4 on the bottom, the square the remaining column. Columns 2 + 3 and
+// 3 + 4 both add up to 16 parts against a 9-part square, so the wide image
+// is 16:9 next to a 1:1 square of the same height, and the first column is
+// sized for a 9:16 image as tall as both rows.
+//
+// Below it the images sit in the grid--scrolling row at one shared height.
+// At phone widths a true 9:16 next to a 16:9 is either a sliver or wider than
+// the screen, so the row softens them to 3:4 and 4:3 and lets object-fit crop
+// the rest.
+.gallery {
+    --gallery-gap: var(--size-m);
+
+    &__grid {
+        gap: var(--gallery-gap);
+    }
+
+    &__tile {
+        color: inherit;
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    // The entrance zoom's layer (reveal.scss), covering the tile.
+    &__zoom {
+        display: block;
+        inset: 0;
+        position: absolute;
+    }
+
+    // Out of the flow, so the image fills whatever box the layout gives the
+    // tile instead of sizing it with its own intrinsic dimensions.
+    &__image {
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        transition: transform var(--duration-l) var(--ease-out);
+        width: 100%;
+    }
+
+    a.gallery__tile:hover .gallery__image {
+        transform: scale(1.04);
+    }
+
+    &__caption {
+        --caption-inset: var(--size-s);
+
+        align-items: center;
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        background: rgb(0 0 0 / 85%);
+        bottom: var(--caption-inset);
+        color: #fff;
+        display: inline-flex;
+        font-size: var(--font-size-s);
+        font-weight: 500;
+        gap: var(--size-xs);
+        left: var(--caption-inset);
+        line-height: var(--line-height-m);
+        max-width: calc(100% - var(--caption-inset) * 2);
+        padding: var(--size-xs) var(--size-s);
+        position: absolute;
+        white-space: nowrap;
+
+        @include screen-min(l) {
+            --caption-inset: var(--size-m);
+        }
+    }
+
+    &__captionText {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__captionIcon {
+        flex: none;
+        height: 1em;
+        transition: transform var(--duration-m) var(--ease-out);
+        width: 1em;
+    }
+
+    a.gallery__tile:hover .gallery__captionIcon {
+        transform: translate(2px, -2px);
+    }
+
+    @include screen-max(l) {
+        --gallery-height: min(60vw, 24rem);
+
+        .grid--scrolling > .gallery__item {
+            flex: 0 0 auto;
+            height: var(--gallery-height);
+        }
+
+        &__item--tall {
+            aspect-ratio: 3 / 4;
+        }
+
+        &__item--wide {
+            aspect-ratio: 4 / 3;
+        }
+
+        &__item--square {
+            aspect-ratio: 1;
+        }
+    }
+
+    @include screen-min(l) {
+        &__grid {
+            display: grid;
+            grid-template-columns: 81fr 72fr 56fr 72fr;
+        }
+
+        &__item--1 {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        &__item--2 {
+            grid-column: 2 / span 2;
+            grid-row: 1;
+        }
+
+        // The squares set the row height; everything else stretches to it.
+        &__item--3 {
+            aspect-ratio: 1;
+            grid-column: 4;
+            grid-row: 1;
+        }
+
+        &__item--4 {
+            aspect-ratio: 1;
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        &__item--5 {
+            grid-column: 3 / span 2;
+            grid-row: 2;
+        }
+    }
+}

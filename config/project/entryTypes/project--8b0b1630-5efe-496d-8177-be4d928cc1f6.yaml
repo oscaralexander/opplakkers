@@ -1,0 +1,185 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  89f94b9d-2f7b-47c5-b5b4-4e5af9a88187:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 617211b8-f06e-4612-89b8-8b2e0a97b38f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b9ac0b8f-b15f-44e7-a703-c5ee9f62c8c4 # Tekstregel
+            handle: location
+            instructions: 'Bijvoorbeeld "Utrecht".'
+            label: Locatie
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: da92a4b5-73a2-4206-a278-8eac269f3b9a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ba13e3a6-fab9-47da-82ba-81e98a87fe84 # Projectcategorie
+            handle: null
+            instructions: null
+            label: Categorie
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 092204a7-19eb-49e5-aaec-3d5db03d2e37
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: null
+            instructions: 'Wordt vierkant bijgesneden.'
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a6bc8603-8c8c-40e4-b88b-194fec4ba617
+            userCondition: null
+            warning: null
+            width: 100
+        name: Project
+        uid: b2f22b3e-6fc4-4316-b600-d20a1a67eba8
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cacc333e-ac3e-4ef9-8f76-4a500732b534 # Secties
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 665ef025-2fa3-46c9-a80b-22bc81fd9fa4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Pagina
+        uid: 3134a535-55fe-4c47-bdf1-38e17527b3f2
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b2f2d15e-f5df-4a3f-84c2-c87a3cfd200e # SEO-titel
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ec791ccc-706f-41fe-bb41-076c99cebaf9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 63c4a802-cc8b-4600-b13d-91f35df1ba7e # SEO-omschrijving
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1f90a7a7-03ed-4313-bc4c-adccc53f24b5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ce60c950-0d0f-404d-9003-f1b5b0640b8a # Afbeelding voor social media
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6deb2259-619e-48bb-8c0a-b8e4d5a16572
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: fb867fc2-ed4b-4d7c-880c-f19398aab506
+        userCondition: null
+    thumbFieldKey: 'layoutElement:a6bc8603-8c8c-40e4-b88b-194fec4ba617'
+handle: project
+hasTitleField: true
+icon: null
+name: Project
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

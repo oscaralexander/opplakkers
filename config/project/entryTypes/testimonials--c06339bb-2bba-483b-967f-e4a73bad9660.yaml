@@ -150,7 +150,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: testimonials
 hasTitleField: true
-icon: quote
+icon: null
 name: Testimonials
 showSlugField: false
 showStatusField: true

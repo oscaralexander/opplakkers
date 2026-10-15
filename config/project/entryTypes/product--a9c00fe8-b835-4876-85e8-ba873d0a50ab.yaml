@@ -144,7 +144,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: product
 hasTitleField: true
-icon: tag
+icon: null
 name: Product
 showSlugField: false
 showStatusField: true

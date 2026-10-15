@@ -1,0 +1,77 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  17168ef3-86a8-4581-ab68-79c781a19291:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a949476f-5a02-40bb-880d-6991f19bff0e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b9ac0b8f-b15f-44e7-a703-c5ee9f62c8c4 # Tekstregel
+            handle: caption
+            instructions: 'Kort bijschrift, bijvoorbeeld "Car wraps".'
+            label: Bijschrift
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1b251eb4-b268-41f9-bfed-13a4cffc71e0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-14T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fa54c635-6324-4031-8d38-ba24d697a421 # Link
+            handle: null
+            instructions: 'Maakt de afbeelding klikbaar.'
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 31b4033e-2749-439e-a338-8acf45a74654
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 77d72653-55e2-4b59-b81d-1d23a4211e3b
+        userCondition: null
+    thumbFieldKey: 'layoutElement:a949476f-5a02-40bb-880d-6991f19bff0e'
+handle: galleryItem
+hasTitleField: false
+icon: null
+name: Galerijafbeelding
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{caption}'

@@ -133,7 +133,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: page
 hasTitleField: true
-icon: file
+icon: null
 name: Pagina
 showSlugField: true
 showStatusField: true

@@ -150,7 +150,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: people
 hasTitleField: true
-icon: users
+icon: null
 name: Personen
 showSlugField: false
 showStatusField: true

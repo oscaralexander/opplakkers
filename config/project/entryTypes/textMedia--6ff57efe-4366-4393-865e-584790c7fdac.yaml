@@ -201,7 +201,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: textMedia
 hasTitleField: true
-icon: image
+icon: null
 name: 'Tekst & media'
 showSlugField: false
 showStatusField: true

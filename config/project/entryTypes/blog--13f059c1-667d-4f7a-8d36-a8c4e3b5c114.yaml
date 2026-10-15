@@ -150,7 +150,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: blog
 hasTitleField: true
-icon: newspaper
+icon: null
 name: Blogartikel
 showSlugField: true
 showStatusField: true

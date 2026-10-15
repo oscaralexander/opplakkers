@@ -76,7 +76,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: item
 hasTitleField: true
-icon: list
+icon: null
 name: Item
 showSlugField: false
 showStatusField: true

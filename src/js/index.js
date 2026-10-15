@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
         { name: 'accordion', component: () => import('@js/components/Accordion') },
         { name: 'ticker', component: () => import('@js/components/Ticker') },
         { name: 'service', component: () => import('@js/components/Service') },
+        { name: 'projectHero', component: () => import('@js/components/ProjectHero') },
     ]);
 });
 

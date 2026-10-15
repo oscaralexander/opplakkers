@@ -20,6 +20,6 @@ siteSettings:
     template: pages/_entry
     uriFormat: "{% if level == 1 and slug == 'home' %}__home__{% else %}{parent.uri}/{slug}{% endif %}"
 structure:
-  maxLevels: 2
+  maxLevels: 3
   uid: 69237a2e-f034-4053-8d17-ad6325d55727
 type: structure

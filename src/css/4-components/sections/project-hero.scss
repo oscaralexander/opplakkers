@@ -1,0 +1,188 @@
+@use '@css/2-tools/mixins' as *;
+
+// The project page header (templates/projects/_entry.twig), built on .hero.
+// A 64px copy of the project's square image, blurred and scaled up, washes the
+// background in the project's colours; the sharp square sits beside the title.
+.projectHero {
+    &__wash {
+        inset: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: 0;
+
+        // Darken the wash so white text holds up on any image.
+        &::after {
+            background: linear-gradient(0deg, rgb(0 0 0 / 70%), rgb(0 0 0 / 35%));
+            content: '';
+            inset: 0;
+            position: absolute;
+        }
+    }
+
+    &__washImage {
+        filter: blur(48px) saturate(1.4);
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        // Scaled past the edges so the blur does not fade to transparent there.
+        transform: scale(1.3);
+        width: 100%;
+    }
+
+    // The title ticker: in front of the wash, behind the content (which sits
+    // on .section__inner at z-index 2), starting just below the nav bar.
+    // Outlined rather than filled, so the text on top stays readable.
+    //
+    // The variable font draws its glyphs from overlapping contours, so a bare
+    // stroke traces every overlap inside a letter. Painting the fill over the
+    // stroke (paint-order) hides those, but needs an opaque fill: the fill is
+    // black and the layer is screen-blended, where black leaves the backdrop
+    // untouched. Only the outer half of the stroke remains, hence 4px (the
+    // glyph has no overlaps and takes a plain 2px stroke).
+    &__ticker {
+        left: 0;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: calc(var(--nav-height) + var(--nav-offset-y));
+        z-index: 1;
+    }
+
+    &__tickerItem {
+        align-items: center;
+        display: flex;
+        font-size: clamp(6rem, 15vw, 18rem);
+        gap: .25em;
+        padding-right: .25em;
+    }
+
+    &__tickerTitle {
+        color: #000;
+        font-family: var(--h1-font);
+        font-style: var(--h1-font-style);
+        font-variation-settings: 'wdth' 125;
+        font-weight: var(--h1-weight);
+        line-height: 1;
+        text-transform: var(--h1-text-transform);
+        paint-order: stroke fill;
+        -webkit-text-stroke: 4px rgb(from var(--color-1) r g b / 25%);
+        white-space: nowrap;
+    }
+
+    &__tickerGlyph {
+        fill: none;
+        flex: 0 0 auto;
+        height: .4em;
+        overflow: visible;
+        stroke: var(--color-1);
+        stroke-linejoin: round;
+        stroke-opacity: .25;
+        stroke-width: 2px;
+        width: .4em;
+
+        path {
+            vector-effect: non-scaling-stroke;
+        }
+    }
+
+    > .section__inner {
+        padding-bottom: var(--section-padding-y);
+    }
+
+    &__meta {
+        color: var(--color-text);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: var(--font-size-l);
+        gap: var(--size-s) var(--size-xl);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__metaItem {
+        align-items: center;
+        display: flex;
+        gap: var(--size-s);
+
+        svg {
+            color: var(--color-1);
+            flex: none;
+            height: 1.125em;
+            width: 1.125em;
+        }
+    }
+
+    // The image in 3D. __media holds the perspective, __tilt is turned by the
+    // pointer (ProjectHero.js) and __pose carries the resting tilt, so the
+    // two rotations add up instead of overwriting each other. The corners
+    // sit on a layer in front of the image, so tilting shows the depth.
+    &__media {
+        --corner-size: 1rem;
+        // Small: the corner layer sits in front of the image, so perspective
+        // already pushes it outwards and widens the visible gap.
+        --corner-gap: .125rem;
+
+        perspective: 700px;
+    }
+
+    &__tilt,
+    &__pose {
+        position: relative;
+        transform-style: preserve-3d;
+    }
+
+    &__image {
+        box-shadow: 0 2rem 4rem rgb(0 0 0 / 35%);
+        display: block;
+        width: 100%;
+    }
+
+    // Just outside the image rather than over it.
+    &__corners {
+        inset: calc((var(--corner-size) + var(--corner-gap)) * -1);
+        pointer-events: none;
+        position: absolute;
+        transform: translateZ(2.5rem);
+    }
+
+    &__corner {
+        height: var(--corner-size);
+        position: absolute;
+        width: var(--corner-size);
+
+        &--tl {
+            left: 0;
+            top: 0;
+        }
+
+        &--tr {
+            right: 0;
+            top: 0;
+        }
+
+        &--bl {
+            bottom: 0;
+            left: 0;
+        }
+
+        &--br {
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    @include screen-min(l) {
+        &__media {
+            --corner-size: 1.5rem;
+            --corner-gap: .3rem;
+        }
+
+        // Bottom and right edges come towards the viewer.
+        &__pose {
+            transform: rotateX(15deg) rotateY(-15deg);
+        }
+    }
+}

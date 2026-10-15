@@ -150,7 +150,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: stats
 hasTitleField: true
-icon: chart-no-axes-column
+icon: null
 name: Statistieken
 showSlugField: false
 showStatusField: true

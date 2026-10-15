@@ -1,0 +1,94 @@
+@use '@css/2-tools/mixins' as *;
+
+// A project card: the service card's look (see service.scss), square and
+// without the 3D tilt. An empty link covers the whole card.
+.project {
+    aspect-ratio: 1;
+    background: #000;
+    border-radius: var(--card-border-radius);
+    color: var(--color-text-hc);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: var(--size-l);
+    position: relative;
+
+    &__image {
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        transition: transform var(--duration-l) var(--ease-out);
+        width: 100%;
+    }
+
+    // Darken the bottom so the text stays readable on any image.
+    &:has(&__image) {
+        color: #fff;
+
+        &::before {
+            background: linear-gradient(to top, rgb(0 0 0 / 75%), rgb(0 0 0 / 0%) 50%);
+            content: '';
+            inset: 0;
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &__category {
+        color: var(--color-1);
+        font-size: var(--font-size-s);
+        font-weight: 600;
+        margin-bottom: var(--size-s);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__title {
+        align-items: center;
+        color: var(--color-text-hc);
+        display: flex;
+        font-size: var(--font-size-l);
+        font-weight: 700;
+        gap: var(--size-s);
+        justify-content: space-between;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 2;
+
+        svg {
+            flex-shrink: 0;
+            transition: transform var(--duration-m) var(--ease-out);
+        }
+    }
+
+    &__link {
+        border-radius: inherit;
+        inset: 0;
+        position: absolute;
+        z-index: 3;
+    }
+
+    &__location {
+        color: rgb(255 255 255 / 70%);
+        font-size: var(--font-size-s);
+        margin-top: var(--size-xs);
+        position: relative;
+        z-index: 2;
+    }
+
+    &:hover {
+        .project__image {
+            transform: scale(1.04);
+        }
+
+        .project__title svg {
+            transform: translateX(4px);
+        }
+    }
+
+    @include screen-min(l) {
+        padding: var(--size-xl);
+    }
+}

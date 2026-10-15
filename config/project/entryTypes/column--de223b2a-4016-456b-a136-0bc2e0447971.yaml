@@ -131,7 +131,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: column
 hasTitleField: true
-icon: columns-3
+icon: null
 name: Kolom
 showSlugField: false
 showStatusField: true

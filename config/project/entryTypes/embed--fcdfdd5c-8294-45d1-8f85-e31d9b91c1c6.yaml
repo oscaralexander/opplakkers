@@ -150,7 +150,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: embed
 hasTitleField: true
-icon: code
+icon: null
 name: Embed
 showSlugField: false
 showStatusField: true

@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: imagesItems
+instructions: 'Eén afbeelding wordt groot getoond, twee komen naast elkaar.'
+name: 'Afbeeldingen (1 of 2)'
+searchable: false
+settings:
+  createButtonLabel: 'Afbeelding toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 60336fc8-475a-4d79-a0fa-b7c47ba15082 # Afbeelding met bijschrift
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: 2
+  minEntries: 1
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: true
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

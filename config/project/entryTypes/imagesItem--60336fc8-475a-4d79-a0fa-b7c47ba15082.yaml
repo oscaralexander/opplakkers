@@ -1,0 +1,60 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  4026ad49-35af-4120-bcde-9aebc36c500b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-15T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46c24a7e-dc15-423e-838a-641ffacbf8eb # Afbeelding
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6b9a788c-f937-4e55-bf2a-c60defbc5f00
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-15T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b9ac0b8f-b15f-44e7-a703-c5ee9f62c8c4 # Tekstregel
+            handle: caption
+            instructions: null
+            label: Bijschrift
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a4cec5fa-ab21-4b1c-afa8-dd3de463ca13
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: ed8a4a8e-e955-4a65-980b-f5b085f5f571
+        userCondition: null
+    thumbFieldKey: 'layoutElement:6b9a788c-f937-4e55-bf2a-c60defbc5f00'
+handle: imagesItem
+hasTitleField: false
+icon: null
+name: 'Afbeelding met bijschrift'
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{caption}'

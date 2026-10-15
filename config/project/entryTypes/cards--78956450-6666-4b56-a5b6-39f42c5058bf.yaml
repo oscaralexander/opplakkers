@@ -167,7 +167,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: cards
 hasTitleField: true
-icon: layout-grid
+icon: null
 name: Kaarten
 showSlugField: false
 showStatusField: true

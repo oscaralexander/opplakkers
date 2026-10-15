@@ -31,7 +31,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: image
 hasTitleField: false
-icon: image
+icon: null
 name: Afbeelding
 showSlugField: false
 showStatusField: false

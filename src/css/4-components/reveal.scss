@@ -25,10 +25,63 @@
     }
 }
 
+// Clip variant, for images: .reveal--clip on the revealed element. Instead of
+// fading and rising, its .reveal__frame wipes open from the top while the
+// .reveal__zoom inside settles from a slight zoom; a .reveal__after (a
+// caption) fades in once the image is mostly there. The zoom uses `scale`, not
+// `transform`, and wants its own element when the image already scales on
+// hover. Used by the images and gallery sections.
+.is-revealReady .js-reveal.reveal--clip {
+    opacity: 1;
+    transform: none;
+
+    .reveal__frame {
+        clip-path: inset(0 0 100% 0);
+    }
+
+    .reveal__zoom {
+        scale: 1.3;
+    }
+
+    .reveal__after {
+        opacity: 0;
+    }
+
+    &.is-revealed {
+        transition: none;
+
+        .reveal__frame {
+            clip-path: inset(0);
+            transition: clip-path 1.2s cubic-bezier(.77, 0, .175, 1) var(--reveal-delay, 0ms);
+        }
+
+        .reveal__zoom {
+            scale: 1;
+            transition: scale 1.6s cubic-bezier(.2, .8, .2, 1) var(--reveal-delay, 0ms);
+        }
+
+        .reveal__after {
+            opacity: 1;
+            transition: opacity var(--duration-l) ease calc(var(--reveal-delay, 0ms) + 600ms);
+        }
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .is-revealReady .js-reveal {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    .is-revealReady .js-reveal.reveal--clip {
+        .reveal__frame,
+        .reveal__zoom,
+        .reveal__after {
+            clip-path: none;
+            opacity: 1;
+            scale: none;
+            transition: none;
+        }
     }
 }

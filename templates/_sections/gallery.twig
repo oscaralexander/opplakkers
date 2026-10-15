@@ -1,0 +1,49 @@
+{% import '_macros/ui' as ui %}
+
+{#
+  Five images in a fixed composition: a tall image on the left and two rows
+  of a wide and a square image beside it, the second row mirrored. Each slot
+  crops its image to its own ratio, so the order in the CMS decides the shape.
+  Below the large breakpoint the images become a scrolling row of equal height
+  (see gallery.scss).
+#}
+{% set items = section.galleryItems.with(['image']).all() %}
+{% set slots = [
+    { modifier: 'tall', ratio: 9/16, sizes: '(min-width: 1280px) 23vw, min(45vw, 18rem)', widths: [320, 480, 640, 800, 960] },
+    { modifier: 'wide', ratio: 16/9, sizes: '(min-width: 1280px) 38vw, min(107vw, 43rem)', widths: [480, 640, 800, 1024, 1280, 1600] },
+    { modifier: 'square', ratio: 1, sizes: '(min-width: 1280px) 22vw, min(60vw, 24rem)', widths: [320, 480, 640, 800, 960] },
+    { modifier: 'square', ratio: 1, sizes: '(min-width: 1280px) 22vw, min(60vw, 24rem)', widths: [320, 480, 640, 800, 960] },
+    { modifier: 'wide', ratio: 16/9, sizes: '(min-width: 1280px) 38vw, min(107vw, 43rem)', widths: [480, 640, 800, 1024, 1280, 1600] },
+] %}
+
+{% if items|length %}
+    <section class="{{ ui.sectionClass(section, 'gallery') }}">
+        <div class="{{ ui.sectionInnerClass(section) }}">
+            {{ ui.sectionHeader(section, { align: 'top' }) }}
+            <div class="gallery__grid grid grid--scrolling" data-reveal-group>
+                {% for item in items|slice(0, slots|length) %}
+                    {% set slot = slots[loop.index0] %}
+                    {% set image = item.image.one() %}
+                    {% set link = item.link and item.link.url ? item.link : null %}
+                    {% if image %}
+                        {% set tag = link ? 'a' : 'div' %}
+                        <div class="gallery__item gallery__item--{{ slot.modifier }} gallery__item--{{ loop.index }} grid__col reveal--clip js-reveal">
+                            <{{ tag }} class="gallery__tile reveal__frame"{% if link %} href="{{ link.url }}"{{ link.target == '_blank' ? ' target="_blank" rel="noopener"' }}{% if not item.caption %} aria-label="{{ link.label ?: image.alt ?: image.title }}"{% endif %}{% endif %}>
+                                {# Its own layer for the entrance zoom, so the hover zoom on the image stays free. #}
+                                <span class="gallery__zoom reveal__zoom">
+                                    {{ ui.image(image, { class: 'gallery__image', ratio: slot.ratio, sizes: slot.sizes, widths: slot.widths }) }}
+                                </span>
+                                {% if item.caption %}
+                                    <span class="gallery__caption reveal__after">
+                                        <span class="gallery__captionText">{{ item.caption }}</span>
+                                        {% if link %}{{ ui.icon('arrow-up-right', 'gallery__captionIcon') }}{% endif %}
+                                    </span>
+                                {% endif %}
+                            </{{ tag }}>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

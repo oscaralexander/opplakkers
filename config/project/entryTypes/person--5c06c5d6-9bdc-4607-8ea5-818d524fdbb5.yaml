@@ -127,7 +127,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: person
 hasTitleField: true
-icon: user
+icon: null
 name: Persoon
 showSlugField: false
 showStatusField: true

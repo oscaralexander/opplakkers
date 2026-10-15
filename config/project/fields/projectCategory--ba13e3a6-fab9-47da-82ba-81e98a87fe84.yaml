@@ -1,0 +1,66 @@
+columnSuffix: null
+handle: projectCategory
+instructions: null
+name: Projectcategorie
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - —
+        -
+          - value
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Gevelreclame
+        -
+          - value
+          - gevelreclame
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Raambelettering
+        -
+          - value
+          - raambelettering
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Autoreclame
+        -
+          - value
+          - autoreclame
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Interieuraankleding
+        -
+          - value
+          - interieuraankleding
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

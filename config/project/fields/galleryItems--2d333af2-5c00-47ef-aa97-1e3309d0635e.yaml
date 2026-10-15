@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: galleryItems
+instructions: 'Vijf afbeeldingen, in deze volgorde: 1. staand (9:16), 2. liggend (16:9), 3. vierkant (1:1), 4. vierkant (1:1), 5. liggend (16:9). Afbeeldingen worden automatisch op deze verhouding bijgesneden.'
+name: Galerij
+searchable: false
+settings:
+  createButtonLabel: 'Afbeelding toevoegen'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 25102cac-13bf-4dc3-9f4b-4fe2b2abdee9 # Galerijafbeelding
+        -
+          - group
+          - Algemeen
+  includeTableView: false
+  maxEntries: 5
+  minEntries: 5
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: true
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

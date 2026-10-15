@@ -167,7 +167,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: blogIndex
 hasTitleField: true
-icon: newspaper
+icon: null
 name: Blogoverzicht
 showSlugField: false
 showStatusField: true

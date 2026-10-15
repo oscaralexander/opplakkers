@@ -84,6 +84,22 @@ settings:
       __assoc__:
         -
           - uid
+          - 20ecafe2-0f2b-4746-a01e-c0115044ac91 # Afbeeldingen
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - 106c79a4-dc1c-47c1-9942-79c74f6ec852 # Afbeeldingen Grid
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
           - 60832cf3-6719-452e-95bd-f6a883aa8572 # Producten
         -
           - group
@@ -109,6 +125,14 @@ settings:
         -
           - uid
           - eb8bda0d-aecd-4996-85e8-8dc0f43a1c6c # Blogoverzicht
+        -
+          - group
+          - Algemeen
+    -
+      __assoc__:
+        -
+          - uid
+          - f5b02a84-0578-4a88-9d4b-d760be1ea617 # Projectenoverzicht
         -
           - group
           - Algemeen

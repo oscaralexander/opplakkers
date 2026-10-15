@@ -1,0 +1,83 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  8ac1fd08-b461-49cc-a5d3-0caa384a4724:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-15T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4bdea78d-be4f-4674-ab46-d7d501e0611c # Afbeeldingen (1 of 2)
+            handle: null
+            instructions: null
+            label: Afbeeldingen
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0541008-f1a5-4099-98ac-10f44b0b5e94
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 50b41cfc-838e-4721-9b69-256eb2058d45
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-15T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 04d6165b-2f67-4e9e-bfef-b37bff45a5c3 # Kleurthema
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2de47b08-7e7e-4661-b146-29ff12c00804
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-15T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5cd2552a-d7ef-4d86-be5d-0f09abd0e232 # Volledige breedte?
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f722a668-d6c9-444d-9e25-65997774594b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Opmaak
+        uid: 31b8b25f-d819-41e9-a7f5-6a961d15e497
+        userCondition: null
+    thumbFieldKey: null
+handle: images
+hasTitleField: false
+icon: null
+name: Afbeeldingen
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: Afbeeldingen

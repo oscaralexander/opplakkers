@@ -1,23 +1,41 @@
 {% import '_macros/ui' as ui %}
 
-{% set alignment = section.sectionHeaderAlignment ?? 'left' %}
+{#
+  Text in two columns, side by side from the large breakpoint and stacked
+  below it, with the buttons underneath. The heading sits above them and is
+  exactly as wide as one column: it lives in its own grid with the same gap.
+#}
+{% set columns = [section.textColumn1, section.textColumn2]|filter(column => column|length) %}
 
 <section class="{{ ui.sectionClass(section, 'text') }}">
     <div class="{{ ui.sectionInnerClass(section) }}">
-        <div class="grid grid--center grid--gap-xxl">
-            <div class="grid__col l:grid__col--span-{{ alignment == 'left' ? '5' : '8' }}">
-                {{ ui.sectionHeader(section) }}
-            </div>
-            {% if section.text|length or section.ctas|length %}
-                <div class="grid__col l:grid__col--span-{{ alignment == 'left' ? '7' : '8' }}">
-                    <div class="stack stack--gap-xl" data-reveal-group>
-                        {% if section.text|length %}
-                            <div class="text__body richText js-reveal">{{ section.text }}</div>
+        {% if section.eyebrow or section.title %}
+            <div class="grid grid--gap-xl l:grid--gap-xxl">
+                <div class="grid__col l:grid__col--span-6">
+                    <header class="section__header" data-reveal-group>
+                        {% if section.eyebrow %}
+                            <p class="section__eyebrow h5 js-reveal">{{ section.eyebrow }}</p>
                         {% endif %}
-                        {{ ui.ctas(section.ctas, { align: alignment == 'top' ? 'center' : 'left', class: 'js-reveal' }) }}
-                    </div>
+                        {% if section.title %}
+                            <h2 class="section__title js-textSplit">{{ section.title }}</h2>
+                        {% endif %}
+                    </header>
                 </div>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
+        {% if columns|length or section.ctas|length %}
+            <div class="stack stack--gap-xl" data-reveal-group>
+                {% if columns|length %}
+                    <div class="grid grid--gap-xl l:grid--gap-xxl">
+                        {% for column in columns %}
+                            <div class="grid__col l:grid__col--span-6">
+                                <div class="text__body richText js-reveal">{{ column }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {{ ui.ctas(section.ctas, { align: 'left', class: 'js-reveal' }) }}
+            </div>
+        {% endif %}
     </div>
 </section>

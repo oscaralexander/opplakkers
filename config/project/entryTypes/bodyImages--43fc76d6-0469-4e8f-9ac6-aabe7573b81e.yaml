@@ -31,7 +31,7 @@ fieldLayouts:
     thumbFieldKey: null
 handle: bodyImages
 hasTitleField: false
-icon: images
+icon: null
 name: Afbeelding(en)
 showSlugField: false
 showStatusField: false

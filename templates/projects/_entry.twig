@@ -1,0 +1,83 @@
+{% extends '_layout' %}
+
+{% import '_macros/ui' as ui %}
+
+{#
+  A page is a stack of sections. Each section type has a matching template in
+  _sections/; an unknown type is skipped rather than breaking the page.
+#}
+{% block content %}
+    {#
+      The project hero. The project's only image is a small square, too little
+      to stretch across the screen, so it does two jobs: blurred and scaled up
+      it becomes a wash of the project's own colours behind the header, and
+      sharp it sits beside the title as the picture itself.
+    #}
+    {% set image = entry.image.one() %}
+    <section class="section hero projectHero u-theme-contrast{{ image ? ' projectHero--hasImage' }}">
+        {% if image %}
+            <div class="projectHero__wash" aria-hidden="true">
+                {{ ui.image(image, { class: 'projectHero__washImage', eager: true, alt: '', ratio: 1, sizes: '64px', widths: [64] }) }}
+            </div>
+        {% endif %}
+        {# The project title running behind the content, as in the services section. #}
+        <div class="projectHero__ticker ticker js-ticker" data-ticker-pause-on-hover="false" aria-hidden="true">
+            <div class="ticker__inner js-tickerInner">
+                <div class="ticker__item projectHero__tickerItem">
+                    <span class="projectHero__tickerTitle">{{ entry.title }}</span>
+                    <svg class="projectHero__tickerGlyph" viewBox="0 0 100 100" focusable="false">
+                        <path d="M50 4 L61 39 L96 50 L61 61 L50 96 L39 61 L4 50 L39 39 Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="section__inner wrapper">
+            <div class="grid grid--end grid--gap-xl l:grid--gap-xxl">
+                <div class="grid__col l:grid__col--flex">
+                    <div class="hero__content stack stack--gap-m" data-reveal-group>
+                        <h1 class="hero__title js-textSplit">{{ entry.title }}</h1>
+                        {% set category = (entry.projectCategory.value ?? false) ? entry.projectCategory.label : null %}
+                        {% if category or entry.location %}
+                            <ul class="projectHero__meta js-reveal">
+                                {% if category %}
+                                    <li class="projectHero__metaItem">
+                                        {{ ui.icon('tag') }}
+                                        {{ category }}
+                                    </li>
+                                {% endif %}
+                                {% if entry.location %}
+                                    <li class="projectHero__metaItem">
+                                        {{ ui.icon('map-pin') }}
+                                        {{ entry.location }}
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if image %}
+                    <div class="grid__col s:grid__col--span-6 l:grid__col--span-4 js-reveal">
+                        {# data-max-tilt: how far, in degrees, the pointer tilts the image (ProjectHero.js). #}
+                        <div class="projectHero__media js-projectHero" data-max-tilt="10">
+                            <div class="projectHero__tilt js-projectHeroTilt">
+                                <div class="projectHero__pose">
+                                    {{ ui.image(image, { class: 'projectHero__image', eager: true, ratio: 1, sizes: '(min-width: 1280px) 28vw, (min-width: 768px) 46vw, calc(93vw - 8px)', widths: [480, 640, 800, 960, 1200] }) }}
+                                    <div class="projectHero__corners" aria-hidden="true">
+                                        {% for corner in ['tl', 'tr', 'bl', 'br'] %}
+                                            <img class="projectHero__corner projectHero__corner--{{ corner }}" src="/assets/img/corner-{{ corner }}.svg" alt="" width="96" height="96">
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% set sections = entry.sections.with(['image', 'imageMobile', 'ctas', 'cards', 'columns', 'accordionItems', 'tickerItems']).all() %}
+    {% for section in sections %}
+        {% include '_sections/' ~ section.type.handle ignore missing with { section: section } only %}
+    {% endfor %}
+{% endblock %}

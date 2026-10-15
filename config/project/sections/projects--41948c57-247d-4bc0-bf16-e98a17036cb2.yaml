@@ -1,0 +1,25 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 8b0b1630-5efe-496d-8177-be4d928cc1f6 # Project
+handle: projects
+maxAuthors: 1
+minAuthors: 1
+name: Projecten
+previewTargets:
+  -
+    label: Project
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  b8818193-066b-4058-8f65-3f916da0cc73: # Opplakkers
+    enabledByDefault: true
+    hasUrls: true
+    template: projects/_entry
+    uriFormat: '{% if projectCategory.value %}projecten/{projectCategory.value}/{slug}{% else %}projecten/{slug}{% endif %}'
+structure:
+  maxLevels: 1
+  uid: cea57308-79fd-45e0-801c-83a7bd4177f1
+type: structure
