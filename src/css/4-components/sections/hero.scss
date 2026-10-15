@@ -91,6 +91,11 @@
         }
     }
 
+    // Only a large hero fills the screen enough to need a nudge to scroll.
+    &:not(&--large) &__scrollIndicator {
+        display: none;
+    }
+
     &--small {
         min-height: 50svh;
     }
