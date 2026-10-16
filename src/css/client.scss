@@ -1,3 +1,5 @@
+@use '@css/2-tools/mixins' as *;
+
 .btn {
     font-variation-settings: 'wdth' 150, 'wght' 600;
     transform: skewX(-10deg);
@@ -18,11 +20,19 @@
 
 .menu__link {
     font-variation-settings: 'wdth' 150, 'wght' 600;
+
+    // In the off-canvas menu: Sztos Medium at its normal width, like the
+    // desktop submenu links (menu.scss).
+    @include screen-max(m) {
+        font-family: var(--font-2);
+        font-variation-settings: 'wght' 500;
+        font-weight: 500;
+    }
 }
 
 .hero {
     h1 {
-        padding-top: .25em;
+        padding-top: .5em;
         position: relative;
 
         &::before {
@@ -31,10 +41,20 @@
             top: 0;
             left: 0;
             width: 80px;
-            height: 8px;
+            height: 6px;
             background: var(--color-1);
             transform: skewX(-10deg);
             z-index: -1;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        h1 {
+            padding-top: .25em;
+
+            &::before {
+                height: 10px;
+            }
         }
     }
 }

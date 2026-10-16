@@ -2,6 +2,7 @@
 
 .footer {
     --color-bg: var(--footer-color-bg);
+    --logo-height: 6rem;
     background: var(--footer-color-bg);
     margin-top: var(--section-padding-y);
 
@@ -36,6 +37,7 @@
     }
 
     &__heading {
+        color: var(--color-1);
         margin-bottom: var(--size-l);
     }
 

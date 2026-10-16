@@ -11,7 +11,7 @@
 //
 // Below it the images sit in the grid--scrolling row at one shared height.
 // At phone widths a true 9:16 next to a 16:9 is either a sliver or wider than
-// the screen, so the row softens them to 3:4 and 4:3 and lets object-fit crop
+// the screen, so the row softens them to 5:8 and 10:9 and lets object-fit crop
 // the rest.
 .gallery {
     --gallery-gap: var(--size-m);
@@ -91,8 +91,12 @@
         transform: translate(2px, -2px);
     }
 
+    // 20% taller than a row of 3:4, 4:3 and 1:1 tiles at 60vw high, with the
+    // tiles kept at those widths: each image is cropped a little at the
+    // sides, the wide ones furthest.
     @include screen-max(l) {
-        --gallery-height: min(60vw, 24rem);
+        --gallery-gap: var(--gutter);
+        --gallery-height: min(72vw, 28.8rem);
 
         .grid--scrolling > .gallery__item {
             flex: 0 0 auto;
@@ -100,15 +104,15 @@
         }
 
         &__item--tall {
-            aspect-ratio: 3 / 4;
+            aspect-ratio: 5 / 8;
         }
 
         &__item--wide {
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 10 / 9;
         }
 
         &__item--square {
-            aspect-ratio: 1;
+            aspect-ratio: 5 / 6;
         }
     }
 

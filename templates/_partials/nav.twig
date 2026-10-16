@@ -3,9 +3,10 @@
 {#
   Site navigation. The menu follows the page structure: every level-1 page
   with "Tonen in navigatie" on, with its children as a submenu. Buttons on the
-  right come from the Navigatie global.
+  right come from the Navigatie global. The logo is the sticker in
+  _partials/logoSticker.twig, not the Huisstijl global's nav logo (that one is still
+  used by the footer and the SEO markup).
 #}
-{% set logo = brand.logoNav.one() %}
 {% set currentId = entry.id ?? null %}
 {% set ctas = navigation.ctas.all() %}
 {% set pages = craft.entries()
@@ -28,11 +29,7 @@
         </button>
 
         <a class="nav__logoLink" href="{{ siteUrl }}" aria-label="{{ currentSite.name }} — home">
-            {% if logo %}
-                {{ ui.image(logo, { class: 'nav__logo', eager: true, alt: currentSite.name }) }}
-            {% else %}
-                <span class="nav__siteName">{{ currentSite.name }}</span>
-            {% endif %}
+            {% include '_partials/logoSticker' %}
         </a>
 
         <div class="nav__menuOverlay js-navMenuOverlay"></div>

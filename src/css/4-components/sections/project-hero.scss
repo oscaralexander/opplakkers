@@ -20,7 +20,7 @@
     }
 
     &__washImage {
-        filter: blur(48px) saturate(1.4);
+        filter: blur(48px) saturate(1.5);
         height: 100%;
         inset: 0;
         object-fit: cover;
@@ -46,14 +46,14 @@
         pointer-events: none;
         position: absolute;
         right: 0;
-        top: calc(var(--nav-height) + var(--nav-offset-y));
+        top: calc(var(--nav-height) + var(--nav-offset-y) + 4px);
         z-index: 1;
     }
 
     &__tickerItem {
         align-items: center;
         display: flex;
-        font-size: clamp(6rem, 15vw, 18rem);
+        font-size: clamp(8rem, 15vw, 18rem);
         gap: .25em;
         padding-right: .25em;
     }
@@ -67,7 +67,7 @@
         line-height: 1;
         text-transform: var(--h1-text-transform);
         paint-order: stroke fill;
-        -webkit-text-stroke: 4px rgb(from var(--color-1) r g b / 25%);
+        -webkit-text-stroke: 3px rgb(from var(--color-1) r g b / 25%);
         white-space: nowrap;
     }
 
@@ -171,6 +171,19 @@
         &--br {
             bottom: 0;
             right: 0;
+        }
+    }
+
+    // Below the large breakpoint the image lies flat; the corners go with the
+    // 3D, and the meta line steps down a size.
+    @include screen-max(l) {
+        &__meta {
+            column-gap: var(--size-m);
+            font-size: var(--font-size-m);
+        }
+
+        &__corners {
+            display: none;
         }
     }
 

@@ -36,16 +36,146 @@
         z-index: 4;
     }
 
-    &__logo {
-        height: var(--logo-height);
-        width: auto;
+    // --- Logo sticker (templates/_partials/logoSticker.twig) -----------------
+    //
+    // At the top of the page the full logo hangs over the bar like a sticker;
+    // once the page scrolls (.is-scrolled) it shrinks to the icon inside the
+    // bar. The link only ever takes the icon's width, so the menu never moves:
+    // the sticker is out of the flow, anchored at the icon's top-left corner
+    // and growing down and to the right from there (centred on phones).
+    &__logoLink {
+        --sticker-icon: 3rem; // the icon in the bar
+        --sticker-size: 6rem; // the full logo at the top of the page
+        --sticker-padding: .375rem;
+
+        align-self: center;
+        height: var(--sticker-icon);
+        width: var(--sticker-icon);
+
+        @include screen-min(m) {
+            --sticker-size: 8.5rem;
+            --sticker-padding: .5rem;
+        }
     }
 
-    &__siteName {
+    &__sticker {
+        background: var(--nav-color-bg);
+        box-shadow: 0 .25rem .25rem rgb(0 0 0 / 25%);
         color: var(--color-text-hc);
-        font-size: var(--font-size-l);
-        font-weight: 700;
-        white-space: nowrap;
+        display: block;
+        height: var(--sticker-size);
+        left: calc(var(--sticker-padding) * -1);
+        padding: var(--sticker-padding);
+        position: absolute;
+        top: calc(var(--sticker-padding) * -1);
+        transition-duration: var(--duration-l);
+        transition-property: box-shadow, height, left, padding, top, width;
+        transition-timing-function: var(--ease-in-out);
+        width: var(--sticker-size);
+    }
+
+    &__stickerFrame {
+        display: block;
+        height: 100%;
+        position: relative;
+    }
+
+    // The same few pixels at either size, as in both the logo and the icon.
+    &__stickerCorner {
+        --corner-length: .625rem;
+        --corner-thickness: 3px;
+
+        border: 0 solid var(--color-1);
+        height: var(--corner-length);
+        position: absolute;
+        width: var(--corner-length);
+
+        &--tl {
+            border-left-width: var(--corner-thickness);
+            border-top-width: var(--corner-thickness);
+            left: 0;
+            top: 0;
+        }
+
+        &--tr {
+            border-right-width: var(--corner-thickness);
+            border-top-width: var(--corner-thickness);
+            right: 0;
+            top: 0;
+        }
+
+        &--bl {
+            border-bottom-width: var(--corner-thickness);
+            border-left-width: var(--corner-thickness);
+            bottom: 0;
+            left: 0;
+        }
+
+        &--br {
+            border-bottom-width: var(--corner-thickness);
+            border-right-width: var(--corner-thickness);
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    // Logo and icon fill the frame on top of each other and cross-fade.
+    &__stickerLogo,
+    &__stickerIcon {
+        fill: currentColor;
+        height: 100%;
+        inset: 0;
+        position: absolute;
+        transition: opacity var(--duration-l) var(--ease-in-out);
+        width: 100%;
+    }
+
+    &__stickerAccent {
+        fill: var(--color-1);
+    }
+
+    &__stickerIcon {
+        opacity: 0;
+    }
+
+    // Scrolled, or with the off-canvas menu open (the hanging sticker would
+    // cover it): the icon, flush in the bar.
+    &.is-scrolled,
+    &:has(.nav__menuToggle[aria-expanded='true']) {
+        .nav__sticker {
+            --sticker-padding: 0px;
+
+            box-shadow: 0 0 0 transparent;
+            height: var(--sticker-icon);
+            width: var(--sticker-icon);
+        }
+
+        .nav__stickerLogo {
+            opacity: 0;
+        }
+
+        .nav__stickerIcon {
+            opacity: 1;
+        }
+    }
+
+    @include screen-max(m) {
+        &__sticker {
+            left: calc(50% - var(--sticker-size) / 2);
+        }
+
+        &.is-scrolled .nav__sticker,
+        &:has(.nav__menuToggle[aria-expanded='true']) .nav__sticker {
+            left: calc(50% - var(--sticker-icon) / 2);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &__sticker,
+        &__stickerLogo,
+        &__stickerIcon {
+            transition: none;
+        }
     }
 
     &.is-hidden {

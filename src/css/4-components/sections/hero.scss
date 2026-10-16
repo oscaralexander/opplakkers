@@ -71,7 +71,7 @@
     }
 
     &__text {
-        font-size: var(--font-size-xl);
+        font-size: var(--font-size-l);
         max-width: 38rem;
         text-wrap: pretty;
     }
@@ -91,9 +91,23 @@
         }
     }
 
-    // Only a large hero fills the screen enough to need a nudge to scroll.
+    // Only a large hero fills the screen enough to need a nudge to scroll, and
+    // only on desktop: on phones and tablets (the off-canvas menu's range)
+    // scrolling needs no invitation.
     &:not(&--large) &__scrollIndicator {
         display: none;
+    }
+
+    @include screen-max(m) {
+        &__scrollIndicator {
+            display: none;
+        }
+    }
+
+    @include screen-min(m) {
+        &__text {
+            font-size: var(--font-size-xl);
+        }
     }
 
     &--small {

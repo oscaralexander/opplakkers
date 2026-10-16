@@ -11,6 +11,7 @@
 
 .u-theme-contrast {
     --color-bg: #101828;
+    --color-neutral: #fff;
 
     --color-text-hc: #fff;
     --color-text: rgb(from var(--color-text-hc) r g b / 75%);
@@ -19,6 +20,10 @@
 
     --color-link: var(--color-text-hc);
     --color-link-hover: var(--color-text-hc);
+
+    --color-border: rgb(from var(--color-neutral) r g b / 12.5%);
+    --color-border-hc: rgb(from var(--color-neutral) r g b / 25%);
+    --color-border-lc: rgb(from var(--color-neutral) r g b / 7.5%);
 
     // --btn-primary-color-bg: #fff;
     // --btn-primary-color-bg-hover: rgb(from var(--btn-primary-color-bg) r g b / 85%);

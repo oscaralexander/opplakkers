@@ -40,7 +40,8 @@
         }
 
         &__link {
-            font-size: var(--font-size-l);
+            font-variation-settings: 'wdth' 135, 'wght' 450;
+            font-size: var(--font-size-xl);
             padding: var(--size-m) var(--gutter);
         }
 
@@ -141,15 +142,18 @@
 
         &__submenuLink {
             border-radius: var(--border-radius-s);
-            color: var(--nav-color-link);
+            color: var(--color-neutral);
             display: block;
-            padding: var(--size-s) var(--size-m);
+            font-family: var(--font-2);
+            font-variation-settings: 'wdth' 135, 'wght' 450;
+            font-weight: 400;
+            padding: var(--size-s);
             white-space: nowrap;
 
             &:hover,
             &[aria-current='page'] {
-                background: var(--color-bg-tint);
-                color: var(--nav-color-link-hover);
+                background: var(--color-1);
+                color: var(--color-neutral);
             }
         }
     }
