@@ -83,6 +83,10 @@
             gap: var(--size-m);
             margin: 0 calc(var(--gutter) * -1);
             overflow-x: auto;
+            // Never vertically: items still off to the side have not been
+            // revealed yet and sit lower (reveal.scss), which would otherwise
+            // leave a little vertical play inside the row.
+            overflow-y: hidden;
             overscroll-behavior-x: contain;
             padding: 0 var(--gutter);
             scroll-padding: 0 var(--gutter);
