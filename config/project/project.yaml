@@ -1,4 +1,4 @@
-dateModified: 1792052628
+dateModified: 1792748843
 elementSources:
   craft\elements\Entry:
     -
@@ -259,7 +259,7 @@ plugins:
   mcp:
     edition: lite
     enabled: true
-    schemaVersion: 1.4.0
+    schemaVersion: 1.6.0
   vite:
     edition: standard
     enabled: true

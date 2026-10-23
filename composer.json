@@ -5,7 +5,7 @@
     "craftcms/ckeditor": "^5.9.0",
     "craftcms/cms": "^5.11.5.1",
     "nystudio107/craft-vite": "^5.0.2",
-    "stimmt/craft-mcp": "^v1.4.0",
+    "stimmt/craft-mcp": "^v1.7.1",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
