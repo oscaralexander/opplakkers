@@ -104,11 +104,11 @@ $sizes: (
     --color-neutral: #000;
 
     --color-bg: #fff;
-    --color-bg-tint: rgb(from var(--color-1) r g b / 10%);
+    --color-bg-tint: #fef9ec; // rgb(from var(--color-1) r g b / 10%);
     --color-surface: var(--color-bg); // cards and panels on top of a section
     --color-bg-contrast: #000;
 
-    --color-text: rgb(from var(--color-neutral) r g b / 72%);
+    --color-text: rgb(from var(--color-neutral) r g b / 75%);
     --color-text-hc: var(--color-neutral);
     --color-text-lc: rgb(from var(--color-neutral) r g b / 50%);
     --color-text-accent: var(--color-1);
