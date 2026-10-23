@@ -3,9 +3,9 @@
 {#
   Site navigation. The menu follows the page structure: every level-1 page
   with "Tonen in navigatie" on, with its children as a submenu. Buttons on the
-  right come from the Navigatie global. The logo is the sticker in
-  _partials/logoSticker.twig, not the Huisstijl global's nav logo (that one is still
-  used by the footer and the SEO markup).
+  right come from the Navigatie global. The logo is the horizontal
+  /assets/img/opplakkers-logo.svg, not the Huisstijl global's nav logo (that one
+  is still used by the footer and the SEO markup).
 #}
 {% set currentId = entry.id ?? null %}
 {% set ctas = navigation.ctas.all() %}
@@ -29,7 +29,7 @@
         </button>
 
         <a class="nav__logoLink" href="{{ siteUrl }}" aria-label="{{ currentSite.name }} — home">
-            {% include '_partials/logoSticker' %}
+            <img class="nav__logo" src="/assets/img/opplakkers-logo.svg" alt="" width="827" height="120">
         </a>
 
         <div class="nav__menuOverlay js-navMenuOverlay"></div>
