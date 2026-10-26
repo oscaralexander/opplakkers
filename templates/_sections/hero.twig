@@ -3,6 +3,7 @@
 {% set image = section.image.one() %}
 {% set imageMobile = section.imageMobile.one() %}
 {% set theme = section.theme ?? 'none' %}
+{% set corners = not image and not imageMobile %}
 {% set classNames = [
     'section',
     'hero',
@@ -10,10 +11,20 @@
     'hero--width-' ~ (section.textWidth ?? '75'),
     'u-theme-' ~ theme,
     image ? 'hero--hasImage',
-    image and settings.useParallax ? 'js-equinox',
+    (image or corners) and settings.useParallax ? 'js-equinox',
 ]|filter|join(' ') %}
 
-<section class="{{ classNames }}">
+{# The corners rest bottom-aligned on load, so their parallax counts from the
+   top of the page rather than from when the hero would enter it. #}
+<section class="{{ classNames }}"{% if corners and settings.useParallax %} data-equinox-start="top top"{% endif %}>
+    {% if corners and theme == 'contrast' %}
+        <img class="hero__glow" src="/assets/img/hero.webp" alt="" width="2030" height="1658" fetchpriority="high">
+    {% endif %}
+    {% if corners %}
+        <div class="hero__corners" aria-hidden="true">
+            <img class="hero__cornersImage" src="/assets/img/corners.svg" alt="" width="771" height="513">
+        </div>
+    {% endif %}
     {% if image %}
         {# A <picture> rather than two images: the browser downloads only the
            source that matches, so a phone never fetches the desktop file. #}

@@ -65,6 +65,51 @@
         }
     }
 
+    // A contrast hero without a photo gets a glow in the top right. The image
+    // fades to black at its edges, so it blends into the theme's background
+    // at any height.
+    &__glow {
+        height: 150%;
+        max-width: none;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+        z-index: 0;
+    }
+
+    // Decoration for a hero without a photo: the yellow corners rest in the
+    // bottom right, clear of the text columns, and sink slower than the page
+    // scrolls. Below the large breakpoint the text spans the full width, so
+    // there is no room for them.
+    &__corners {
+        bottom: 48px;
+        display: none;
+        pointer-events: none;
+        position: absolute;
+        right: max(var(--gutter) * 2, (100% - var(--wrapper-width)) / 2 + var(--gutter) * 2);
+        translate: 25% 0;
+        width: 45%;
+        z-index: 2;
+
+        .js-equinox & {
+            transform: translate3d(0, calc(var(--equinox-pos, 0) * 60%), 0);
+        }
+    }
+
+    &__cornersImage {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+
+    @include screen-min(l) {
+        &__corners {
+            display: block;
+        }
+    }
+
     &__content {
         position: relative;
         z-index: 3;

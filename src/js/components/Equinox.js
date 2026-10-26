@@ -16,6 +16,9 @@ import { ScrollTrigger, reducedMotion } from '@js/lib/gsap';
  * one pass per scroll frame, and re-measures on resize and when late assets
  * settle the layout — none of which a hand-rolled scroll listener gets free.
  *
+ * `data-equinox-start` overrides where the progress begins (a ScrollTrigger
+ * start, e.g. "top top" for an element that is already in view on load).
+ *
  * With reduced motion on, the properties stay at their rest values (0) so a
  * stylesheet that multiplies them simply gets no movement.
  */
@@ -29,6 +32,7 @@ export default class Equinox {
 
         this.trigger = ScrollTrigger.create({
             trigger: $el,
+            start: $el.dataset.equinoxStart ?? 'top bottom',
             once: $el.hasAttribute('data-equinox-once'),
             onToggle: (self) => {
                 $el.classList.toggle('is-visible', self.isActive);
