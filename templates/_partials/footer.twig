@@ -2,7 +2,7 @@
 
 {% set logo = brand.logoFooter.one() ?? brand.logoNav.one() %}
 {% set address = contact.address.one() %}
-{% set pages = craft.entries().section('pages').level(1).includeInNav(true).all() %}
+{% set pages = craft.entries().section('pages').level(1).includeInNav(true).with(['children']).all() %}
 {% set legalPages = craft.entries().section('legal').all() %}
 {% set socials = [
     ['instagram', contact.instagramUrl, 'Instagram'],
@@ -49,6 +49,9 @@
                     <ul class="footer__links">
                         {% for page in pages %}
                             <li><a class="footer__link" href="{{ page.url }}">{{ page.title }}</a></li>
+                            {% for child in page.children|filter(child => child.includeInNav) %}
+                                <li class="footer__subItem"><a class="footer__link" href="{{ child.url }}">{{ child.title }}</a></li>
+                            {% endfor %}
                         {% endfor %}
                     </ul>
                 </div>
@@ -56,37 +59,40 @@
 
             <div class="grid__col s:grid__col--span-6 l:grid__col--span-3">
                 <h2 class="footer__heading h5">Contact</h2>
-                <address class="footer__contact">
-                    {% if address %}
-                        {% set addressLines = [address.addressLine1, address.addressLine2, (address.postalCode ~ ' ' ~ address.locality)|trim]|filter %}
-                        {% if address.googleMapsUrl %}
-                            <a class="footer__link" href="{{ address.googleMapsUrl.url }}" target="_blank" rel="noopener">{{ addressLines|join('<br>')|raw }}</a>
-                        {% else %}
-                            <span>{{ addressLines|join('<br>')|raw }}</span>
+                <div class="stack stack--gap-m">
+                    <div class="footer__contact">
+                        {% if contact.email %}
+                            <a class="footer__link" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
                         {% endif %}
+                        {% if contact.phone %}
+                            <a class="footer__link" href="tel:{{ phoneHref }}">{{ contact.phone }}</a>
+                        {% endif %}
+                        {% if contact.phone and contact.enableWhatsapp %}
+                            <a class="footer__link footer__link--icon" href="https://wa.me/{{ phoneHref|replace({'+': ''}) }}" target="_blank" rel="noopener">
+                                {{ ui.brandIcon('whatsapp') }} WhatsApp
+                            </a>
+                        {% endif %}
+                    </div>
+                    <address class="footer__address">
+                        {% if address %}
+                            {% set addressLines = [address.addressLine1, address.addressLine2, (address.postalCode ~ ' ' ~ address.locality)|trim]|filter %}
+                            {% if address.googleMapsUrl %}
+                                <a class="footer__link" href="{{ address.googleMapsUrl.url }}" target="_blank" rel="noopener">{{ addressLines|join('<br>')|raw }}</a>
+                            {% else %}
+                                <span>{{ addressLines|join('<br>')|raw }}</span>
+                            {% endif %}
+                        {% endif %}
+                    </address>
+                    {% if contact.kvkNumber or contact.vatId %}
+                        <dl class="footer__registration">
+                            {% if contact.kvkNumber %}<div><dt>KVK</dt><dd>{{ contact.kvkNumber }}</dd></div>{% endif %}
+                            {% if contact.vatId %}<div><dt>Btw</dt><dd>{{ contact.vatId }}</dd></div>{% endif %}
+                        </dl>
                     {% endif %}
-                    {% if contact.email %}
-                        <a class="footer__link" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
-                    {% endif %}
-                    {% if contact.phone %}
-                        <a class="footer__link" href="tel:{{ phoneHref }}">{{ contact.phone }}</a>
-                    {% endif %}
-                    {% if contact.phone and contact.enableWhatsapp %}
-                        <a class="footer__link footer__link--icon" href="https://wa.me/{{ phoneHref|replace({'+': ''}) }}" target="_blank" rel="noopener">
-                            {{ ui.brandIcon('whatsapp') }} WhatsApp
-                        </a>
-                    {% endif %}
-                </address>
-                {% if contact.kvkNumber or contact.vatId %}
-                    <dl class="footer__registration">
-                        {% if contact.kvkNumber %}<div><dt>KVK</dt><dd>{{ contact.kvkNumber }}</dd></div>{% endif %}
-                        {% if contact.vatId %}<div><dt>Btw</dt><dd>{{ contact.vatId }}</dd></div>{% endif %}
-                    </dl>
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>
-
     <div class="footer__legal">
         <div class="wrapper footer__legalInner">
             <div>&copy; {{ now|date('Y') }} {{ currentSite.name }}. Alle rechten voorbehouden.</div>

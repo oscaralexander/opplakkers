@@ -41,13 +41,30 @@
         margin-bottom: var(--size-l);
     }
 
+    &__stack {
+        display: flex;
+        flex-direction: column;
+        gap: calc(1em * var(--line-height-l));
+    }
+
+    &__address,
     &__links,
     &__contact {
         display: flex;
         flex-direction: column;
         font-style: normal;
-        gap: var(--size-xs);
         line-height: var(--line-height-l);
+    }
+
+    &__subItem {
+        align-items: baseline;
+        display: flex;
+        gap: .75em;
+
+        &::before {
+            content: '•';
+            color: var(--color-1);
+        }
     }
 
     &__link {
@@ -70,20 +87,15 @@
     }
 
     &__registration {
-        color: var(--color-text-lc);
+        color: var(--color-text);
         display: flex;
         flex-wrap: wrap;
         font-size: var(--font-size-s);
-        gap: var(--size-xs) var(--size-m);
-        margin-top: var(--size-m);
+        line-height: var(--line-height-l);
 
         > div {
             display: flex;
             gap: .375em;
-        }
-
-        dt::after {
-            content: ':';
         }
     }
 
