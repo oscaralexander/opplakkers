@@ -1372,7 +1372,7 @@ put("$root/project.yaml", [
         'local' => [
             'hasUrls' => true,
             'name' => 'Uploads',
-            'settings' => ['path' => '@webroot/uploads'],
+            'settings' => ['path' => '@storage/uploads'],
             'type' => 'craft\\fs\\Local',
             'url' => '@web/uploads',
         ],

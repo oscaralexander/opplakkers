@@ -131,7 +131,7 @@ fs:
     hasUrls: true
     name: Uploads
     settings:
-      path: '@webroot/uploads'
+      path: '@storage/uploads'
     type: craft\fs\Local
     url: '@web/uploads'
 meta:

@@ -8,7 +8,6 @@
 /storage/*
 !/storage/.gitkeep
 /web/cpresources
-/web/uploads
 /web/dist/*.gz
 /scratchpad
 .DS_Store

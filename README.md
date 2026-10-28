@@ -21,7 +21,7 @@ handles, templates and code are in English.
 ```bash
 cp -R ~/Sites/boilerplate ~/Sites/klantnaam
 cd ~/Sites/klantnaam
-rm -rf .git node_modules vendor web/uploads storage/runtime storage/logs
+rm -rf .git node_modules vendor storage/uploads storage/runtime storage/logs
 git init && git add -A && git commit -m "Start from boilerplate"
 ```
 
@@ -130,8 +130,9 @@ Rebuild after changing `client.scss` (`ddev npm run build`), commit, done.
 3. On the server: `composer install --no-dev`, then `php craft install` for a
    first deploy or `php craft project-config/apply` for every later one, then
    `php craft clear-caches/all`.
-4. Point the web root at `web/`. Uploads live in `web/uploads/` (make it
-   writable, and exclude it from deploys that replace the directory).
+4. Point the web root at `web/`. Uploads live in `storage/uploads/` (make it
+   writable, and exclude it from deploys that replace the directory);
+   `web/uploads` is a committed symlink to it.
 
 Set `CRAFT_ALLOW_ADMIN_CHANGES=false` in production so the content model can
 only change through `config/project` in git.
@@ -172,7 +173,7 @@ templates/
 web/
   assets/fonts/          Client font files
   dist/                  Vite build output (committed)
-  uploads/               Asset uploads (not committed)
+  uploads/               Symlink to storage/uploads (asset uploads, not committed)
 ```
 
 ---
